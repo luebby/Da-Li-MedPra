@@ -1,0 +1,117 @@
+# Organisatorisches
+
+## Über mich &#x1F913;
+
+<!-- quarto install extension quarto-ext/fontawesome -->
+
+- Prof. Dr. rer.nat. Karsten Lübke (m), seit 2009 an der FOM Dortmund
+
+- Wie John Tukey sagte:
+
+> The best thing about being a statistician is that you get to play in everyone's backyard.
+
+- {{< fa envelope >}}:  [karsten.luebke@fom.de](<mailto:karsten.luebke@fom.de>)
+
+- {{< fa brands mastodon >}}:  [@luebby42@data-folks.masto.host](https://data-folks.masto.host/@luebby42)
+
+## Modulziel &#x1F393;
+
+Die Studierenden können nach erfolgreichem Abschluss des Moduls:
+
+- Gründe benennen, warum eine Erfassung und statistische Auswertung von Daten für den Betrieb einer Praxis notwendig sind,
+
+- die Bedeutung der Datenqualität für die medizinische Praxis erkennen,
+
+- einfache deskriptive Statistiken und Abbildungen einordnen,
+
+- Grundgedanken von Inferenzstatistiken in medizinischen Studien erfassen,
+
+## Modulziel &#x1F393; -- Fortsetzung
+
+- Risiken wie Falsch-Positiv-Rate einschätzen (Risk-Literacy),
+
+- die Wichtigkeit der Standardisierung in Erhebung und Auswertung verstehen,
+
+- zwischen Korrelation und Kausalität unterscheiden.
+
+## Workload
+
+- Virtuellen Unterrichtseinheiten: 44UE
+
+- Eigenstudium: 72 ZStd
+
+- Student Consulting / Praxistransfer: 45 ZStd
+
+- Workload: 150 ZStd
+
+- ECTS: 6
+
+::: callout-tip
+## Tipp
+Arbeiten Sie die Vorlesung kontinuierlich vor und nach.
+:::
+
+## Prüfung und Benotung :v:
+
+Klausur 90 Minuten (100 % der Modulnote)
+
+::: callout-tip
+## Tipp
+Die Klausur wird eine Mischung aus Single-Choice und offenen Aufgaben. Durch aktive Mitarbeit in der Vorlesung lernen Sie für die Klausur.
+:::
+
+## Praxistransferaufgabe
+
+Nennen Sie jeweils ein Beispiel für die Datenanwendungen 
+
+- Beschreibung
+
+- Vorhersage
+
+- Kausale Inferenz
+
+in Ihrer beruflichen Praxis (*bitte angeben*)?
+
+::: callout-important
+## Wichtig
+Das folgende Beispiel darf **nicht** in der Klausur verwendet werden.
+:::
+
+## Praxistransferaufgabe -- Beispiel^[[Hernán et al. (2019)](https://www.tandfonline.com/doi/full/10.1080/09332480.2019.1579578)]
+
+- Beschreibung: Wie können Frauen mit Schlaganfall zwischen 60 und 80 charakterisiert und gruppiert werden?
+
+- Vorhersage: Wie hoch ist die Wahrscheinlichkeit, dass eine Frau mit bestimmten Eigenschaften im nächsten Jahr einen Schlaganfall erleidet?
+
+- Kausale Inferenz: Kann die Gabe von Cholesterinsenkern das durchschnittliche Risiko eines Schlaganfalls bei Frauen mit bestimmten Eigenschaften reduzieren?
+
+## Lernen ist kein Zuschauersport!
+
+<center>
+<iframe src="https://giphy.com/embed/3o6Zt90p6NgiyoN4Mo" width="960" height="407´" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</center>
+
+::: {.aside}
+Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
+:::
+
+## Stellen Sie Fragen!
+
+![](img/questions.avif){fig-align="center" width="40%"}
+
+::: {.aside}
+Quelle: [Sketschplanations](https://sketchplanations.com/ask-the-question)
+:::
+
+## Von Ihnen lernen &#x1f64f;
+
+Wie kann die Vorlesung für Sie ein Erfolg werden?
+
+- Denken Sie an eine Vorlesung die Sie besonders gut fanden. Warum?
+
+- Denken Sie an eine Vorlesung die Sie besonders schlecht fanden. Warum?
+
+::: aside
+Am Ende der heutigen Vorlesung können Sie eine erste Rückmeldung geben.
+:::
+

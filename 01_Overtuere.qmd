@@ -1,0 +1,122 @@
+# Overtüre
+
+## Herzlich Willkommen!
+
+<br>
+
+::: center
+:::: Large 
+:wave: Schön, dass Sie da sind :heart:
+::::
+:::
+
+## UN Ziele
+
+![](img/UNGoals.png){width=60% fig-align="center"}
+
+::: {.aside}
+Quelle: [https://www.un.org/en/sustainable-development-goals](https://www.un.org/en/sustainable-development-goals)
+:::
+
+
+## Frage: SDG 3: Gesundheit und Wohlergehen :muscle:
+
+::: center
+<iframe src="https://upgrader.gapminder.org/q/31/embed?hasBorder=true&hasOpenSansFont=false" title="87% of people get this question wrong" width="100%" height="500" style="border:none;"></iframe>
+:::
+
+## &#x1F469;&#x200D;&#x1F3EB; Erste Erkenntnisse
+
+<br>
+
+- Wir brauchen Daten u.a., um die Welt zu beschreiben, aber auch um Vorhersagen zu tätigen oder Handlungen abzuleiten.
+
+- Wir liegen mit unseren Vermutungen oft falsch.
+
+
+## Beispiel: Covid-19
+
+:hospital: Fallsterblichkeit [(UK, August 21)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1009243/Technical_Briefing_20.pdf):
+
+
+::: {.incremental}
+- Insgesamt: 0,27%
+- Geimpft: 0,41%, Ungeimpft: 0,17%
+- U50: Geimpft: 0,02%, Ungeimpft 0,03%
+- Ü50: Geimpft: 1,68%, Ungeimpft: 5,96%
+:::
+
+::: {.aside}
+h/t Matthew Brenneman (via isostat)
+:::
+
+## Frage: Impfung :muscle:
+
+Gemäß der [Daten](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1009243/Technical_Briefing_20.pdf) hilft die Impfung bei *alterslosen* nicht, wohl aber bei unter *und* über 50 jährigen :confused:
+
+Was meinen Sie?
+
+- [**A**]{.green}: Die Daten sprechen gegen einen positiven Impfeffekt.
+
+- [**B**]{.green}: Die Daten sprechen für einen positiven Impfeffekt.
+
+- [**C**]{.green}: Es kann nicht entschieden werden, ob es einen positiven Impfeffekt gibt.
+
+- [**D**]{.green}: Die Daten sind fehlerhaft.
+
+## Alter, Impfung und Verstorben
+
+```{r}
+#| echo: false
+library(ggplot2)
+library(ggdag)
+
+co <- data.frame(x = c(0.5,0,1), y = c(1,0,0), name = c("A", "I", "V")) 
+
+dag<-dagify(I ~ A,
+            V ~ I,
+            V ~ A,
+            coords = co) %>% 
+  ggdag(node_size = 20, text_size = 8, text = TRUE, text_col = "lightgray") + theme_dag_blank() +
+  geom_dag_edges(arrow_directed = grid::arrow(length = grid::unit(15, "pt"), type = "closed"))  + 
+  geom_text(label = "A - Alter\nI - Impfung\nV - Verstorben", 
+            hjust = 0, vjust = 0,
+            x = 0, y = 0.75, size = 8, color = "darkgrey") +
+  geom_text(label = "+", 
+            hjust = 0, vjust = 0,
+            x = 0.25, y = 0.6, size = 12, color = "darkgreen") +
+   geom_text(label = "+", 
+            hjust = 0, vjust = 0,
+            x = 0.75, y = 0.6, size = 12, color = "darkgreen") +
+  geom_text(label = "-", 
+            hjust = 0, vjust = 0,
+            x = 0.5, y = 0.05, size = 14, color = "red")
+
+dag
+```
+
+## Erklärung Covid-19
+
+- Zu Beginn der Impfkampange wurden mehr ältere Menschen geimpft.
+
+- Alter ist aber auch ein Risikofaktor bei Covid-19.
+
+- Da unter den geimpften viel mehr Ältere waren, war dort auch die Sterblichkeit insgesamt größer.
+
+::: callout-note
+## Hinweis
+Dieses Phänomen wird [Simpson Paradox](https://youtu.be/nGqzoqXZch0) genannt.
+:::
+
+
+## &#x1F469;&#x200D;&#x1F3EB; Zweite Erkenntnisse
+
+<br>
+
+- Daten sind nicht einfach da -- sie haben eine Entstehungsgeschichte.
+
+- Wenn wir diese nicht berücksichtigen können sie uns in die irre führen :fearful:
+
+---
+
+![](img/Meme_Deming.jpg){width=60% fig-align="center"}

@@ -1,0 +1,27 @@
+---
+title: "Data Literacy in der medizinischen Praxis"
+subtitle: "Foliensatz Teil 1"
+format: 
+  revealjs:
+    theme: fom.scss
+    logo: fom.jpg
+    footer: "Karsten Lübke - WiSe 2023"
+    chalkboard: true
+    toc: true
+    toc-title: "Inhalt"
+    toc-depth: 1
+    number-sections: true
+    
+from: markdown+emoji
+---
+
+```{r}
+#| include: false
+aufgabe <<- 0
+```
+
+```{r child = './01_Overtuere.qmd'}
+```
+
+```{r child = './02_Organisatorisches.qmd'}
+```
