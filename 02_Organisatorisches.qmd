@@ -36,7 +36,7 @@ Die Studierenden können nach erfolgreichem Abschluss des Moduls:
 
 ## Workload
 
-- Virtuellen Unterrichtseinheiten: 44UE
+- Virtuellen Unterrichtseinheiten: 44 UE
 
 - Eigenstudium: 72 ZStd
 
@@ -48,16 +48,21 @@ Die Studierenden können nach erfolgreichem Abschluss des Moduls:
 
 ::: callout-tip
 ## Tipp
-Arbeiten Sie die Vorlesung kontinuierlich vor und nach.
+Arbeiten Sie die Vorlesung kontinuierlich von Anfang an vor und nach.
 :::
 
 ## Prüfung und Benotung :v:
 
 Klausur 90 Minuten (100 % der Modulnote)
 
+- $\approx 2/3$ der Punkte Single-Choice.
+
+- $\approx 1/3$ der Punkte offene Fragen, insbesondere Interpretation.
+
+
 ::: callout-tip
 ## Tipp
-Die Klausur wird eine Mischung aus Single-Choice und offenen Aufgaben. Durch aktive Mitarbeit in der Vorlesung lernen Sie für die Klausur.
+Durch aktive Mitarbeit in der Vorlesung lernen Sie schon jetzt für die Klausur.
 :::
 
 ## Praxistransferaufgabe
@@ -70,7 +75,7 @@ Nennen Sie jeweils ein Beispiel für die Datenanwendungen
 
 - Kausale Inferenz
 
-in Ihrer beruflichen Praxis (*bitte angeben*)?
+in Ihrer medizinischen Praxis (*bitte angeben*)?
 
 ::: callout-important
 ## Wichtig
@@ -91,9 +96,59 @@ Das folgende Beispiel darf **nicht** in der Klausur verwendet werden.
 <iframe src="https://giphy.com/embed/3o6Zt90p6NgiyoN4Mo" width="960" height="407´" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 </center>
 
-::: {.aside}
+::: aside
 Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
 :::
+
+## Generative Künstliche Intelligenz
+
+- KI Tools bieten viele Möglichkeiten -- auch für Ihr Lernen.
+
+- Allerdings sind damit auch Gefahren und ethische Fragestellungen verbunden.^[Siehe z.B. Vortrag [Unblacking the Box of ChatGPT](https://www.bigdataliteracy.net/2023/02/24/workshop-recording-chatgpt/).]
+
+- In dieser Vorlesung dürfen Sie Tools wie [HuggingChat](https://huggingface.co/chat) nutzen, Sie müssen es aber nicht.
+
+## Sprachmodelle
+
+- ChatGPT und Co. sind im Kern eine mathematische Formel mit einer zufälligen Ausgabe.
+
+- Sprachmodelle modellieren Sprache, nicht Gedanken, Wissen oder Gefühle.
+
+- Wir haben viel über unsere Gedanken, Wissen und Gefühle geschrieben. Dies ist die Datenbasis von Sprachmodellen.
+
+- Die Meinungen und Ziele der Entwickler:innen fließen in die Modelle ein.
+
+---
+
+![](img/Meme_DatenKonstruiert.jpg){width=60% fig-align="center"}
+
+## Sprachmodelle in der Vorlesung
+
+::: {.columns}
+:::: {.column width="60%"}
+
+- ChatGPT unc Co. haben das Potential, den Prozess vom Problem zur Lösung zu erleichtern und das Ergebnis zu verbessern.
+
+- Sie haben die Gefahr, dass bequeme Abkürzungen genommen werden ([*Kognitiver Zucker*](https://mastodon.oeru.org/@amills/109916488172281529)).
+
+- Sie erfordern kritisches Denken :point_right: [Quelle: [@shadbush](https://twitter.com/shadbush/status/1616007675145240576)]{.small}
+::::
+
+:::: {.column width="40%"}
+![](img/ChatGPT_SaveUse.jpeg){fig-align="center" width="100%"}
+::::
+:::
+
+## Hinweise Sprachmodelle
+
+::: callout-important
+## Wichtig
+**Sie** sind verantwortlich!
+:::
+
+- Es ist Ihre Entscheidung ob und welche Eingaben Sie machen.
+
+- Glauben Sie ChatGPT und Co. kein Wort. Hinterfragen Sie die Ausgabe kritisch.  Bedenken Sie immer mögliche Fehler, Verzerrungen und Stereotype. Plausibel klingen tut es so oder so.
 
 ## Stellen Sie Fragen!
 
@@ -102,6 +157,37 @@ Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
 ::: {.aside}
 Quelle: [Sketschplanations](https://sketchplanations.com/ask-the-question)
 :::
+
+## Frage: Workload :muscle:
+
+Wo verbringen Sie die meiste Lernzeit?
+
+- [**A**]{.green}: Virtuellen Unterricht.
+
+- [**B**]{.green}: Eigenstudium.
+
+- [**C**]{.green}: Beides gleich.
+
+## Frage: Klausur :muscle:
+
+Stimmt die Aussage: *Rechenaufgaben bilden den Schwerpunkt der Klausur.*
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Frage: ChatGPT und Co. :muscle:
+
+Wie ist der Umgang mit ChatGPT und Co. in dieser Vorlesung geregelt?
+
+- [**A**]{.green}: Darf nicht genutzt werden.
+
+- [**D**]{.green}: Muss genutzt werden.
+
+- [**C**]{.green}: Darf genutzt werden, es ist aber ratsam zu prüfen, ob die Ausgabe überzeugend klingt.
+
+- [**D**]{.green}: Darf genutzt werden, es ist aber ratsam zu prüfen, ob die Ausgabe inhaltlich stimmt.
+
 
 ## Von Ihnen lernen &#x1f64f;
 

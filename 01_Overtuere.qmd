@@ -12,10 +12,10 @@
 
 ## UN Ziele
 
-![](img/UNGoals.png){width=60% fig-align="center"}
+![](img/UNGoals.png){width=80% fig-align="center"}
 
 ::: {.aside}
-Quelle: [https://www.un.org/en/sustainable-development-goals](https://www.un.org/en/sustainable-development-goals)
+Quelle: [https://unric.org/de/17ziele/](https://unric.org/de/17ziele/)
 :::
 
 
@@ -25,18 +25,18 @@ Quelle: [https://www.un.org/en/sustainable-development-goals](https://www.un.org
 <iframe src="https://upgrader.gapminder.org/q/31/embed?hasBorder=true&hasOpenSansFont=false" title="87% of people get this question wrong" width="100%" height="500" style="border:none;"></iframe>
 :::
 
-## &#x1F469;&#x200D;&#x1F3EB; Erste Erkenntnisse
+## Erste Erkenntnisse &#x1F469;&#x200D;&#x1F3EB;
 
 <br>
 
-- Wir brauchen Daten u.a., um die Welt zu beschreiben, aber auch um Vorhersagen zu tätigen oder Handlungen abzuleiten.
+- Wir brauchen Daten u.a., um die Welt zu beschreiben, aber auch um Vorhersagen zu tätigen oder Handlungen abzuleiten.^[Auf diese Datenananwendungen wird sich Ihre Praxistransferaufgabe in der Klausur beziehen.]
 
 - Wir liegen mit unseren Vermutungen oft falsch.
 
 
 ## Beispiel: Covid-19
 
-:hospital: Fallsterblichkeit [(UK, August 21)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1009243/Technical_Briefing_20.pdf):
+Fallsterblichkeit [(UK, August 21)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1009243/Technical_Briefing_20.pdf) :hospital: 
 
 
 ::: {.incremental}
@@ -99,17 +99,17 @@ dag
 
 - Zu Beginn der Impfkampange wurden mehr ältere Menschen geimpft.
 
-- Alter ist aber auch ein Risikofaktor bei Covid-19.
+- Alter ist aber auch ein Risikofaktor bei Covid-19, d.h. Ältere sind häufiger verstorben.
 
-- Da unter den geimpften viel mehr Ältere waren, war dort auch die Sterblichkeit insgesamt größer.
+- Da unter den geimpften viel mehr Ältere waren, war dort auch die Sterblichkeit insgesamt größer -- obwohl sie je Altersgruppe niedriger war.
 
 ::: callout-note
 ## Hinweis
-Dieses Phänomen wird [Simpson Paradox](https://youtu.be/nGqzoqXZch0) genannt.
+Dieses Phänomen wird *Simpson Paradox* genannt.
 :::
 
 
-## &#x1F469;&#x200D;&#x1F3EB; Zweite Erkenntnisse
+## Zweite Erkenntnisse &#x1F469;&#x200D;&#x1F3EB; 
 
 <br>
 
