@@ -92,9 +92,9 @@ Das folgende Beispiel darf **nicht** in der Klausur verwendet werden.
 
 ## Lernen ist kein Zuschauersport!
 
-<center>
+::: center
 <iframe src="https://giphy.com/embed/3o6Zt90p6NgiyoN4Mo" width="960" height="407´" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-</center>
+:::
 
 ::: aside
 Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
@@ -127,7 +127,7 @@ Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
 ::: {.columns}
 :::: {.column width="60%"}
 
-- ChatGPT unc Co. haben das Potential, den Prozess vom Problem zur Lösung zu erleichtern und das Ergebnis zu verbessern.
+- ChatGPT und Co. haben das Potential, den Prozess vom Problem zur Lösung zu erleichtern und das Ergebnis zu verbessern.
 
 - Sie haben die Gefahr, dass bequeme Abkürzungen genommen werden ([*Kognitiver Zucker*](https://mastodon.oeru.org/@amills/109916488172281529)).
 
@@ -160,7 +160,7 @@ Quelle: [Sketschplanations](https://sketchplanations.com/ask-the-question)
 
 ## Frage: Workload :muscle:
 
-Wo verbringen Sie die meiste Lernzeit?
+Wo verbringen Sie die meiste Lernzeit in diesem Modul?
 
 - [**A**]{.green}: Virtuellen Unterricht.
 
@@ -170,7 +170,7 @@ Wo verbringen Sie die meiste Lernzeit?
 
 ## Frage: Klausur :muscle:
 
-Stimmt die Aussage: *Rechenaufgaben bilden den Schwerpunkt der Klausur.*
+Stimmt die Aussage: *Rechenaufgaben bilden den Schwerpunkt der Klausur*?
 
 - [**Ja**]{.green}
 
@@ -189,7 +189,7 @@ Wie ist der Umgang mit ChatGPT und Co. in dieser Vorlesung geregelt?
 - [**D**]{.green}: Darf genutzt werden, es ist aber ratsam zu prüfen, ob die Ausgabe inhaltlich stimmt.
 
 
-## Von Ihnen lernen &#x1f64f;
+## Von Ihnen lernen &#x1f64f; :pencil:
 
 Wie kann die Vorlesung für Sie ein Erfolg werden?
 

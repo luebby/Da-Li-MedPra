@@ -1,0 +1,996 @@
+# Daten Grundlagen
+
+```{r setup}
+#| include: false
+options(htmltools.dir.version = FALSE)
+# remotes::install_github("mitchelloharawild/icons")
+# download_fontawesome()
+library(icons)
+library(emojifont)
+library(knitr)
+library(tidyr)
+library(cowplot)
+library(ggplot2)
+library(ggdag)
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+
+co <- data.frame(x=c(0,1,2), y=c(0,1,0), name=c("X", "Z", "Y"))
+DAG_Modell <- dagify(X ~ Z,
+                     Y ~ Z,
+                     Y ~ X,
+                     coords = co) %>% 
+  ggdag() + 
+  geom_dag_point(colour = c("#0F710B","#0000FF", "#DA70D6")) + 
+  geom_dag_text(size = 8) +
+  theme_dag_blank() +
+  geom_dag_edges(arrow_directed = grid::arrow(length = grid::unit(15, "pt"), type = "closed")) +
+  geom_text(label = "X - Kauf Bio\nY - Lebenserwartung\nZ - Geschlecht", 
+            hjust = 1, vjust = 1,
+            x = 2, y = 1, size = 15, color = "darkgrey") 
+
+co <- data.frame(x=c(0,1,2,0), y=c(0,1,0,1), name=c("X", "Z", "Y", "S"))
+DAG_ModellG <- dagify(X ~ Z,
+                     Y ~ Z,
+                     Y ~ X,
+                     S ~ Z,
+                     coords = co) %>% 
+  ggdag() + 
+  geom_dag_point(colour = c("Black", "#0F710B", "#0000FF", "#DA70D6")) + 
+  geom_dag_text(size = 8) +
+  theme_dag_blank() +
+  geom_dag_edges(arrow_directed = grid::arrow(length = grid::unit(15, "pt"), type = "closed")) +
+  geom_text(label = "X - Kauf Bio\nY - Lebenserwartung\nZ - Geschlecht\nS - Stichprobe", 
+            hjust = 1, vjust = 1,
+            x = 2, y = 1, size = 12, color = "darkgrey") 
+
+co <- data.frame(x=c(0,1,2,0,-1), y=c(0,1,0,1,1), name=c("X", "Z", "Y", "S", "D"))
+DAG_ModellS <- dagify(X ~ Z,
+                     Y ~ Z,
+                     Y ~ X,
+                     S ~ D,
+                     coords = co) %>% 
+  ggdag() + 
+  geom_dag_point(colour = c( "#808000","Black","#0F710B","#0000FF" ,"#DA70D6"  )) + 
+  geom_dag_text(size = 8) +
+  theme_dag_blank() +
+  geom_dag_edges(arrow_directed = grid::arrow(length = grid::unit(15, "pt"), type = "closed")) +
+  geom_text(label = "X - Kauf Bio\nY - Lebenserwartung\nZ - Geschlecht\nS - Stichprobe\nD - Zufall", 
+            hjust = 1, vjust = 1,
+            x = 2, y = 1, size = 12, color = "darkgrey") 
+
+co <- data.frame(x=c(0,1,2,0), y=c(0,1,0,1), name=c("X", "Z", "Y", "D"))
+DAG_ModellE <- dagify(X ~ D,
+                      Y ~ Z,
+                      Y ~ X,
+                      coords = co) %>% 
+  ggdag() + 
+  geom_dag_point(colour = c("#808000","#0F710B", "#0000FF", "#DA70D6" )) + 
+  geom_dag_text(size = 8) +
+  theme_dag_blank() +
+  geom_dag_edges(arrow_directed = grid::arrow(length = grid::unit(15, "pt"), type = "closed")) +
+  geom_text(label = "X - Kauf Bio\nY - Lebenserwartung\nZ - Geschlecht\nD - Zufall", 
+            hjust = 1, vjust = 1,
+            x = 2, y = 1, size = 12, color = "darkgrey") 
+
+fa2 <- fontawesome(c("fa-female", "fa-male"))
+
+library(mosaic)
+options(scipen=999)
+```
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Unterscheidung zwischen Beobachtung und Variable.
+
+- Die verschiedenen Skalenniveaus.
+
+- Gütekriterien einer Messung.
+
+- Unterscheidung zwischen Stichprobe und Population sowie Statistik und Parameter.
+
+- Verschiedene Studientypen.
+
+## Prozessmodell (Wiederholung)
+
+![](img/DL-Framework.png){width=80% fig-align="center"}
+
+::: aside
+Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Literacy](https://hochschulforumdigitalisierung.de/sites/default/files/dateien/HFD_AP_Nr_47_DALI_Kompetenzrahmen_WEB.pdf)
+:::
+
+## Über mich &#x1F913;
+
+- [männlich]{.olive}, [Dr.]{.purple}, [Jahrgang 1974]{.violet}, [180cm groß]{.red}, [2 Kinder]{.blue}, [interessiert an Statistik]{.orange}
+
+<br>
+
+
+*Ich* bin eine **Beobachtungseinheit**, über die Werte verschiedener **Variablen** vorliegen.
+
+## Datentabellen
+
+- Eine **Datentabelle** ist eine Sammlung von **Beobachtungswerten**.
+
+- Beobachtungswerte sind auf zwei Arten organisiert. Jeder Wert gehört zu einer **Variablen** und einer **Beobachtung**. 
+
+- Eine **Variable** enthält alle Werte, die dasselbe zugrunde liegende Eigenschaft (z.B. Geschlecht, Größe) in verschiedenen Einheiten messen. 
+
+- Eine **Beobachtung** enthält alle Werte, die für dieselbe Einheit (z. B.  Person, Praxis) über die Eigenschaften hinweg gemessen werden.
+
+## Kategoriale Variablen
+
+- [Geschlecht]{.olive} kann nur verglichen, nicht geordnet werden: **kategorial nominal**.
+
+- [Bildungsabschlüsse]{.purple} können zusätzlich geordnet, aber Abstände können nicht verglichen werden: **kategorial ordinal**.
+
+## Metrische Variablen
+
+- Bei [Geburtsjahren]{.violet} können zusätzlich noch die Abstände verglichen werden: **intervallskaliert**.
+
+- Bei [Größenangaben]{.red} können sogar Quotienten verglichen werden: **verhältnisskaliert**.
+
+- Die[Anzahl der Kinder]{.blue} ist **diskret** -- und nicht **stetig**.
+
+- [Interesse an Statistik]{.orange} ist eine **latente Variable** -- und nicht **manifest**. D. h., sie muss durch die Messung erst *operationalisiert* werden.
+
+
+## Skalenniveau
+
+:::: {.columns}
+::: {.column width="40%"}
+![](img/Meme_Skala.jpg){width=85% fig-align="center"}
+:::
+
+::: {.column width="60%"}
+Können die Abstände der Werte wie mit einem Lineal verglichen werden? :straight_ruler:
+:::
+::::
+
+## Frage: Gewicht :muscle:
+
+Welches Skalenniveau hat die Variable *Gewicht* (in kg)?
+
+- [**A**]{.green}: Kategorial - nominal.
+
+- [**B**]{.green}: Kategorial - ordinal.
+
+- [**C**]{.green}:  Metrisch - intervallskaliert.
+
+- [**D**]{.green}:  Metrisch - verhältnisskaliert.
+
+## Frage: Blutgruppe :muscle:
+
+Welches Skalenniveau hat die Variable *Blutgruppe*?
+
+- [**A**]{.green}: Kategorial - nominal.
+
+- [**B**]{.green}: Kategorial - ordinal.
+
+- [**C**]{.green}:  Metrisch - intervallskaliert.
+
+- [**D**]{.green}:  Metrisch - verhältnisskaliert.
+
+## Frage: Blutdruck :muscle:
+
+Was gilt für die Variable *Blutdruck*?
+
+- [**A**]{.green}: Latente Variable.
+
+- [**B**]{.green}: Manifeste Variable.
+
+## Frage: Patient:innenzufriedenheit :muscle:
+
+Was gilt für die Variable *Patient:innenzufriedenheit*?
+
+- [**A**]{.green}: Latente Variable.
+
+- [**B**]{.green}: Manifeste Variable.
+
+## Messen
+
+\begin{eqnarray*}
+\color{green}{Messergebnis} &=& \color{blue}{Wert\,der\,Eigenschaft} \\
+&& + Systematische\,Abweichung \\
+&& + Zufällige\,Schwankung
+\end{eqnarray*}
+
+::: callout-warning
+## Warnung
+[Messergebnis]{.green} und [Wert der Eigenschaft]{.blue} können voneinander abweichen.
+:::
+
+## Frage: Übereinstimmung :muscle:
+
+Stimmt bei einer manifesten Variable immer das Messergebnis mit dem Wert der Eigenschaft überein?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Gütekriterien Messung
+
+- **Genauigkeit**: Präzision einer Messung.
+
+- **Objektivität**: Unabhängigkeit vom Messenden.
+
+- **Reliabilität**: Zuverlässigkeit der Messmethode.
+
+- **Validität**: Passung von Messergebnis und zu messender Eigenschaft.
+
+## Wie gut trifft die Messung?
+
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r ReliabilityValidity}
+#| echo: FALSE
+#| fig.width: 8
+#| fig.height: 8
+#| out-width: '95%'
+#| fig-align: 'center'
+# Quelle: https://github.com/statsthinking21/statsthinking21-core/blob/master/02-Data.Rmd
+set.seed(1896)
+gg_circle <- function(r, xc, yc, color="black", fill=NA, ...) {
+    x <- xc + r*cos(seq(0, pi, length.out=100))
+    ymax <- yc + r*sin(seq(0, pi, length.out=100))
+    ymin <- yc + r*sin(seq(0, -pi, length.out=100))
+    annotate("ribbon", x=x, ymin=ymin, ymax=ymax, color=color, fill=fill, ...)
+}
+
+npoints <- 16
+rel_mult <- 0.75
+unrel_mult <- 2.5
+
+plotDf <- tibble(
+  X_RelVal = rnorm(npoints)*rel_mult,
+  Y_RelVal = rnorm(npoints)*rel_mult,
+  X_RelInval = rnorm(npoints)*rel_mult+2,
+  Y_RelInval = rnorm(npoints)*rel_mult+2,
+  X_UnrelInval = rnorm(npoints)*unrel_mult+2,
+  Y_UnrelInval = rnorm(npoints)*unrel_mult+2,
+  X_UnrelVal = rnorm(npoints)*unrel_mult,
+  Y_UnrelVal = rnorm(npoints)*unrel_mult
+)
+pointsize <- 3
+linesize=2
+p1=ggplot(plotDf,aes(X_RelVal,Y_RelVal)) +
+  gg_circle(r=4, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=3, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=2, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=1, xc=0.0, yc=0.0,linewidth=linesize,color='red',fill='red') + 
+  geom_point(size=pointsize) + 
+  xlim(-10,10) + ylim(-10,10) + 
+  theme_void()
+p2=ggplot(plotDf,aes(X_UnrelVal,Y_UnrelVal)) +
+  gg_circle(r=4, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=3, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=2, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=1, xc=0.0, yc=0.0,linewidth=linesize,color='red',fill='red') +
+  geom_point(size=pointsize) + 
+  xlim(-10,10) + ylim(-10,10) + 
+  theme_void() 
+p3=ggplot(plotDf,aes(X_RelInval,Y_RelInval)) +
+  gg_circle(r=4, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=3, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=2, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=1, xc=0.0, yc=0.0,linewidth=linesize,color='red',fill='red') + 
+  geom_point(size=pointsize) + 
+  xlim(-10,10) + ylim(-10,10) + 
+  theme_void() 
+p4=ggplot(plotDf,aes(X_UnrelInval,Y_UnrelInval)) +
+  gg_circle(r=4, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=3, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=2, xc=0.0, yc=0.0,linewidth=linesize,color='red') + 
+  gg_circle(r=1, xc=0.0, yc=0.0,linewidth=linesize,color='red',fill='red') + 
+  geom_point(size=pointsize) + 
+  xlim(-10,10) + ylim(-10,10) + 
+  theme_void() 
+plot_grid(p1,p2,p3,p4,ncol=2,label_size=25,
+          labels=c('A: Reliabel und valide',
+                   'B: Nicht-reliabel aber valide',
+                   'C: Reliabel aber nicht-valide',
+                   'D: Nicht-reliabel und nicht-valide'))
+```
+:::
+
+::: {.column width="50%"}
+- Der Wert der zu messenden Eigenschaft ist der rote Kreis in der Mitte.
+
+- Das Messergebnis ist ein schwarzer Punkt.
+:::
+::::
+
+## Frage: Gütekriterien :muscle:
+
+Welches Gütekriterium ist kritisch zu hinterfragen, wenn *Patient:innenzufriedenheit* mit Hilfe der *Anzahl Besuche in der Praxis* der Person gemessen wird?
+
+- [**A**]{.green}: Objektivität.
+
+- [**B**]{.green}: Reliabilität.
+
+- [**C**]{.green}: Validität.
+
+## Modellierung
+
+- Ein **Modell** ist eine Vereinfachung der realen Welt, das für die Fragestellung relevante Aspekte beinhaltet.
+
+- Mit Hilfe von Daten können Modelle entwickelt, geprüft und zur Vorhersage angewendet werden.
+
+$$Daten = Modell + Rest$$
+
+::: callout-note
+## Wichtig
+Im Grunde sind alle Modelle falsch, aber einige sind nützlich.^[Zitat [George E.P. Box](https://www.causeweb.org/cause/resources/fun/quotes/box-models?id=44).]
+:::
+
+
+## Variation
+
+![](img/Meme_Variation.jpg){width=60% fig-align="center"}
+
+## Ein fiktives Beispiel
+
+**Fragestellung:** Erhöhen Bio-Lebensmittel die Lebenserwartung?
+
+- Erkärende Variable: [Konsum von Bio-Lebensmitteln]{.green}
+
+- Zielvariable: [Lebenserwartung]{.blue}
+
+- Kovariable: [Geschlecht]{.violet}
+
+## Graphisches Modell
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- [Lebenserwartung]{.blue} hängt evtl. ab vom [Konsum von Bio-Lebensmitteln]{.green}.
+
+- [Lebenserwartung]{.blue} hängt evtl. zusätzlich ab vom [Geschlecht]{.violet}.
+
+- [Konsum von Bio-Lebensmitteln]{.green} hängt evtl. vom [Geschlecht]{.violet} ab.
+:::
+
+::: {.column width="50%"}
+```{r DAG_Modell}
+#| echo: FALSE 
+#| fig-align: 'center'
+#| out-width: '95%'
+#| fig-asp: .7
+plot(DAG_Modell)
+```
+:::
+::::
+
+## Frage: Variation :muscle:
+
+Für zwei Beobachtungen $i,j$ gelte: $\color{green}{x}_i=\color{green}{x}_j$. Folgt daraus, dass auch $\color{blue}{y}_i=\color{blue}{y}_j$ gilt?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Population und Stichprobe
+
+Eine Stichprobe ziehen ist wie eine Suppe probieren 🥣:
+
+- **Population**: Die Menge, über die eine Aussage getroffen werden soll. [Salzgehalt der Suppe]{.blue}
+
+- **Stichprobe**: Die vorliegenden Daten, mit denen ich eine Aussage treffen kann. [Salzgehalt des Löffels]{.green}
+
+## Parameter und Statistik (I/II)
+
+- Der uns interessierende Wert in der (Ziel-)Population wird (wahrer) Wert des [Parameter]{.blue} genannt.
+
+- Der auf Basis einer Stichprobe berechnete (Schätz-)Wert wird [Statistik]{.green} genannt. Mit Hilfe dieses Wertes wollen wir von der Stichprobe auf den Wert in der Population schließen.
+
+
+$$\color{green}{Statistik} = \color{blue}{Wert\,Parameter} + Verzerrung + Rauschen$$
+
+::: aside
+[Bueno de Mesquita und Fowler (2021)](https://press.princeton.edu/books/paperback/9780691214351/thinking-clearly-with-data): Estimate = Estimand + Bias + Noise
+:::
+
+
+
+## Parameter und Statistik (II/II)
+
+- [Statistik]{.green}: Salzgehalt des Löffels.
+
+- [Wert Parameter]{.blue}: Salzgehalt der Suppe.
+
+- Verzerrung: Systematische Abweichung, z.B. durch Löffel nur an der Oberfläche.
+
+- Rauschen: Zufällige Abweichung zwischen Salzgehalt Löffel und Suppe.
+
+::: callout-warning
+## Warnung
+[Wert Parameter]{.blue} und [Statistik]{.green} stimmen häufig nicht überein.
+:::
+
+## Wovon reden wir?
+
+:::: {.columns}
+::: {.column width="40%"}
+![](img/Meme_StatistikParameter.jpg){width=85% fig-align="center"}
+:::
+
+::: {.column width="60%"}
+Statistiken können anhand einer Stichprobe berechnet werden. Parameter in einer Population sind i.d.R. unbekannt.
+:::
+::::
+
+## Studiendesign
+
+- Datenerhebungen können auf unterschiedlichen Ebenen unterschieden werden:
+
+  - Wie wurden die Beobachtungen ausgewählt?
+  
+  - Wurde in die Datenentstehung eingegriffen?
+  
+  - Welche zeitliche Perspektive liegt vor?
+
+::: callout-important
+## Wichtig
+Die Art der Datenerhebung ist entscheidend für die Schlussmöglichkeiten einer Datenanalyse.
+:::
+
+
+## Stichprobenarten
+
+Zielpopulation: Anwesende im Kurs
+
+
+- **Zufällige Stichprobe**: Jedes Element der Population hat die gleiche Wahrscheinlichkeit Teil der Stichprobe zu sein. *Dozent:in wählt zufällig eine der Studierenden aus, um eine Frage beantworten zu lassen.*
+
+- **Gelegenheitstichprobe**: Die Elemente der Population, die einfach zur Verfügung stehen, bilden die Stichprobe. *Dozent:in nimmt die Studierende dran, die sich meldet, um eine Frage beantworten zu lassen.*
+
+
+## Generalisierung 
+
+- Das Ergebnis einer Gelegenheitsstichprobe kann ein verzerrtes Bild für die Fragestellung liefern. Die [Statistik]{.green} der Stichprobe erlaubt keinen validen Schluss auf den [Parameter]{.blue} der Population. Es kann sowohl Verzerrung als auch Rauschen vorliegen.
+
+- Das Ergebnis einer zufälligen Stichprobe kann auf die Population generalisiert werden -- ist aber mit Unsicherheit verbunden. Es kann nur Rauschen vorliegen, keine systematische Verzerrung.
+
+
+## Experiment und Beobachtungsstudie
+
+- **Randomisiertes Experiment**: Datenerhebung, in der der Wert der unabhängigen Variable $x$ zufällig verändert wird. *Studierende $i$ werden zufällig verschiedenen Lernumgebungen $x$ zugeordnet und das Lernergebnis $y$ gemessen.* 
+
+- **Beobachtungsstudie**: Daten werden nur erhoben, aber nicht verändert. *Lernumgebung $x$ und Lernergebnis $y$ werden so, wie sie sind,  erhoben.*
+
+## Frage: Gütekriterien :muscle:
+
+In welcher Situation kann die Dozent:in von ihrer Stichprobe unverzerrt auf ihre Zielpopulation schließen?
+
+- [**A**]{.green}: Dozent:in wählt zufällig Studierende aus, um Fragen zu beantworten.
+
+- [**B**]{.green}: Dozent:in nimmt die Studierenden dran, die sich melden, um Fragen zu beantworten.
+
+## Frage: Gütekriterien :muscle:
+
+Angenommen die Dozent:in wählt zufällig Studierende aus, um Fragen zu beantworten. Handelt es sich dabei um eine Beobachtungsstudie?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Beispiel
+
+**Fragestellung:** Verbessert der Konsum von Bio-Lebensmitteln die Gesundheit?
+
+- Unabhängige Variable: [Konsum von Bio-Lebensmitteln]{.green}:  [Ja]{.purple}, [Nein]{.orange}
+
+- Abhängige Variable: [Lebenserwartung]{.blue}
+
+- Kovariable: [Geschlecht]{.violet}^[Zur Vereinfachung werden nur zwei biologische Geschlechter dargestellt.]
+
+
+## Fiktive Population
+
+```{r}
+#| include: FALSE
+set.seed(1896)
+stipro <- rep(1,100)
+geschlecht <- c(rep(0, 50), rep(1, 50))
+set.seed(1896)
+kauf <- numeric(100)
+for(i in 1:100) kauf[i] <- ifelse(geschlecht[i], sample(c(0,1),1, prob = c(0.2, 0.8)), sample(c(0,1),1, prob = c(0.8, 0.2)))
+
+geschlecht <- fontawesome(ifelse(geschlecht, "fa-female", "fa-male"))
+Konsum <- ifelse(kauf, "#7A378B", "#FF8811")
+
+d <- crossing(x = 1:10,
+              y = 1:10) %>%
+  mutate(stipro = stipro,
+         Geschlecht = geschlecht,
+         Konsum = Konsum)  %>%
+  mutate(Stichprobe = ifelse(stipro == 1, "Ja","Nein"))
+
+pd <- prop( ~ Konsum, data = d, success = "#7A378B")
+```
+
+
+:::: {.columns}
+::: {.column width="40%"}
+
+- Es gibt gleich viele Männer und Frauen.
+
+- Es konsumieren mehr Frauen [Bio-Lebensmittel]{.violet}.
+
+- Anteil Bio-Lebensmittel: $\color{purple}{\pi}=`r pd`$. Wert des Parameters in der Population.
+:::
+
+
+::: {.column width="60%"}
+```{r}
+#| fig.showtext: TRUE
+#| out-width: "95%"
+#| echo: FALSE
+#| fig-asp: .7
+#| fig-align: "center"
+
+ppop <- ggplot(d, aes(x = x, y = y)) +
+  geom_tile(color = "white", linewidth = .5, alpha = .2) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 8, aes(label = Geschlecht), colour = Konsum) +
+  labs(title = "Population") +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5)) +
+  guides(fill = "none") +
+  theme(plot.title = element_text(size = 20))   
+ppop
+```
+:::
+::::
+
+
+
+## Vollerhebung
+
+:::: {.columns}
+::: {.column width="40%"}
+Bei einer Vollerhebung werden alle Beobachtungseinheiten der Population erhoben.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig.showtext: TRUE
+#| out-width: "95%"
+#| echo: FALSE
+#| fig-asp: .7
+#| fig-align: "center"
+
+pvoll <- ggplot(d, aes(x = x, y = y, color = Stichprobe)) +
+  geom_tile(color = "white", linewidth = .5, aes(fill = Stichprobe), alpha = .2) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 8, aes(label = Geschlecht), colour = Konsum) +
+  scale_fill_manual( values = c("#00998A","grey80")) +
+  labs(title = "Vollerhebung") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))  +
+  theme(plot.title = element_text(size = 20)) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+
+pvoll
+```
+:::
+::::
+
+
+## Gelegenheitsstichprobe
+
+:::: {.columns}
+::: {.column width="40%"}
+Wahrscheinlichkeit Teil der Stichprobe zu sein hängt ab vom [Geschlecht]{.violet} (fiktiv!).
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE 
+#| fig-align: 'center'
+#| out-width: '95%'
+#| fig-asp: .7
+
+plot(DAG_ModellG)
+```
+:::
+::::
+
+##  Auswirkung Gelegenheitsstichprobe
+
+```{r}
+#| include: false
+set.seed(1896)
+stipro <- c(sample(c(rep(1,5), rep(0,45))),sample(c(rep(1,15), rep(0,35))))
+geschlecht <- c(rep(0, 50), rep(1, 50))
+set.seed(1896)
+kauf <- numeric(100)
+for(i in 1:100) kauf[i] <- ifelse(geschlecht[i], sample(c(0,1),1, prob = c(0.2, 0.8)), sample(c(0,1),1, prob = c(0.8, 0.2)))
+
+geschlecht <- fontawesome(ifelse(geschlecht, "fa-female", "fa-male"))
+Konsum <- ifelse(kauf, "#7A378B", "#FF8811")
+
+d <- crossing(x = 1:10,
+              y = 1:10) %>%
+  mutate(stipro = stipro,
+         Geschlecht = geschlecht,
+         Konsum = Konsum) %>%
+  mutate(Stichprobe = ifelse(stipro ==1, "Ja","Nein"))
+dd <- d %>%
+  filter(stipro == 1)
+pd <- prop( ~ Konsum, data = dd, success = "#7A378B")
+```
+
+:::: {.columns}
+::: {.column width="40%"}
+- In der Gelegenheitsstichprobe höherer Frauenanteil als in der Population - und damit höherer Anteil Bio-Lebensmittel: $\color{purple}{p}=`r pd`$. Wert der Statistik in der Stichprobe.
+:::
+
+::: {.column width="60%"}
+```{r} 
+#| fig.showtext: TRUE
+#| out-width: "95%"
+#| echo: FALSE
+#| fig-asp: .7
+#| fig-align: "center"
+pgsti <- ggplot(d, aes(x = x, y = y, color = Stichprobe)) +
+  geom_tile(color = "white", linewidth = .5, aes(fill = Stichprobe), alpha = .2) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 8, aes(label = Geschlecht), colour = Konsum) +
+  scale_fill_manual(values = c("#00998A","grey80")) +
+  labs(title = "Gelegenheitsstichprobe") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5)) +
+  theme(plot.title = element_text(size = 20)) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+pgsti
+```
+:::
+::::
+
+## Zufällige Stichprobe
+
+:::: {.columns}
+::: {.column width="40%"}
+Wahrscheinlichkeit Teil der Stichprobe zu sein hängt ab vom [zufälligen Design]{.olive} -- und nicht mehr vom [Geschlecht]{.violet}.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE 
+#| fig-align: 'center'
+#| out-width: '95%'
+#| fig-asp: .7
+plot(DAG_ModellS)
+```
+:::
+::::
+
+
+## Auswirkung Zufallsstichprobe
+
+```{r}
+#| include: FALSE
+set.seed(1896)
+stipro <- as.factor(sample(c(rep(1,20), rep(0,80))))
+geschlecht <- c(rep(0, 50), rep(1, 50))
+set.seed(1896)
+kauf <- numeric(100)
+for(i in 1:100) kauf[i] <- ifelse(geschlecht[i], sample(c(0,1),1, prob = c(0.2, 0.8)), sample(c(0,1),1, prob = c(0.8, 0.2)))
+geschlecht <- fontawesome(ifelse(geschlecht, "fa-female", "fa-male"))
+Konsum <- ifelse(kauf, "#7A378B", "#FF8811")
+
+d <- crossing(x = 1:10,
+              y = 1:10) %>%
+  mutate(stipro = stipro,
+         Geschlecht = geschlecht,
+         Konsum = Konsum) %>%
+    mutate(Stichprobe = ifelse(stipro ==1, "Ja","Nein"))
+
+dd <- d %>%
+  filter(stipro == 1)
+pd <- prop( ~ Konsum, data = dd, success = "#7A378B")
+```
+
+:::: {.columns}
+::: {.column width="40%"}
+- Anteil Konsum Bio-Lebensmittel: $\color{purple}{p}=`r pd`$.
+
+- Diese Statistik $p$ weicht *zufällig* (Rauschen) ab vom Parameter $\pi$ - und nicht auch noch *systematisch* (Verzerrung) wie bei der Gelegenheitsstichprobe.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig.showtext: TRUE
+#| out-width: "90%"
+#| echo: FALSE
+#| fig-asp: .7
+#| fig-align: "center"
+pzsti <- ggplot(d, aes(x = x, y = y, color = Stichprobe)) +
+  geom_tile(color = "white", linewidth = .5, aes(fill = Stichprobe), alpha = .2) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 8, aes(label = Geschlecht), colour = Konsum) +
+  scale_fill_manual(values = c("#00998A", "grey80")) +
+  labs(title = "Zufällige Stichprobe") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))+
+  theme(plot.title = element_text(size = 20)) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+pzsti
+```
+:::
+::::
+
+## Frage: Stichprobe :muscle:
+
+Bei allen Patient:innen eines Stichtags wird der Blutdruck gemessen. Handelt es sich um eine zufällige Stichprobe aller Patient:innen der Praxis?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+
+## Beobachtungsstudie
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r} 
+#| out.width: "95%"
+#| echo: FALSE
+#| fig.asp: .7
+#| fig.align: "center"
+DAG_Modell
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig.showtext: TRUE
+#| out.width: "95%"
+#| echo: FALSE
+#| fig.asp: .7
+#| fig.align: "center"
+geschlecht <- c(rep(0, 50), rep(1, 50))
+set.seed(1896)
+kauf <- numeric(100)
+plang <- numeric(100)
+lang <- numeric(100)
+for(i in 1:100) 
+  {
+  kauf[i] <- ifelse(geschlecht[i], 
+                    sample(c(0,1),1, prob = c(0.2, 0.8)), 
+                    sample(c(0,1),1, prob = c(0.8, 0.2)))
+  plang[i] <- ifelse(geschlecht[i], 0.65, 0.35)
+  plang[i] <- plang[i] + ifelse(kauf[i], 0.2, 0)
+  lang[i] <- sample(c(0,1),1, prob = c(1-plang[i], plang[i]))
+}
+geschlechts <- fontawesome(ifelse(geschlecht, "fa-female", "fa-male"))
+konsums <- ifelse(kauf, "#7A378B", "#FF8811")
+
+d <- crossing(x = 1:10,
+              y = 1:10) %>%
+  mutate(lang = lang,
+         Geschlecht = geschlecht,
+         Geschlechts = geschlechts,
+         Konsum = kauf,
+         Konsums = konsums) %>%
+  mutate(Lebenserwartung = ifelse(lang == 1, "lang","kurz"))
+
+d2 <- d %>%
+  mutate(Konsum = ifelse(kauf, "Bio", "Nicht Bio")) %>%
+  mutate(Geschlecht = ifelse(geschlecht, "Frau", "Mann")) %>%
+  select(Konsum, Geschlecht, Lebenserwartung)
+
+pbeob <- ggplot(d, aes(x = x, y = y, color = Lebenserwartung)) +
+  geom_tile(color = "white", linewidth = .5, aes(fill = Lebenserwartung), alpha = .2) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 8, aes(label = Geschlechts), colour = konsums) +
+  scale_fill_manual(values = c("#A9BCF5", "#0B2161")) +
+  labs(title = "Beobachtungsstudie") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))+
+  theme(plot.title = element_text(size = 20)) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+pbeob
+```
+:::
+::::
+
+
+## Confounding
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r} 
+#| out.width: "70%"
+#| echo: FALSE
+#| fig.asp: .7
+#| fig.align: "center"
+gf_bar(~ Lebenserwartung | Konsum , data = d2, 
+       fill = ~ Lebenserwartung ) + 
+  scale_fill_manual(values = c("#A9BCF5", "#0B2161")) +
+  labs(title = "Beobachtungsstudie") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+```
+
+[Bio Käufer:innen]{.purple} haben häufiger eine hohe Lebenserwartung als [Nicht-Bio Käufer:innen]{.orange}.
+:::
+
+
+::: {.column width="50%"}
+```{r} 
+#| out.width: "70%"
+#| echo: FALSE
+#| fig.asp: .7
+#| fig.align: "center"
+gf_bar(~ Konsum | Geschlecht , data = d2, 
+       fill = ~ Konsum ) + 
+  scale_fill_manual(values = c( "#7A378B", "#FF8811")) +
+  labs(title = "Beobachtungsstudie") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+```
+
+Frauen konsumieren häufiger [Bio]{.purple} als Männer -- und haben öfter eine hohe Lebenserwartung.
+:::
+::::
+
+## Randomisiertes Experiment
+
+:::: {.columns}
+::: {.column width="40%"}
+Wahrscheinlichkeit [Bio zu konsumieren]{.green} hängt ab vom [zufälligen Design]{.olive} -- und nicht mehr vom [Geschlecht]{.violet}.
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: FALSE
+#| fig.align: 'center'
+#| out.width: '95%'
+#| fig.asp: .7}
+plot(DAG_ModellE)
+```
+:::
+::::
+
+## Auswirkung Experiment
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| fig.showtext: TRUE
+#| out.width: "90%"
+#| echo: FALSE
+#| fig.asp: .7
+#| fig.align: "center"
+geschlecht <- c(rep(0, 50), rep(1, 50))
+set.seed(1896)
+kauf <- numeric(100)
+plang <- numeric(100)
+lang <- numeric(100)
+for(i in 1:100) 
+  {
+  kauf[i] <- sample(c(0,1), 1)
+  plang[i] <- ifelse(geschlecht[i], 0.65, 0.35)
+  plang[i] <- plang[i] + ifelse(kauf[i], 0.2, 0)
+  lang[i] <- sample(c(0,1),1, prob = c(1-plang[i], plang[i]))
+}
+Geschlechts <- fontawesome(ifelse(geschlecht, "fa-female", "fa-male"))
+Konsums <- ifelse(kauf, "#7A378B", "#FF8811")
+
+d <- crossing(x = 1:10,
+              y = 1:10) %>%
+  mutate(lang = lang,
+         Geschlecht = geschlecht,
+         Geschlechts = Geschlechts,
+         Konsum = kauf,
+         Konsums = konsums) %>%
+  mutate(Lebenserwartung = ifelse(lang == 1, "lang","kurz"))
+
+d2 <- d %>%
+  mutate(Konsum = ifelse(kauf, "Bio", "Nicht Bio")) %>%
+  mutate(Geschlecht = ifelse(geschlecht, "Frau", "Mann")) %>%
+  select(Konsum, Geschlecht, Lebenserwartung)
+
+pexp <- ggplot(d, aes(x = x, y = y, color = Lebenserwartung)) +
+  geom_tile(color = "white", linewidth = .5, aes(fill = Lebenserwartung), alpha = .2) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 8, aes(label = Geschlechts), colour = Konsums) +
+  scale_fill_manual(values = c("#A9BCF5", "#0B2161")) +
+  labs(title = "Randomisiertes Experiment") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5)) +
+  theme(plot.title = element_text(size = 20)) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+pexp
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: "80%"
+#| echo: FALSE
+#| fig.asp:  .7
+#| fig.align: "center"
+gf_bar(~ Lebenserwartung | Konsum , data = d2, 
+       fill = ~ Lebenserwartung ) + 
+  scale_fill_manual(values = c("#A9BCF5", "#0B2161")) +
+  labs(title = "Randomisiertes Experiment") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+```
+
+Der Bio-Effekt ist viel kleiner als in der Beobachtungsstudie.
+:::
+::::
+
+## Zufall :thumbsup:
+
+![](img/Meme_Magie_Zufall.jpg){width=80% fig-align="center"}
+
+## Frage: Stichprobe :muscle:
+
+Um einen Zusammenhang zwischen Rauchen und Blutdruck zu untersuchen wird bei allen Patient:innen eines Stichtags der Blutdruck gemessen und das Rauchverhalten erfragt. Handelt es sich dabei um ein randomisiertes Experiment?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Zeitperspektive
+
+![](img/Prospektiv_Retrospektiv.png){width=60% fig-align="center"}
+
+- **Prospektiv**: Zukunftsgerichtete Sammlung von Daten ab dem Beginn der Studie über einen festgelegten Zeitraum.
+
+- **Retrospektiv**: Rückblickende Untersuchung von Daten aus Gesundheitsakten o.ä..
+
+## Studientypen
+
+- Eine **Kohortenstudie** ist eine Studie, bei der man vorausschaut, was Menschen mit einem bestimmten Verhalten oder einer bestimmten Eigenschaft für Krankheiten bekommen.
+
+- Eine **Fall-Kontroll-Studie** ist eine Studie, bei der man zurückblickt, was Menschen mit einer bestimmten Krankheit und Menschen ohne diese Krankheit getan haben.
+
+## Frage: Studientyp :muscle:
+
+Um zu sehen, was Lungenkrebs verursacht, fragt man Menschen mit und ohne Lungenkrebs, ob sie geraucht haben, was sie gegessen haben und was sie gearbeitet haben.
+
+Was für eine Studie ist dies?
+
+- [**A**]{.green}: Kohortenstudie.
+
+- [**B**]{.green}: Fall-Kontroll-Studie.
+
+## Frage: Fall-Kontroll-Studie :muscle:
+
+Handelt es sich bei einer Fall-Kontroll-Studie i.d.R. um ein randomisiertes Experiment?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Frage: Modulziel &#x1F393; :muscle: :pencil:
+
+Welche Bedeutung hat die Datenqualität für die medizinische Praxis?
+
+::: aside
+Vergleiche Fragen:
+
+- Was will ich mit Daten machen?
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Unterscheidung zwischen Beobachtung und Variable.
+
+- Die verschiedenen Skalenniveaus.
+
+- Gütekriterien einer Messung.
+
+- Unterscheidung zwischen Stichprobe und Population sowie Statistik und Parameter.
+
+- Verschiedene Studientypen.
+

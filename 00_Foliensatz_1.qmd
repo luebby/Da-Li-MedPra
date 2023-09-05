@@ -11,17 +11,19 @@ format:
     toc-title: "Inhalt"
     toc-depth: 1
     number-sections: true
+lang: de
     
 from: markdown+emoji
 ---
-
-```{r}
-#| include: false
-aufgabe <<- 0
-```
 
 ```{r child = './01_Overtuere.qmd'}
 ```
 
 ```{r child = './02_Organisatorisches.qmd'}
+```
+
+```{r child = './03_DataLiteracy.qmd'}
+```
+
+```{r child = './04_DatenGrundlagen.qmd'}
 ```

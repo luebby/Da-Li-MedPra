@@ -1,0 +1,148 @@
+# Data Literacy
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Was Data Literacy beinhaltet.
+
+- Welche Fragen dabei zu stellen sind.
+
+- Das Prozessmodell der Daten-Wertschöpfung.
+
+- Dass Daten allgegenwärtig sind.
+
+
+## Data-Literacy-Charta^[[Data-Literacy-Charta](https://www.stifterverband.org/charta-data-literacy)] 
+
+> Data Literacy umfasst die Fähigkeiten, Daten auf kritische Art und Weise zu sammeln, zu managen, zu bewerten und anzuwenden. 
+
+
+## Grundlegende Fragen
+
+- **Was will ich mit Daten machen?** Daten und Datenanalysen sind kein Selbstzweck, sondern dienen einer konkreten Anwendung in der realen Welt.
+
+- **Was kann ich mit Daten machen?** Datenquellen und deren Qualität sowie der Stand der technischen und methodischen Entwicklungen eröffnen Möglichkeiten und setzen Grenzen.
+
+::: aside 
+Quelle: [Data-Literacy-Charta](https://www.stifterverband.org/charta-data-literacy)
+:::
+
+## Grundlegende Fragen -- Fortsetzung
+
+- **Was darf ich mit Daten machen?** Alle gesetzlichen Regeln der Datennutzung (zum Beispiel Datenschutz, Urheberrechte und Lizenzfragen) müssen immer mitbedacht werden.
+
+- **Was soll ich mit Daten machen?** Weil Daten eine wertvolle Ressource darstellen, leitet sich daraus ein normativer Anspruch ab, sie zum Wohl von Individuen und Gesellschaft zu nutzen.
+
+::: aside 
+Quelle: [Data-Literacy-Charta](https://www.stifterverband.org/charta-data-literacy)
+:::
+
+
+## Prozessmodell
+
+![](img/DL-Framework.png){width=80% fig-align="center"}
+
+::: aside
+Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Literacy](https://hochschulforumdigitalisierung.de/sites/default/files/dateien/HFD_AP_Nr_47_DALI_Kompetenzrahmen_WEB.pdf)
+:::
+
+## Frage: Praxistransferaufgabe :muscle:
+
+Auf welches Kompetenzfeld aus dem Prozessmodell der Daten-Wertschöpfung bezieht sich die Praxistransferaufgabe der Klausur?
+
+- [**A**]{.green}: Datenkultur etablieren.
+
+- [**B**]{.green}: Daten bereitstellen.
+
+- [**C**]{.green}:  Daten auswerten.
+
+- [**D**]{.green}: Ergebnisse interpretieren.
+
+- [**E**]{.green}: Daten interpretieren.
+
+- [**F**]{.green}: Handeln ableiten.
+
+## Frage: Datenkompetent :muscle:
+
+Stimmt die Aussage: *Um datenkompetent zu sein, reicht es aus gut rechnen zu können*?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Frage: Datenkompetent :muscle:
+
+Stimmt die Aussage: *Um datenkompetent zu sein, muss mensch nicht rechnen können*?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Eine wackelige Brücke
+
+Von *A1: Daten-Anwendung identifizieren* zu *F3: Wirkung evaluieren*:
+
+::: center
+<iframe src="https://giphy.com/embed/zQxOLmztiIWOs" width="432" height="315" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+:::
+
+::: aside
+Quelle: [GIPHY](https://giphy.com/gifs/animal-monkey-gibbon-zQxOLmztiIWOs)
+:::
+
+## Daten und Information
+
+Gemäß [ISO/IEC 2382:2015](https://www.iso.org/standard/63598.html)
+
+- sind **Daten** eine reinterpretierbare Darstellung von Informationen in einer formalisierten Weise, die für die Kommunikation, Interpretation oder Verarbeitung geeignet ist.
+
+- ist **Information** Wissen über Objekte wie Fakten, Ereignisse, Dinge, Prozesse oder Ideen, einschließlich Konzepte, die in einem bestimmten Kontext eine bestimmte Bedeutung haben.
+
+## Formen von Daten
+
+Daten kommen in vielen Formen. U. a. als
+
+- Tabellen mit Zahlen und/oder Zeichenketten.
+
+- Texte
+
+- Bilder
+
+::: callout-important
+## Wichtig
+Daten sind nicht nur Zahlen, sondern Zahlen mit einem Kontext!^[[Cobb und Moore (1997)](https://doi.org/10.1080/00029890.1997.11990723)]
+:::
+
+## Frage: Ihre Daten :muscle: :ear:
+
+Welche Daten stellen Sie gerade in diesem Moment bereit?
+
+
+## Frage: Röntgenbilder :muscle:
+
+Sind Röntgenbilder Daten?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Frage: Modulziel &#x1F393; :muscle: :pencil:
+
+Benennen Sie Gründe, warum eine Erfassung und statistische Auswertung von Daten für den Betrieb einer Praxis notwendig sind.
+
+::: aside
+Vergleiche Fragen:
+
+- Was will ich mit Daten machen? 
+
+- Was soll ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Was Data Literacy beinhaltet.
+
+- Welche Fragen dabei zu stellen sind.
+
+- Das Prozessmodell der Daten-Wertschöpfung.
+
+- Dass Daten allgegenwärtig sind.
