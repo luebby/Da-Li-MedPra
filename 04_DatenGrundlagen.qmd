@@ -667,6 +667,14 @@ pgsti
 :::
 ::::
 
+## Sampling Bias
+
+![](img/sampling.avif){fig-align="center" width="40%"}
+
+::: {.aside}
+Quelle: [Sketschplanations](https://sketchplanations.com/sampling-bias)
+:::
+
 ## Zufällige Stichprobe
 
 :::: {.columns}
@@ -684,7 +692,6 @@ plot(DAG_ModellS)
 ```
 :::
 ::::
-
 
 ## Auswirkung Zufallsstichprobe
 

@@ -580,6 +580,14 @@ Bedeutet dies, dass alle biologisch ernährten Fliegen länger leben als die kon
 
 - [**Nein**]{.green}
 
+## Mittelwert
+
+![](img/averages.avif){fig-align="center" width="40%"}
+
+::: {.aside}
+Quelle: [Sketschplanations](https://sketchplanations.com/sneaky-averages)
+:::
+
 ##  Modulziel &#x1F393; :muscle: :pencil:
 
 Einfache deskriptive Statistiken [für metrische Variablen] einordnen.
