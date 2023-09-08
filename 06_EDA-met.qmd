@@ -1,0 +1,601 @@
+# Explorative Datenanalyse und beschreibende Statistik -- metrisch
+
+```{r}
+#| include: false
+library(mosaic)
+library(plotly)
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+```
+
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB;
+
+- Was Histogramme sind und wie sie zu lesen sind.
+
+- Sie lernen unterschiedliche Verteilungsformen kennen.
+
+- Median und arithmetischer Mittelwert einzuordnen.
+
+- Die Bedeutung der Varianz.
+
+## Fragestellung
+
+Wie gesund sind Bio-Lebensmittel &#x1F914; -- für Schwarzbäuchige Fruchtfliegen?
+
+![](img/OrganicFly_Article.png){width=40% fig-align="center"}
+
+::: {.aside}
+[https://doi.org/10.1371/journal.pone.0052988](https://doi.org/10.1371/journal.pone.0052988)
+:::
+
+## Vorbereitungen in {{< fa brands r-project >}} :computer:
+
+Das Paket `mosaic` aktivieren:
+
+```{r library2}
+#| echo: true
+library(mosaic)
+```
+
+Daten einlesen: Das {{< fa brands r-project >}} Objekt `Fliegen` soll sein (`<-`) das Ergebnis der Funktion *Einlesen einer csv Datei* (`read.csv2()`). Die `csv`-Datei, die eingelesen werden soll, kommt von der `URL2`, [https://t1p.de/lma9b](https://t1p.de/lma9b).
+
+```{r readcsv2}
+#| echo: true
+URL2 <- "https://t1p.de/lma9b"
+Fliegen <- read.csv2(URL2)
+```
+
+## Struktur Datentabelle
+
+Struktur (`str()`) der Datentabelle `Fliegen`:
+
+```{r str2}
+#| echo: true
+str(Fliegen)
+```
+
+n=`r nrow(Fliegen)` Beobachtungen von `r ncol(Fliegen)` Variablen: ``r colnames(Fliegen)[1]`` (in Tagen), ``r colnames(Fliegen)[2]`` und ``r colnames(Fliegen)[3]``.
+
+## Beobachtungen
+
+Anzeige der oberen Beobachtungen (`head()`) der Datentabelle `Fliegen`:
+
+```{r head2}
+#| echo: true
+head(Fliegen)
+```
+
+##  Beobachtung :muscle:
+
+Was ist eine Beobachtung?
+
+- [**A**]{.green}: Eine Fliege
+- [**B**]{.green}: ``r colnames(Fliegen)[3]``
+- [**C**]{.green}: ``r Fliegen[1,3]``
+
+##  Skalenniveau :muscle:
+
+Welches Skalenniveau hat die Variable ``r colnames(Fliegen)[1]``?
+
+- [**A**]{.green}: Nominal
+- [**B**]{.green}: Ordinal
+- [**C**]{.green}: Intervallskaliert
+- [**D**]{.green}: Verhältnisskaliert
+
+## Histogramme
+
+- Zeigen die Verteilung eines metrischen Merkmals. 
+
+- Wie Säulendiagramme, nur auf der $x$-Achse nicht einzelne Werte der Variablen sondern Wertebereiche.
+
+- Einführung (engl.): [https://tinlizzie.org/histograms/](https://tinlizzie.org/histograms/)
+
+## Histogramm in {{< fa brands r-project >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+Zeichne ein Histogramm (`gf_histogram()`) 
+der Variable `lebensdauer` 
+aus der Datentabelle `Fliegen`.
+Die Balken sollen 4 Tage breit sein (`binwidth`) und
+die Mitte eines Balkens soll bei 2 Tagen liegen (`center`).
+Und dann (`|>`) passe die Beschriftungen an.
+:::
+::: {.column width="50%"}
+```{r histogramm}
+#| echo: true
+#| eval: false
+#| out.width: '95%'
+#| fig.align: 'center'
+gf_histogram( ~ lebensdauer,
+        data = Fliegen,
+        binwidth = 4,
+        center = 2) |>
+  gf_labs(x = "Lebensdauer (Tage)", 
+          y="Häufigkeit",
+          title = "Histogramm")
+```
+:::
+::::
+
+## Verteilung der Lebensdauer
+
+
+```{r histogramm}
+#| echo: FALSE
+#| ref.label: "histogramm"
+```
+
+##  Histogramm lesen :muscle:
+
+:::: {.columns}
+::: {.column width="40%"}
+Welches Intervall kommt am häufigsten vor?
+
+- [**A**]{.green}: 1-20
+
+- [**B**]{.green} 21-40
+
+- [**C**]{.green} 41-60
+
+- [**D**]{.green} > 60
+:::
+
+::: {.column width="60%"}
+```{r}
+#| ref.label: "histogramm"
+```
+:::
+::::
+
+## Modus
+
+```{r}
+# https://stackoverflow.com/a/8189441
+Modes <- function(x) {
+  ux <- unique(x)
+  tab <- tabulate(match(x, ux))
+  ux[tab == max(tab)]
+}
+```
+
+- Der **Modus** (auch: Modalwert) $x_{mod}$ ist die Merkmalsausprägung die am häufigsten vorkommt.
+
+- Der Modus kann für jedes Skalenniveau, also auch für kategoriale Variablen bestimmt werden.
+
+- Im Falle der Lebenserwartung der Fliegen: $x_{mod}=`r Modes(Fliegen$lebensdauer)`$.
+
+## Einleitung Verteilungsformen
+
+- Nicht alle Fliegen haben eine Lebenserwartung von $`r Modes(Fliegen$lebensdauer)`$ Tagen.
+
+- Die Werte variieren (warum?).
+
+- Wie können solche Verteilungen aussehen (Auswahl)?
+
+## Verteilungsformen (I/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042719?h=4a39fa0f47&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Normalverteilung"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**Normalverteilung**](https://vimeo.com/538042719) verteilen sich die Beobachtungen symmetrisch um einen Schwerpunkt (uni-modal). Beobachtungen in der Mitte der Verteilung kommen häufig vor. Je größer die Entfernung zum Zentrum, desto unwahrscheinlicher werden die Werte.
+:::
+::::
+
+## Verteilungsformen (II/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042746?h=f5a2815116&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Gleichverteilung"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**Gleichverteilung**](https://vimeo.com/538042746) haben die Werte der $x$-Achse die gleiche Wahrscheinlichkeit. Zu sehen am konstanten Wert auf der $y$-Achse.
+:::
+::::
+
+## Verteilungsformen (III/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042821?h=0fed3546a0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Rechts-schief"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**rechtsschiefen Verteilung**](https://vimeo.com/538042821) sind Beobachtungen im unteren Wertebereich wahrscheinlicher als im oberen Wertebereich. 
+:::
+::::
+
+## Verteilungsformen (IV/V)
+
+:::: {.columns}
+::: {.column width="50%"} 
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042769?h=2a40a2c948&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Links-schief"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**linksschiefen Verteilung**](https://vimeo.com/538042769) sind Beobachtungen im oberen Wertebereich wahrscheinlicher als im unteren Wertebereich. 
+:::
+::::
+
+## Verteilungsformen (V/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042806?h=9ba50a41e9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Bi-Modal"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**Bi-Modalen Verteilung**](https://vimeo.com/538042806) gibt es zwei Zentren um die sich die Beobachtungen verteilen. Bei *Multi-Modalen* Verteilungen mehr als zwei.
+:::
+::::
+
+##  Verteilungsform :muscle:
+
+:::: {.columns}
+::: {.column width="60%"}
+Welche Verteilungsform liegt für die Variable *Lebensdauer in Tagen* vor?
+
+- [**A**]{.green}: Symmetrisch.
+
+- [**B**]{.green}: Rechtsschief.
+
+- [**C**]{.green}: Linksschief.
+:::
+
+::: {.column width="40%"}
+```{r}
+#| ref.label: "histogramm"
+```
+:::
+::::
+
+
+## Verteilungsfunktion
+
+::: {.center}
+Wie oft sterben die Fliegen innerhalb der ersten 10 Tage?
+:::
+
+:::: {.columns}
+::: {.column width="60%"}
+**Empirische Verteilungsfunktion**: $F_n(q)$=Anteil der Beobachtungen $\leq q$.
+
+Bestimme den Wert der Empirischen Verteilungsfunktion (`pdata()`) der Variable
+`lebensdauer` an der Stelle `q=10` in der Datentabelle `Fliegen`:
+:::
+
+::: {.column width="40%"}
+```{r pdata}
+#| echo: true
+pdata( ~ lebensdauer,
+       q = 10,
+       data = Fliegen)
+```
+
+`r pdata( ~ lebensdauer, q = 10, data = Fliegen)*100`% der Fliegen sterben innerhalb der ersten 10 Tage (einschließlich).
+:::
+::::
+
+## Quantilsfunktion
+
+::: {.center}
+Welche Lebenserwartung erreichen 90% der Fliegen maximal?
+:::
+
+:::: {.columns}
+::: {.column width="60%"}
+**Quantile** geben an, welcher Wert $q$ mit einer gegebenen Wahrscheinlichkeit $p$ nicht überschritten wird.
+
+Bestimme den Wert der Quantilsfunktion (`qdata()`) der Variable
+`lebensdauer` am 90%-Quantil (`p = 0.9`) in der Datentabelle `Fliegen`:
+:::
+
+::: {.column width="40%"}
+```{r qdata}
+#| echo: true
+qdata( ~ lebensdauer,
+       p = 0.9,
+       data = Fliegen)
+```
+
+Bis zum `r qdata( ~ lebensdauer, p = 0.9, data = Fliegen)`. Tag (einschließlich) sind 90% der Fliegen verstorben.
+:::
+::::
+
+---
+
+## Verteilungs- und Quantilsfunktion
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r emp}
+#| echo: FALSE
+#| out.width: '92%'
+#| fig.align: 'center'
+x <- 0:70
+y <- pdata ( ~ lebensdauer, q = x, data = Fliegen)
+gf_line(y ~ x) %>%
+  gf_labs(x="Lebensdauer", y="Anteil verstorben", title = "Verteilungsfunktion") %>%
+  ggplotly()
+```
+:::
+
+::: {.column width="50%"}
+```{r quant}
+#| echo: FALSE
+#| out.width: '92%'
+#| fig.align: 'center'
+x <- 0:100/100
+y<- qdata ( ~ lebensdauer, p = x, data = Fliegen)
+gf_line(y ~ x) %>%
+  gf_labs(x="Anteil verstorben", y="Lebensdauer", title = "Quantilsfunktion") %>%
+  ggplotly()
+```
+:::
+::::
+
+##  Verteilungsfunktion :muscle:
+
+```{r pdata2}
+#| echo: true
+pdata( ~ lebensdauer, q = 20, data = Fliegen)
+```
+
+Wie viel Prozent der Fliegen leben länger als 20 Tage?
+
+
+- [**A**]{.green}: `r pdata( ~ lebensdauer, q = 20, data = Fliegen)*100`%
+
+- [**B**]{.green}: `r (1-pdata( ~ lebensdauer, q = 20, data = Fliegen))*100`%
+
+- [**C**]{.green}: Keine der anderen Antworten stimmt.
+
+## Median
+
+- Der **Median**,  $x_{0.5}$, (auch: Zentralwert) ist das 50%-Quantil der Verteilung und liegt bei den nach Größe aufsteigend sortierten Beobachtungen in der Mitte, d.h., mindestens $50\%$ der Beobachtungen sind nicht größer, mindestens $50\%$ sind nicht kleiner.
+
+- Der Median ist robust gegen Ausreißer, d.h., er wird von einzelnen extremen Werten nicht beeinflusst.
+
+## Median in {{< fa brands r-project >}}
+
+Berechne den Median (`median()`) der `lebensdauer` in der Datentabelle `Fliegen`:
+
+```{r median}
+#| echo: true
+median( ~ lebensdauer, data = Fliegen)
+```
+
+$x_{0.5}=`r median( ~ lebensdauer, data = Fliegen)`$, d.h., mindestens 50% erreichen eine Lebensdauer von höchstens $`r median( ~ lebensdauer, data = Fliegen)`$ Tagen.
+
+##  Quartile :muscle:
+
+Das 25%-Quantil wird auch als erstes Quartil, Q1, bezeichnet, das 75%-Quantil als das drittes Quartil, Q3,  -- mit dem Median als zweites Quartil.
+
+Welche Aussage stimmt?
+
+- [**A**]{.green}: 25% der Beobachtungen sind nicht größer als Q1.
+
+- [**B**]{.green}: 25% der Beobachtungen sind größer als Q1.
+
+## Arithmetischer Mittelwert
+
+- Der **Arithmetische Mittelwert**, $\bar{x}$, ergibt sich als die Summe aller Beobachtungswerte $x_i$ geteilt durch deren Anzahl $n$.
+
+$$\bar{x}=\frac{x_1+x_2+x_3+\ldots+x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i$$
+
+- Der Mittelwert ist nicht robust gegenüber Ausreißern.
+
+## Arithmetischer Mittelwert in {{< fa brands r-project >}}
+
+Berechne den Mittelwert (`mean()`) der `lebensdauer` in der Datentabelle `Fliegen`:
+
+```{r mean}
+#| echo: true
+mean( ~ lebensdauer, data = Fliegen)
+```
+
+Die *durchschnittliche* Lebensdauer der Fliegen liegt bei $\bar{x}=`r round(mean( ~ lebensdauer, data = Fliegen),2)`$ Tagen. 
+
+## Beschreibende Statistik
+
+![](img/Meme_Zusammenfassung.jpg){width=80% fig-align="center"}
+
+## Lagemaße
+
+- Für nominale Daten kann nur der Modus, für ordinale zuätzlich der Median und für metrische auch noch der arithmetiche Mittelwert bestimmt werden.
+
+- Diese fassen die Beobachtungswerte einer Variable zusammen und geben die zentrale Tendenz in den Daten wieder.
+
+- Sie sind ein einfaches Modell der Daten und eignen sich zur (einfachen) Prognose neuer Beobachtungen.
+
+##  Lagemaße :muscle:
+
+Welche Kennzahlen ändern sich, wenn die Lebensdauer der am längsten lebenden Fliege, $x_{max}$, in der Datentabelle nicht bei `r max(~lebensdauer, data = Fliegen)` Tagen, sondern bei `r max(~lebensdauer, data = Fliegen)*10` Tagen liegen würde?
+
+- [**A**]{.green}: Arithmetischer Mittelwert und Median bleiben unverändert.
+
+- [**B**]{.green}: Nur arithmetischer Mittelwert.
+
+- [**C**]{.green}: Nur Median.
+
+- [**D**]{.green}: Arithmetischer Mittelwert und Median ändern sich.
+
+## Varianz
+
+- Beobachtungswerte $x_i$ variieren -- sie stimmen nicht mit dem arithmetischen Mittelwert $\bar{x}$ überein.
+
+- Um zu gucken wir *gut* der Mittelwert die Daten beschreibt, werden die Abweichungen zum Mittelwert $x_i-\bar{x}$ betrachtet:
+
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^{n}(x_i-\bar{x})^2$$
+
+## Standardabweichung
+
+- Die **Standardabweichung** $sd$ ist eine Kennzahl für die Streuung der Beobachtungen.
+$$sd=\sqrt{s^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2}$$
+
+- Die Standardabweichung ist nicht robust gegenüber Ausreißern.
+
+## Standardabweichung in {{< fa brands r-project >}}
+
+Berechne die Standardabweichung (`sd()`) der `lebensdauer` in der Datentabelle `Fliegen`:
+
+```{r sd}
+#| echo: true
+sd( ~ lebensdauer, data = Fliegen)
+```
+
+Die Streuung der Beobachtungen liegt bei einer Standardabweichung von $sd=`r round(sd( ~ lebensdauer, data = Fliegen),2)`$ Tagen. 
+
+##  Standardabweichung :muscle:
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+Wo ist die Standardabweichung $sd$ kleiner?
+
+- [**A**]{.green}: Im Fall A.
+
+- [**B**]{.green}: Im Fall B.
+
+- [**C**]{.green}: In beiden Fällen gleich.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: '95%'
+#| fig.align: 'center'
+set.seed(1896)
+n <- 100
+x1 <- rnorm(n, sd = 2)
+x2 <- rnorm(n, sd = 1)
+sim <- data.frame(
+  Fall = c(rep("B",n), rep("A",n)),
+  x = c(x1,x2)
+)
+gf_point(Fall ~ x, data = sim,
+         position = "jitter", width = 0, height = 0.05, color = "#0000FF") %>%
+  gf_labs(x="", y="") %>%
+  gf_vline(xintercept = ~ 0, color = "#00998A") %>%
+  gf_lims(x=c(-6,6))
+```
+:::
+::::
+
+## Abbildungen und Kennzahlen
+
+```{r}
+#| fig-align: 'center'
+#| out-width: '60%'
+source("Fleishman.R")
+
+n <- 10000
+
+xn <- rnorm(n = n)
+nor <- data.frame(Verteilung = "Symmetrisch (Normal)", x = xn)
+
+xls <- rfleish(n = n, skew = -0.65)
+xrs <- rfleish(n = n, skew = 0.65)
+st <- c(rep("Linksschief", n), rep("Rechtsschief", n))
+x <- c(xls, xrs)
+schiefe <- data.frame(Verteilung = st, x = x)
+
+xl <- rnorm(0.65*n, mean = -1,sd = 0.5)
+xr <- rnorm(0.35*n, mean = 1, sd = 0.5)
+xmm <- c(xl,xr)
+xmm <- (xmm - mean(xmm))/sd(xmm)
+bimod <- data.frame(Verteilung = "Bimodal", x = xmm)
+
+x1 <- rnorm(0.35*n, mean = -1,sd = 0.5)
+x2 <- rnorm(0.25*n, mean = 3, sd = 1)
+x3 <- rnorm(0.40*n, mean = -5, sd = 0.5)
+xmm <- c(x1,x2,x3)
+xmm <- (xmm - mean(xmm))/sd(xmm)
+multimod <- data.frame(Verteilung = "Multimodal", x = xmm)
+
+xg <- runif(n)
+xg <- (xg - mean(xg))/sd(xg)
+gleich <- data.frame(Verteilung = "Gleichverteilung", x = xg)
+
+dat <- rbind(nor, schiefe,  bimod)
+
+gf_histogram(~x | Verteilung, data = dat) %>% 
+  gf_theme(axis.text = element_blank(), 
+           axis.text.y = element_blank(), 
+           axis.title.x = element_blank(), 
+           axis.title.y = element_blank(), 
+           axis.ticks = element_blank())
+```
+
+::: {.callout-warning}
+## Warnung
+Alle gezeigten Verteilungen haben den gleichen Mittelwert und die gleiche Standardabweichung.
+:::
+
+## Bedingter Mittelwert
+
+- Die genannten Kennzahlen können auch getrennt nach einer anderen Variable betachtet werden, z.B. je Ernährungsart.
+
+- Berechne den Mittelwert (`mean()`) der Variable `lebensdauer` je (`|`) Wert der Variable `bio` aus der Datentabelle `Fliegen`:
+
+```{r meanbed}
+#| echo: true
+mean( ~ lebensdauer | bio, data = Fliegen)
+```
+
+##  Lebenserwartung (I/II) :muscle:
+
+```{r}
+#| echo: true
+#| ref.label: "meanbed"
+```
+
+Bei welcher Ernährung leben die Fliegen durchschnittlich länger?
+
+- [**A**]{.green}: Biologisch.
+
+- [**B**]{.green}: Konventionell.
+
+- [**C**]{.green}: In beiden Fällen gleich.
+
+##  Lebenserwartung (I/II) :muscle:
+
+```{r}
+#| echo: true
+#| ref.label: "meanbed"
+```
+
+Bedeutet dies, dass alle biologisch ernährten Fliegen länger leben als die konventionell ernährten?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Einfache deskriptive Statistiken [für metrische Variablen] einordnen.
+
+::: aside
+Vergleiche Fragen:
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Was Histogramme sind und wie sie zu lesen sind.
+
+- Sie lernen unterschiedliche Verteilungsformen kennen.
+
+- Median und arithmetischer Mittelwert einzuordnen.
+
+- Die Bedeutung der Varianz.

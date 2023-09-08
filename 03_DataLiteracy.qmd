@@ -45,7 +45,7 @@ Quelle: [Data-Literacy-Charta](https://www.stifterverband.org/charta-data-litera
 Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Literacy](https://hochschulforumdigitalisierung.de/sites/default/files/dateien/HFD_AP_Nr_47_DALI_Kompetenzrahmen_WEB.pdf)
 :::
 
-## Frage: Praxistransferaufgabe :muscle:
+##  Praxistransferaufgabe :muscle:
 
 Auf welches Kompetenzfeld aus dem Prozessmodell der Daten-Wertschöpfung bezieht sich die Praxistransferaufgabe der Klausur?
 
@@ -61,7 +61,7 @@ Auf welches Kompetenzfeld aus dem Prozessmodell der Daten-Wertschöpfung bezieht
 
 - [**F**]{.green}: Handeln ableiten.
 
-## Frage: Datenkompetent :muscle:
+##  Datenkompetent :muscle:
 
 Stimmt die Aussage: *Um datenkompetent zu sein, reicht es aus gut rechnen zu können*?
 
@@ -69,7 +69,7 @@ Stimmt die Aussage: *Um datenkompetent zu sein, reicht es aus gut rechnen zu kö
 
 - [**Nein**]{.green}
 
-## Frage: Datenkompetent :muscle:
+##  Datenkompetent :muscle:
 
 Stimmt die Aussage: *Um datenkompetent zu sein, muss mensch nicht rechnen können*?
 
@@ -112,12 +112,12 @@ Daten kommen in vielen Formen. U. a. als
 Daten sind nicht nur Zahlen, sondern Zahlen mit einem Kontext!^[[Cobb und Moore (1997)](https://doi.org/10.1080/00029890.1997.11990723)]
 :::
 
-## Frage: Ihre Daten :muscle: :ear:
+##  Ihre Daten :muscle: :ear:
 
 Welche Daten stellen Sie gerade in diesem Moment bereit?
 
 
-## Frage: Röntgenbilder :muscle:
+##  Röntgenbilder :muscle:
 
 Sind Röntgenbilder Daten?
 
@@ -125,7 +125,7 @@ Sind Röntgenbilder Daten?
 
 - [**Nein**]{.green}
 
-## Frage: Modulziel &#x1F393; :muscle: :pencil:
+##  Modulziel &#x1F393; :muscle: :pencil:
 
 Benennen Sie Gründe, warum eine Erfassung und statistische Auswertung von Daten für den Betrieb einer Praxis notwendig sind.
 

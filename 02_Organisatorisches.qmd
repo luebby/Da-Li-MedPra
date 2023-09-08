@@ -118,7 +118,7 @@ Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
 
 - Die Meinungen und Ziele der Entwickler:innen fließen in die Modelle ein.
 
----
+## Soziale Konstruktion
 
 ![](img/Meme_DatenKonstruiert.jpg){width=60% fig-align="center"}
 
@@ -158,7 +158,7 @@ Quelle: [GIPHY](https://media.giphy.com/media/3o6Zt90p6NgiyoN4Mo/giphy.gif)
 Quelle: [Sketschplanations](https://sketchplanations.com/ask-the-question)
 :::
 
-## Frage: Workload :muscle:
+##  Workload :muscle:
 
 Wo verbringen Sie die meiste Lernzeit in diesem Modul?
 
@@ -168,7 +168,7 @@ Wo verbringen Sie die meiste Lernzeit in diesem Modul?
 
 - [**C**]{.green}: Beides gleich.
 
-## Frage: Klausur :muscle:
+##  Klausur :muscle:
 
 Stimmt die Aussage: *Rechenaufgaben bilden den Schwerpunkt der Klausur*?
 
@@ -176,7 +176,7 @@ Stimmt die Aussage: *Rechenaufgaben bilden den Schwerpunkt der Klausur*?
 
 - [**Nein**]{.green}
 
-## Frage: ChatGPT und Co. :muscle:
+##  ChatGPT und Co. :muscle:
 
 Wie ist der Umgang mit ChatGPT und Co. in dieser Vorlesung geregelt?
 

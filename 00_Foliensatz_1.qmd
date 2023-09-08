@@ -11,19 +11,26 @@ format:
     toc-title: "Inhalt"
     toc-depth: 1
     number-sections: true
+
 lang: de
     
 from: markdown+emoji
 ---
 
-```{r child = './01_Overtuere.qmd'}
-```
+```{r child = './01_Overtuere.qmd'} 
+``` 
 
 ```{r child = './02_Organisatorisches.qmd'}
-```
+``` 
 
-```{r child = './03_DataLiteracy.qmd'}
+```{r child = './03_DataLiteracy.qmd'} 
 ```
 
 ```{r child = './04_DatenGrundlagen.qmd'}
+```
+
+```{r child = './05_EDA-kat.qmd'}
+```
+
+```{r child = './06_EDA-met.qmd'}
 ```

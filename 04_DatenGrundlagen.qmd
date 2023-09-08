@@ -112,16 +112,6 @@ Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Lite
 
 *Ich* bin eine **Beobachtungseinheit**, über die Werte verschiedener **Variablen** vorliegen.
 
-## Datentabellen
-
-- Eine **Datentabelle** ist eine Sammlung von **Beobachtungswerten**.
-
-- Beobachtungswerte sind auf zwei Arten organisiert. Jeder Wert gehört zu einer **Variablen** und einer **Beobachtung**. 
-
-- Eine **Variable** enthält alle Werte, die dasselbe zugrunde liegende Eigenschaft (z.B. Geschlecht, Größe) in verschiedenen Einheiten messen. 
-
-- Eine **Beobachtung** enthält alle Werte, die für dieselbe Einheit (z. B.  Person, Praxis) über die Eigenschaften hinweg gemessen werden.
-
 ## Kategoriale Variablen
 
 - [Geschlecht]{.olive} kann nur verglichen, nicht geordnet werden: **kategorial nominal**.
@@ -151,7 +141,7 @@ Können die Abstände der Werte wie mit einem Lineal verglichen werden? :straigh
 :::
 ::::
 
-## Frage: Gewicht :muscle:
+##  Gewicht :muscle:
 
 Welches Skalenniveau hat die Variable *Gewicht* (in kg)?
 
@@ -163,7 +153,7 @@ Welches Skalenniveau hat die Variable *Gewicht* (in kg)?
 
 - [**D**]{.green}:  Metrisch - verhältnisskaliert.
 
-## Frage: Blutgruppe :muscle:
+##  Blutgruppe :muscle:
 
 Welches Skalenniveau hat die Variable *Blutgruppe*?
 
@@ -175,7 +165,7 @@ Welches Skalenniveau hat die Variable *Blutgruppe*?
 
 - [**D**]{.green}:  Metrisch - verhältnisskaliert.
 
-## Frage: Blutdruck :muscle:
+##  Blutdruck :muscle:
 
 Was gilt für die Variable *Blutdruck*?
 
@@ -183,13 +173,38 @@ Was gilt für die Variable *Blutdruck*?
 
 - [**B**]{.green}: Manifeste Variable.
 
-## Frage: Patient:innenzufriedenheit :muscle:
+##  Patient:innenzufriedenheit :muscle:
 
 Was gilt für die Variable *Patient:innenzufriedenheit*?
 
 - [**A**]{.green}: Latente Variable.
 
 - [**B**]{.green}: Manifeste Variable.
+
+## Datentabellen
+
+- Eine **Datentabelle** ist eine Sammlung von **Beobachtungswerten**.
+
+- Beobachtungswerte sind auf zwei Arten organisiert. Jeder Wert gehört zu einer **Variablen** und einer **Beobachtung**. 
+
+- Eine **Variable** enthält alle Werte, die dasselbe zugrunde liegende Eigenschaft (z.B. Geschlecht, Größe) in verschiedenen Einheiten messen. 
+
+- Eine **Beobachtung** enthält alle Werte, die für dieselbe Einheit (z. B.  Person, Praxis) über die Eigenschaften hinweg gemessen werden.
+
+##  Datentabelle :muscle:
+
+|     | Geschlecht | Größe|
+|-----|------------|------|
+Ahmet | m          | 180
+Gabi  | w          | 170
+Max   | m          | 186
+Susi  | w          | 172
+
+Was ist hier eine Beobachtung?
+
+- [**A**]{.green}: Gabi
+
+- [**B**]{.green}: Größe
 
 ## Messen
 
@@ -204,7 +219,7 @@ Was gilt für die Variable *Patient:innenzufriedenheit*?
 [Messergebnis]{.green} und [Wert der Eigenschaft]{.blue} können voneinander abweichen.
 :::
 
-## Frage: Übereinstimmung :muscle:
+##  Übereinstimmung :muscle:
 
 Stimmt bei einer manifesten Variable immer das Messergebnis mit dem Wert der Eigenschaft überein?
 
@@ -305,7 +320,7 @@ plot_grid(p1,p2,p3,p4,ncol=2,label_size=25,
 :::
 ::::
 
-## Frage: Gütekriterien :muscle:
+##  Gütekriterien :muscle:
 
 Welches Gütekriterium ist kritisch zu hinterfragen, wenn *Patient:innenzufriedenheit* mit Hilfe der *Anzahl Besuche in der Praxis* der Person gemessen wird?
 
@@ -324,7 +339,7 @@ Welches Gütekriterium ist kritisch zu hinterfragen, wenn *Patient:innenzufriede
 $$Daten = Modell + Rest$$
 
 ::: callout-note
-## Wichtig
+## Hinweis
 Im Grunde sind alle Modelle falsch, aber einige sind nützlich.^[Zitat [George E.P. Box](https://www.causeweb.org/cause/resources/fun/quotes/box-models?id=44).]
 :::
 
@@ -366,7 +381,7 @@ plot(DAG_Modell)
 :::
 ::::
 
-## Frage: Variation :muscle:
+##  Variation :muscle:
 
 Für zwei Beobachtungen $i,j$ gelte: $\color{green}{x}_i=\color{green}{x}_j$. Folgt daraus, dass auch $\color{blue}{y}_i=\color{blue}{y}_j$ gilt?
 
@@ -463,7 +478,7 @@ Zielpopulation: Anwesende im Kurs
 
 - **Beobachtungsstudie**: Daten werden nur erhoben, aber nicht verändert. *Lernumgebung $x$ und Lernergebnis $y$ werden so, wie sie sind,  erhoben.*
 
-## Frage: Gütekriterien :muscle:
+##  Gütekriterien :muscle:
 
 In welcher Situation kann die Dozent:in von ihrer Stichprobe unverzerrt auf ihre Zielpopulation schließen?
 
@@ -471,7 +486,7 @@ In welcher Situation kann die Dozent:in von ihrer Stichprobe unverzerrt auf ihre
 
 - [**B**]{.green}: Dozent:in nimmt die Studierenden dran, die sich melden, um Fragen zu beantworten.
 
-## Frage: Gütekriterien :muscle:
+##  Gütekriterien :muscle:
 
 Angenommen die Dozent:in wählt zufällig Studierende aus, um Fragen zu beantworten. Handelt es sich dabei um eine Beobachtungsstudie?
 
@@ -725,7 +740,7 @@ pzsti
 :::
 ::::
 
-## Frage: Stichprobe :muscle:
+##  Stichprobe :muscle:
 
 Bei allen Patient:innen eines Stichtags wird der Blutdruck gemessen. Handelt es sich um eine zufällige Stichprobe aller Patient:innen der Praxis?
 
@@ -930,7 +945,7 @@ Der Bio-Effekt ist viel kleiner als in der Beobachtungsstudie.
 
 ![](img/Meme_Magie_Zufall.jpg){width=80% fig-align="center"}
 
-## Frage: Stichprobe :muscle:
+##  Stichprobe :muscle:
 
 Um einen Zusammenhang zwischen Rauchen und Blutdruck zu untersuchen wird bei allen Patient:innen eines Stichtags der Blutdruck gemessen und das Rauchverhalten erfragt. Handelt es sich dabei um ein randomisiertes Experiment?
 
@@ -952,7 +967,7 @@ Um einen Zusammenhang zwischen Rauchen und Blutdruck zu untersuchen wird bei all
 
 - Eine **Fall-Kontroll-Studie** ist eine Studie, bei der man zurückblickt, was Menschen mit einer bestimmten Krankheit und Menschen ohne diese Krankheit getan haben.
 
-## Frage: Studientyp :muscle:
+##  Studientyp :muscle:
 
 Um zu sehen, was Lungenkrebs verursacht, fragt man Menschen mit und ohne Lungenkrebs, ob sie geraucht haben, was sie gegessen haben und was sie gearbeitet haben.
 
@@ -962,7 +977,7 @@ Was für eine Studie ist dies?
 
 - [**B**]{.green}: Fall-Kontroll-Studie.
 
-## Frage: Fall-Kontroll-Studie :muscle:
+##  Fall-Kontroll-Studie :muscle:
 
 Handelt es sich bei einer Fall-Kontroll-Studie i.d.R. um ein randomisiertes Experiment?
 
@@ -970,9 +985,11 @@ Handelt es sich bei einer Fall-Kontroll-Studie i.d.R. um ein randomisiertes Expe
 
 - [**Nein**]{.green}
 
-## Frage: Modulziel &#x1F393; :muscle: :pencil:
+##  Modulziel &#x1F393; :muscle: :pencil:
 
 Welche Bedeutung hat die Datenqualität für die medizinische Praxis?
+
+Warum ist Standardisierung in der Erhebung [...] wichtig?
 
 ::: aside
 Vergleiche Fragen:

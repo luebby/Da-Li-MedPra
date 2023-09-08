@@ -1,0 +1,642 @@
+# Explorative Datenanalyse und beschreibende Statistik -- kategorial
+
+```{r}
+#| include: false
+library(mosaic)
+library(janitor)
+library(knitr)
+library(emojifont)
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+```
+
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Was absolute und relative Häufigkeiten sind.
+
+- Wie Säulendiagramme erstellt und gelesen werden können.
+
+- Was Kreuztabellen sind und wie sie gelesen werden können.
+
+## Prozessmodell (Wiederholung)
+
+![](img/DL-Framework.png){width=80% fig-align="center"}
+
+::: aside
+Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Literacy](https://hochschulforumdigitalisierung.de/sites/default/files/dateien/HFD_AP_Nr_47_DALI_Kompetenzrahmen_WEB.pdf)
+:::
+
+## C: Daten auswerten :computer:
+
+- Der Computer wurde erfunden -- heutzutage werden Daten mit Hilfe von professioneller Software ausgewertet.
+
+- Eine sehr weit verbreitete, freie und offene Software dafür ist [{{< fa brands r-project >}}](https://cran.r-project.org/). Verfügbar auch über die [Posit Cloud](https://posit.cloud/).
+
+- In diesem Modul müssen Sie nicht programmieren, aber vielleicht wollen jetzt oder später in Studium oder Beruf Daten auswerten? :muscle:
+
+## Warum Code?
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YPE2dO5sII0?si=rZ5FQLoyk1r9yIOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+
+::: {.aside}
+[https://youtu.be/YPE2dO5sII0?si=7tO_P8rwDme3j35j](https://youtu.be/YPE2dO5sII0?si=7tO_P8rwDme3j35j)
+:::
+
+## Unterschiedliche Zugänge
+
+![](img/Meme_Zugang.jpg){width=80% fig-align="center"}
+
+##  Risk-Literacy :muscle: {.smaller}
+
+Von 1.000 Leuten in einer Kleinstadt sind 500 Mitglied im Gesangsverein. 
+
+Von diesen 500 Mitgliedern im Gesangsverein sind 100 Männer. 
+
+Von den 500 Einwohnern, die nicht im Gesangsverein sind, sind 300 Männer. 
+
+Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Mann ein Mitglied des Gesangsvereins ist?^[Quelle: [Cokely et al., 2012](http://www.riskliteracy.org/files/Cokely%20et%20al_2012_BNT.pdf)]
+
+- [**A**]{.green}: $10\%$
+
+- [**B**]{.green}: $25\%$
+
+- [**C**]{.green}: $40\%$
+
+- [**D**]{.green}: Keine der anderen Antworten stimmt.
+
+## Vorbereitungen in {{< fa brands r-project >}} :computer:
+
+Das {{< fa brands r-project >}}-Zusatzpaket `mosaic` installieren (einmalig):
+
+```{r install}
+#| eval: false
+#| echo: true
+install.packages("mosaic")
+```
+
+Das Paket aktivieren:
+
+```{r library}
+#| echo: true
+library(mosaic)
+```
+
+## Daten einlesen
+
+Das {{< fa brands r-project >}} Objekt `Kleinstadt` soll sein (`<-`) das Ergebnis der Funktion *Einlesen einer csv Datei* (`read.csv2()`). Die `csv`-Datei ist unter der `URL` [https://t1p.de/gsb4c](https://t1p.de/gsb4c) verfügbar.
+
+```{r readcsv}
+#| echo: true
+URL <- "https://t1p.de/gsb4c"
+Kleinstadt <- read.csv2(URL)
+```
+
+## Struktur Datentabelle
+
+Struktur (`str()`) der Datentabelle `Kleinstadt`:
+
+```{r str}
+#| echo: true
+str(Kleinstadt)
+```
+
+n=`r nrow(Kleinstadt)` Beobachtungen von `r ncol(Kleinstadt)` Variablen: ``r colnames(Kleinstadt)[1]`` und ``r colnames(Kleinstadt)[2]``.
+
+## Beobachtungen
+
+Anzeige der oberen Beobachtungen (`head()`) der Datentabelle `Kleinstadt`:
+
+```{r head}
+#| echo: true
+head(Kleinstadt)
+```
+
+##  Skalenniveau :muscle:
+
+Welches Skalenniveau hat die Variable ``r colnames(Kleinstadt)[1]``?
+
+- [**A**]{.green}: Nominal
+
+- [**B**]{.green}: Ordinal
+
+- [**C**]{.green}: Intervallskaliert
+
+- [**D**]{.green}: Verhältnisskaliert
+
+
+## Säulendiagramm
+
+::: {.center}
+Wie viele Einwohner:innen sind im Gesangsverein, wie viele nicht?
+:::
+
+:::: {.columns}
+::: {.column width="60%"}
+Zeichne ein Säulendiagramm (Funktion `gf_bar()`) der Variable `gesangsverein` aus der Datentabelle `Kleinstadt`:
+
+```{r gf_bar}
+#| eval: false
+#| echo: true
+gf_bar( ~ gesangsverein,
+        data = Kleinstadt)
+```
+:::
+
+::: {.column width="40%"}
+```{r gf_bar-out}
+#| ref.label: "gf_bar"
+#| echo: FALSE
+#| out.width: '95%'
+#| fig.align: 'center'
+```
+:::
+::::
+
+
+##  Kreisdiagramm :muscle:
+
+```{r}
+#| echo: false
+Ergebnis <- data.frame(
+  Partei = c("A","B","C","D","E"),
+  Prozent = c(20,21,19,20,20))
+```
+
+:::: {.columns}
+::: {.column width="40%"}
+Welche Partei hat die meisten Stimmen?
+
+- [**A**]{.green}
+
+- [**B**]{.green}
+
+- [**C**]{.green}
+
+- [**D**]{.green}
+
+- [**E**]{.green}
+:::
+
+::: {.column width="60%"}
+```{r}
+#| out.width: '95%'
+#| fig.align: 'center'
+#| echo: FALSE
+ggplot(Ergebnis, aes(x = "", y = Prozent, fill = Partei)) +
+  geom_col() +
+  coord_polar(theta = "y") +
+  scale_color_discrete() +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        panel.border = element_blank(),
+        panel.grid=element_blank(),
+        axis.ticks = element_blank()) +
+  theme(axis.text.x=element_blank()) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+```
+:::
+::::
+
+##  Säulendiagramm :muscle:
+
+:::: {.columns}
+::: {.column width="40%"}
+Welche Partei hat die meisten Stimmen?
+
+- [**A**]{.green}
+
+- [**B**]{.green}
+
+- [**C**]{.green}
+
+- [**D**]{.green}
+
+- [**E**]{.green}
+:::
+
+::: {.column width="60%"}
+```{r}
+#| out.width: '95%'
+#| fig.align: 'center'
+#| echo: FALSE
+ggplot(Ergebnis, aes(Partei, weight=Prozent, fill = Partei)) +
+  geom_bar() +
+  scale_color_discrete() +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        panel.border = element_blank(),
+        panel.grid=element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) +
+  theme(axis.text.x=element_blank()) + 
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+```
+:::
+::::
+
+## Absolute Häufigkeiten
+
+::: {.center}
+Wie viele Einwohner:innen sind im Gesangsverein, wie viele nicht?
+:::
+
+:::: {.columns}
+::: {.column width="60%"}
+Tabelliere (Funktion `tally()`) die Variable `gesangsverein` aus der Datentabelle `Kleinstadt`:
+
+```{r tally}
+#| eval: false
+#| echo: true
+tally( ~ gesangsverein,
+       data = Kleinstadt)
+```
+:::
+
+::: {.column width="40%"}
+```{r tally-out}
+#| ref.label: "tally"
+#| echo: FALSE
+```
+
+`r tally( ~ gesangsverein, data = Kleinstadt)[1]` sind im Gesangsverein, `r tally( ~ gesangsverein, data = Kleinstadt)[2]` sind nicht im Gesangsverein.
+:::
+::::
+
+## Relative Häufigkeiten 
+
+- Mathematisch: Sei $h_i$ die Häufigkeit, mit der die Ausprägung $i$ vorkommt, und $n$, die Anzahl Beobachtungen, dann ist die relative Häufigkeit $f_i=\frac{h_i}{n}$.
+
+- Im Beispiel: $$f_{\text{gesangsverein}}=\frac{h_{\text{gesangsverein}}}{n}=\frac{500}{1000}=\frac{1}{2}=0,5$$
+
+
+## Relative Häufigkeiten in {{< fa brands r-project >}}
+
+::: {.center}
+Wie viele Einwohner:innen sind im Gesangsverein, wie viele nicht?
+:::
+
+:::: {.columns}
+::: {.column width="50%"}
+Tabelliere (Funktion `tally()`) die Variable `gesangsverein` aus der Datentabelle `Kleinstadt`, gebe dabei die Anteile (`format = "proportion"`) aus:
+
+```{r tallyprop}
+#| eval: false
+#| echo: true
+tally( ~ gesangsverein,
+       data = Kleinstadt,
+       format = "proportion")
+```
+:::
+
+::: {.column width="50%"}
+```{r tallyprop-out}
+#| ref.label: "tallyprop"
+#| echo: false
+```
+
+Ein Anteil von `r tally( ~ gesangsverein, data = Kleinstadt, format = "proportion")[1]` ist im Gesangsverein, ein Anteil von `r tally( ~ gesangsverein, data = Kleinstadt, format = "proportion")[2]` ist nicht im Gesangsverein.
+
+
+
+:exclamation: In {{< fa brands r-project >}} ist nicht das Komma sondern der Punkt das Dezimaltrennzeichen.
+
+:::
+::::
+
+##  Prozentrechnung :muscle:
+
+Welcher Prozentzahl entspricht eine {{< fa brands r-project >}} Ausgabe von `0.25`?
+
+- [**A**]{.green}: $0,25\%$
+
+- [**B**]{.green}: $2,5\%$
+
+- [**C**]{.green}: $25\%$
+
+- [**D**]{.green}: $250\%$
+
+## Bedingte Verteilung
+
+- Ein Teil der Einwohner:innen ist im Gesangsverein, ein Teil nicht.
+
+- Womit könnte das zusammenhängen &#x1F914;?
+
+::: {.callout-warning}
+## Warnung
+Nur weil zwei Variablen zusammenhängen, heißt das **nicht**, dass ein ursächlicher Zusammenhang vorliegt. 
+:::
+
+## Säulendiagramm -- je Geschlecht 
+
+:::: {.columns}
+::: {.column width="50%"}
+Zeichne ein Säulendiagramm (Funktion `gf_bar()`) 
+der Variable `gesangsverein` 
+getrennt (`|`) nach `geschlecht`
+aus der Datentabelle `Kleinstadt`:
+:::
+
+::: {.column width="50%"}
+```{r gf_barbed}
+#| eval: false
+#| echo: true
+gf_bar( ~ gesangsverein
+        | geschlecht, 
+        data = Kleinstadt)
+```
+:::
+::::
+
+## Säulendiagramm -- je Geschlecht (Ergebnis)
+
+```{r gf_barbed-out}
+#| ref.label: "gf_barbed"
+#| echo: FALSE
+#| out.width: '80%'
+#| fig.align: 'center'
+```
+
+##  Bedingte Verteilung :muscle:
+
+:::: {.columns}
+::: {.column width="60%"}
+Bei welchem Geschlecht ist ein höherer Anteil im Gesangsverein?
+
+- [**A**]{.green}: Frau.
+
+- [**B**]{.green}: Mann.
+
+- [**C**]{.green}: Bei beiden gleich.
+:::
+
+::: {.column width="40%"}
+```{r gf_barbed-out-2}
+#| ref.label: "gf_barbed"
+#| echo: FALSE
+#| out.width: '90%'
+```
+:::
+::::
+
+## Absolute Häufigkeit -- je Geschlecht
+
+:::: {.columns}
+::: {.column width="50%"}
+Tabelliere (Funktion `tally()`) 
+die Variable `gesangsverein` 
+getrennt (`|`) nach `geschlecht`
+aus der Datentabelle `Kleinstadt`:
+
+```{r tally-bed}
+#| echo: true
+#| eval: false
+tally( ~ gesangsverein 
+       | geschlecht,
+       data = Kleinstadt)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: "tally-bed"
+#| eval: true
+```
+:::
+::::
+
+
+## Relative Häufigkeit -- je Geschlecht
+
+:::: {.columns}
+::: {.column width="50%"}
+Tabelliere (Funktion `tally()`) 
+die Variable `gesangsverein` 
+getrennt (`|`) nach `geschlecht`
+aus der Datentabelle `Kleinstadt`
+gebe dabei die Anteile (`format = "proportion"`) aus:
+
+:::
+
+::: {.column width="50%"}
+```{r tally-bed-prop}
+#| echo: true
+#| eval: true
+tally( ~ gesangsverein 
+       | geschlecht,
+       data = Kleinstadt,
+       format = "proportion")
+```
+:::
+::::
+
+##  Relative Häufigkeit :muscle:
+
+:::: {.columns}
+::: {.column width="50%"}
+Bei der Berechnung des Anteils Gesangsverein je Geschlecht. Welche Basis (*Nenner*) liegt für den Anteil unter den Frauen zugrunde?
+
+- [**A**]{.green}: 400
+
+- [**B**]{.green}: 500
+
+- [**C**]{.green}: 600
+
+- [**D**]{.green}: 1000
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: "tally-bed"
+#| eval: true
+```
+:::
+::::
+
+##  Relative Häufigkeit :muscle:
+
+:::: {.columns}
+::: {.column width="50%"}
+Beträgt der Männeranteil im Gesangsverein 25%?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: "tally-bed-prop"
+#| eval: true
+```
+:::
+::::
+
+##  Stichprobe :muscle:
+
+Angenommen wir wollen den Anteil der Frauen in der Kleinstadt analysieren. Als Datenbasis nehmen wir eine zufällige Stichprobe der Personen im Gesangsverein. 
+
+Können wir damit unverzerrt auf alle Einwohner:innen der Kleinstadt schließen?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+
+## Unsere Kleinstadt -- nochmal
+
+```{r}
+#| fig-align: 'center'
+#| out-width: '80%'
+
+d <- tidyr::crossing(x = 1:40,
+              y = 1:25)
+
+Kleinstadt1 <- Kleinstadt %>%
+  arrange(gesangsverein, geschlecht) %>%
+  mutate(geschlecht = fontawesome(ifelse(geschlecht == "Frau", "fa-female", "fa-male")))
+
+Kleinstadt1 <- Kleinstadt1 %>%
+  mutate(x = d$x, y = d$y) 
+
+pklein1 <- ggplot(Kleinstadt1, aes(x = x, y = y, color = gesangsverein)) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 6, aes(label = geschlecht)) +
+  labs(title = "Einwohner:innen Kleinstadt") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5)) +
+  geom_vline(xintercept = 20.5) +
+  geom_vline(xintercept = 16.5, linetype="dotted", linewidth=1.2) + 
+  geom_vline(xintercept = 28.5, linetype="dotted", linewidth=1.2) + 
+  theme(plot.title = element_text(size = 20)) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+pklein1 
+```
+
+## Kreuztabelle
+
+In einer **Kreuztabelle** (Kontingenztafel) werden die Häufigkeiten von Merkmalskombinationen angegeben. Die Zeilen- und Spaltensummen werden auch Randhäufigkeiten genannt. 
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  kable()
+```
+
+## Anteil je Zeile
+
+Anteile in den jeweiligen Zeilen (in Prozent), hier Gesangsverein (Ja, Nein).
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  adorn_percentages(denominator = "row") %>%
+  adorn_pct_formatting(rounding = "half up", digits = 2) %>%
+  adorn_ns(format_func = function(x) {
+     format(x, big.mark = "")}) %>%
+  kable()
+```
+
+## Anteile je Spalte
+
+Anteile in den jeweiligen Spalten (in Prozent), hier Geschlecht (Frau, Mann)
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  adorn_percentages(denominator = "col") %>%
+  adorn_pct_formatting(rounding = "half up", digits = 2) %>%
+  adorn_ns(format_func = function(x) {
+     format(x, big.mark = "")}) %>%
+  kable()
+```
+
+## Anteil an Gesamt
+
+Anteile in der Tabelle insgesamt, hier alle Einwohner:innen der Kleinstadt:
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  adorn_percentages(denominator = "all") %>%
+  adorn_pct_formatting(rounding = "half up", digits = 2) %>%
+  adorn_ns(format_func = function(x) {
+     format(x, big.mark = "")}) %>%
+  kable()
+```
+
+##  Prozent :muscle: {.smaller}
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  kable()
+```
+
+Welche Prozentzahl ist gesucht, wenn Sie wissen wollen: Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Mann ein Mitglied des Gesangsvereins ist?
+
+- [**A**]{.green}: Anteil je Zeile.
+
+- [**B**]{.green}: Anteil je Spalte.
+
+- [**C**]{.green}: Anteil an Gesamt.
+
+- [**D**]{.green}: A und B sind richtig.
+
+## Confusion of the Inverse
+
+- Der Anteil der Männer im Gesangsverein entspricht nicht dem Anteil der Gesangsvereinsmitglieder unter dem Männern.
+
+- Allegemein: Der Anteil A unter B muss nicht dem Anteil B unter A entsprechen. 
+
+::: callout-note
+## Hinweis
+Dieses Phänomen wird uns im Risk Literacy Teil wieder begegnen.
+:::
+
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Einfache deskriptive Statistiken [für kategoriale Variablen] einordnen.
+
+::: aside
+Vergleiche Fragen:
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Was absolute und relative Häufigkeiten sind.
+
+- Wie Säulendiagramme erstellt und gelesen werden können.
+
+- Was Kreuztabellen sind und wie sie gelesen werden können.
+
+
+::: {.callout-important}
+## Wichtig
+Bei Anteilen immer fragen: Anteil *wovon*?
+:::
+
