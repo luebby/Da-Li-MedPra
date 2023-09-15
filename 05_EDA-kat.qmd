@@ -608,7 +608,7 @@ Welche Prozentzahl ist gesucht, wenn Sie wissen wollen: Wie groß ist die Wahrsc
 
 - Der Anteil der Männer im Gesangsverein entspricht nicht dem Anteil der Gesangsvereinsmitglieder unter dem Männern.
 
-- Allegemein: Der Anteil A unter B muss nicht dem Anteil B unter A entsprechen. 
+- Allgemein: Der Anteil A unter B muss nicht dem Anteil B unter A entsprechen. 
 
 ::: callout-note
 ## Hinweis

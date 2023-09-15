@@ -103,9 +103,9 @@ Daten kommen in vielen Formen. U. a. als
 
 - Tabellen mit Zahlen und/oder Zeichenketten.
 
-- Texte
+- Texte.
 
-- Bilder
+- Bilder.
 
 ::: callout-important
 ## Wichtig

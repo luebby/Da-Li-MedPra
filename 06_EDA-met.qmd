@@ -567,7 +567,7 @@ Bei welcher Ernährung leben die Fliegen durchschnittlich länger?
 
 - [**C**]{.green}: In beiden Fällen gleich.
 
-##  Lebenserwartung (I/II) :muscle:
+##  Lebenserwartung (II/II) :muscle:
 
 ```{r}
 #| echo: true

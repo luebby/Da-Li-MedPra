@@ -117,6 +117,6 @@ Dieses Phänomen wird *Simpson Paradox* genannt.
 
 - Wenn wir diese nicht berücksichtigen können sie uns in die irre führen :fearful:
 
----
+## Daten sind viel -- aber nicht alles
 
 ![](img/Meme_Deming.jpg){width=60% fig-align="center"}
