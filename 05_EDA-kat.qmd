@@ -37,7 +37,7 @@ Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Lite
 
 - Eine sehr weit verbreitete, freie und offene Software dafür ist [{{< fa brands r-project >}}](https://cran.r-project.org/). Verfügbar auch über die [Posit Cloud](https://posit.cloud/).
 
-- In diesem Modul müssen Sie nicht programmieren, aber vielleicht wollen jetzt oder später in Studium oder Beruf Daten auswerten? :muscle:
+- In diesem Modul müssen Sie nicht programmieren, aber vielleicht wollen Sie jetzt oder später in Studium oder Beruf Daten auswerten? :muscle:
 
 ## Warum Code?
 
@@ -606,7 +606,7 @@ Welche Prozentzahl ist gesucht, wenn Sie wissen wollen: Wie groß ist die Wahrsc
 
 ## Confusion of the Inverse
 
-- Der Anteil der Männer im Gesangsverein entspricht nicht dem Anteil der Gesangsvereinsmitglieder unter dem Männern.
+- Der Anteil der Männer im Gesangsverein entspricht nicht dem Anteil der Gesangsvereinsmitglieder unter den Männern.
 
 - Allgemein: Der Anteil A unter B muss nicht dem Anteil B unter A entsprechen. 
 

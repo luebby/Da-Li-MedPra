@@ -99,7 +99,7 @@ Gemäß [ISO/IEC 2382:2015](https://www.iso.org/standard/63598.html)
 
 ## Formen von Daten
 
-Daten kommen in vielen Formen. U. a. als
+Daten kommen in vielen Formen vor. U. a. als
 
 - Tabellen mit Zahlen und/oder Zeichenketten.
 

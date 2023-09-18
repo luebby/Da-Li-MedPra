@@ -187,7 +187,7 @@ Was gilt für die Variable *Patient:innenzufriedenheit*?
 
 - Beobachtungswerte sind auf zwei Arten organisiert. Jeder Wert gehört zu einer **Variablen** und einer **Beobachtung**. 
 
-- Eine **Variable** enthält alle Werte, die dasselbe zugrunde liegende Eigenschaft (z.B. Geschlecht, Größe) in verschiedenen Einheiten messen. 
+- Eine **Variable** enthält alle Werte, die dieselbe zugrunde liegende Eigenschaft (z.B. Geschlecht, Größe) in verschiedenen Einheiten messen. 
 
 - Eine **Beobachtung** enthält alle Werte, die für dieselbe Einheit (z. B.  Person, Praxis) über die Eigenschaften hinweg gemessen werden.
 
@@ -393,9 +393,9 @@ Für zwei Beobachtungen $i,j$ gelte: $\color{green}{x}_i=\color{green}{x}_j$. Fo
 
 Eine Stichprobe ziehen ist wie eine Suppe probieren 🥣:
 
-- **Population**: Die Menge, über die eine Aussage getroffen werden soll. [Salzgehalt der Suppe]{.blue}
+- **Population**: Die Menge, über die eine Aussage getroffen werden soll. [Salzgehalt der Suppe im Topf]{.blue}
 
-- **Stichprobe**: Die vorliegenden Daten, mit denen ich eine Aussage treffen kann. [Salzgehalt des Löffels]{.green}
+- **Stichprobe**: Die vorliegenden Daten, mit denen ich eine Aussage treffen kann. [Salzgehalt der Suppe auf dem Löffels]{.green}
 
 ## Parameter und Statistik (I/II)
 
@@ -414,13 +414,13 @@ $$\color{green}{Statistik} = \color{blue}{Wert\,Parameter} + Verzerrung + Rausch
 
 ## Parameter und Statistik (II/II)
 
-- [Statistik]{.green}: Salzgehalt des Löffels.
+- [Statistik]{.green}: Salzgehalt der Suppe auf dem Löffel.
 
-- [Wert Parameter]{.blue}: Salzgehalt der Suppe.
+- [Wert Parameter]{.blue}: Salzgehalt der Suppe im Topf.
 
 - Verzerrung: Systematische Abweichung, z.B. durch Löffel nur an der Oberfläche.
 
-- Rauschen: Zufällige Abweichung zwischen Salzgehalt Löffel und Suppe.
+- Rauschen: Zufällige Abweichung zwischen Salzgehalt Löffel und Topf.
 
 ::: callout-warning
 ## Warnung

@@ -121,7 +121,7 @@ gf_histogram( ~ lebensdauer,
         binwidth = 4,
         center = 2) |>
   gf_labs(x = "Lebensdauer (Tage)", 
-          y="Häufigkeit",
+          y = "Häufigkeit",
           title = "Histogramm")
 ```
 :::
@@ -401,7 +401,7 @@ $x_{0.5}=`r median( ~ lebensdauer, data = Fliegen)`$, d.h., mindestens 50% errei
 
 ##  Quartile :muscle:
 
-Das 25%-Quantil wird auch als erstes Quartil, Q1, bezeichnet, das 75%-Quantil als das drittes Quartil, Q3,  -- mit dem Median als zweites Quartil.
+Das 25%-Quantil wird auch als erstes Quartil, Q1, bezeichnet, das 75%-Quantil als das dritte Quartil, Q3,  -- mit dem Median als zweites Quartil.
 
 Welche Aussage stimmt?
 
@@ -460,7 +460,7 @@ Quelle: [@annaegalite](https://twitter.com/annaegalite/status/116644664520421376
 
 - Beobachtungswerte $x_i$ variieren -- sie stimmen nicht mit dem arithmetischen Mittelwert $\bar{x}$ überein.
 
-- Um zu gucken wir *gut* der Mittelwert die Daten beschreibt, werden die Abweichungen zum Mittelwert $x_i-\bar{x}$ betrachtet:
+- Um zu gucken wie *gut* der Mittelwert die Daten beschreibt, werden die Abweichungen zum Mittelwert $x_i-\bar{x}$ betrachtet:
 
 $$s^2 = \frac{1}{n-1} \sum_{i=1}^{n}(x_i-\bar{x})^2$$
 

@@ -115,7 +115,7 @@ Dieses Phänomen wird *Simpson Paradox* genannt.
 
 - Daten sind nicht einfach da -- sie haben eine Entstehungsgeschichte.
 
-- Wenn wir diese nicht berücksichtigen können sie uns in die irre führen :fearful:
+- Wenn wir diese nicht berücksichtigen können sie uns in die Irre führen :fearful:
 
 ## Daten sind viel -- aber nicht alles
 
