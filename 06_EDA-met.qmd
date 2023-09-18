@@ -87,6 +87,10 @@ Welches Skalenniveau hat die Variable ``r colnames(Fliegen)[1]``?
 - [**C**]{.green}: Intervallskaliert
 - [**D**]{.green}: Verhältnisskaliert
 
+## Beschreibende Statistik
+
+![](img/Meme_Zusammenfassung.jpg){width=80% fig-align="center"}
+
 ## Histogramme
 
 - Zeigen die Verteilung eines metrischen Merkmals. 
@@ -152,6 +156,25 @@ Welches Intervall kommt am häufigsten vor?
 ```
 :::
 ::::
+
+## Rang 
+
+- Der **Rang** einer Beobachtung ist ihre Position in einer aufsteigend sortierten Liste.
+
+- Sei $x_i$ der Wert der Beobachtung $i$ und es liegen $n$ Beobachtungen vor, dann gilt für die sortierten Beobachtungen: 
+
+$$x_{\underbrace{(1)}_{\text{Rang 1}}} \leq x_{(2)} \leq  x_{(3)} \leq \ldots \leq x_{\underbrace{(n)}_{\text{Rang n}}}$$
+
+##  Rang :muscle:
+
+Fliege *Stups* lebt $x_1=6$ Tage, Fliege *Strich* $x_2=4$ Tage. Welche Fliege hat den niedrigeren Rang?
+
+
+- [**A**]{.green}: Stups.
+
+- [**B**]{.green}: Strich.
+
+- [**C**]{.green}: Keine allgemeine Antwort möglich.
 
 ## Modus
 
@@ -319,7 +342,7 @@ Bis zum `r qdata( ~ lebensdauer, p = 0.9, data = Fliegen)`. Tag (einschließlich
 ::: {.column width="50%"}
 ```{r emp}
 #| echo: FALSE
-#| out.width: '92%'
+#| out.width: '80%'
 #| fig.align: 'center'
 x <- 0:70
 y <- pdata ( ~ lebensdauer, q = x, data = Fliegen)
@@ -332,7 +355,7 @@ gf_line(y ~ x) %>%
 ::: {.column width="50%"}
 ```{r quant}
 #| echo: FALSE
-#| out.width: '92%'
+#| out.width: '80%'
 #| fig.align: 'center'
 x <- 0:100/100
 y<- qdata ( ~ lebensdauer, p = x, data = Fliegen)
@@ -405,10 +428,6 @@ mean( ~ lebensdauer, data = Fliegen)
 
 Die *durchschnittliche* Lebensdauer der Fliegen liegt bei $\bar{x}=`r round(mean( ~ lebensdauer, data = Fliegen),2)`$ Tagen. 
 
-## Beschreibende Statistik
-
-![](img/Meme_Zusammenfassung.jpg){width=80% fig-align="center"}
-
 ## Lagemaße
 
 - Für nominale Daten kann nur der Modus, für ordinale zuätzlich der Median und für metrische auch noch der arithmetiche Mittelwert bestimmt werden.
@@ -428,6 +447,14 @@ Welche Kennzahlen ändern sich, wenn die Lebensdauer der am längsten lebenden F
 - [**C**]{.green}: Nur Median.
 
 - [**D**]{.green}: Arithmetischer Mittelwert und Median ändern sich.
+
+## Robustheit
+
+![](img/Meme_Ausreißer.jpg){width=70% fig-align="center"}
+
+::: {.aside}
+Quelle: [@annaegalite](https://twitter.com/annaegalite/status/1166446645204213760), Übersetzung KL.
+:::
 
 ## Varianz
 
