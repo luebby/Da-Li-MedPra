@@ -182,7 +182,7 @@ Wie ist der Umgang mit ChatGPT und Co. in dieser Vorlesung geregelt?
 
 - [**A**]{.green}: Darf nicht genutzt werden.
 
-- [**D**]{.green}: Muss genutzt werden.
+- [**B**]{.green}: Muss genutzt werden.
 
 - [**C**]{.green}: Darf genutzt werden, es ist aber ratsam zu prüfen, ob die Ausgabe überzeugend klingt.
 
