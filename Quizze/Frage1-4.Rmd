@@ -1,0 +1,30 @@
+Question
+========
+
+Stimmt die Aussage: *Daten sprechen für sich selbst*? (*pauschal*)
+
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Für korrete Schlüsse aus Daten muss immer die Entstehunggeschichte (Erhebung, Messung etc.) berücksichtig werden.
+
+Answerlist
+----------
+
+* Falsch
+* Richtig
+
+
+Meta-information
+================
+exname: Frage 1-4
+extype: schoice
+exsolution: 01

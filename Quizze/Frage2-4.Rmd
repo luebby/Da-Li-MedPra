@@ -1,0 +1,34 @@
+Question
+========
+
+Die Dozentin stellt fest, dass die Motivation der Studierenden mit der Uhrzeit zusammenhängt, und zwar unterschiedlich für Frauen und Männer. Welche Aussage stimmt?
+
+Answerlist
+----------
+
+* Es gibt eine abhängige Variable (Motivation), eine unabhängige Variable (Uhrzeit) und eine Kovariable (Geschlecht).
+* Es gibt eine abhängige Variable (Uhrzeit), eine unabhängige Variable (Motivation) und eine Kovariable (Geschlecht).
+* Es gibt zwei abhängige Variablen (Motivation und Geschlecht) und eine unabhängige Variable (Uhrzeit).
+* Es gibt eine abhängige Variable (Geschlecht) und zwei unabhängige Variablen (Motivation und Uhrzeit).
+
+
+Solution
+========
+
+Motivation ist die abhängige Variable $Y$, die evtl. von der unabhängigen Variablen Uhrzeit $X$ abhängt. 
+Das Merkmal Geschlecht beeinflusst die abhängige Variable bzw. den Zusammenhang und ist dadurch hier eine Kovariable $Z$. 
+Aber auch eine Modellierung mit Geschlecht und Uhrzeit als unabhängige Variablen und Motivation als abhängige ist möglich.
+
+
+Answerlist
+----------
+* Richtig
+* Falsch
+* Falsch
+* Falsch
+
+Meta-information
+================
+exname: Frage 2-4
+extype: schoice
+exsolution: 1000

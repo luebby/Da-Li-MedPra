@@ -1,0 +1,40 @@
+Question
+========
+
+Stimmt die Aussage: *Wer daten-literat ist, stellt keine Daten von sich zur Verfügung*? (*pauschal*)
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Data Literacy umfasst die Fähigkeiten, Daten auf kritische Art und Weise zu sammeln, zu managen, zu bewerten und anzuwenden. Wenn Daten Entscheidungsprozesse unterstützen sollen, braucht es kompetente Antworten auf vier grundlegende Fragen:
+
+- Was will ich mit Daten machen? Daten und Datenanalysen sind kein Selbstzweck, sondern dienen einer konkreten Anwendung in der realen Welt.
+
+- Was kann ich mit Daten machen? Datenquellen und deren Qualität sowie der Stand der technischen und methodischen Entwicklungen eröffnen Möglichkeiten und setzen Grenzen.
+
+- Was darf ich mit Daten machen? Alle gesetzlichen Regeln der Datennutzung (zum Beispiel Datenschutz, Urheberrechte und Lizenzfragen) müssen immer mitbedacht werden.
+
+- Was soll ich mit Daten machen? **Weil Daten eine wertvolle Ressource darstellen, leitet sich daraus ein normativer Anspruch ab, sie zum Wohl von Individuen und Gesellschaft zu nutzen.**
+
+Quelle: <https://www.stifterverband.org/charta-data-literacy>
+
+Answerlist
+----------
+
+* Falsch
+* Richtig
+
+
+
+Meta-information
+================
+exname: Frage 1-1
+extype: schoice
+exsolution: 01

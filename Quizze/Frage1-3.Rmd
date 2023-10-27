@@ -1,0 +1,32 @@
+Question
+========
+
+Ihnen liegen Tonaufnahmen von Herzgeräuschen vor. Handelt es sich dabei um Daten?
+
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Gemäß ISO/IEC 2382:2015 sind Daten eine reinterpretierbare Darstellung von Informationen in einer formalisierten Weise, die für die Kommunikation, Interpretation oder Verarbeitung geeignet ist. 
+
+Dies gilt für Tonaufnahmen.
+
+Answerlist
+----------
+
+* Richtig
+* Falsch
+
+
+Meta-information
+================
+exname: Frage 1-3
+extype: schoice
+exsolution: 10

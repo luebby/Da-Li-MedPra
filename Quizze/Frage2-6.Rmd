@@ -1,0 +1,29 @@
+Question
+========
+
+Um herauszufinden wie viele der Patient:innen einer Praxis in einer seniorengerechten Wohnung leben, notiert sich eine Ärztin nach jedem Hausbesuch den Wert dieser Variablen. 
+
+Um was handelt es sich bei den Patient:innen mit Hausbesuch?
+
+Answerlist
+----------
+
+* Um die Stichprobe.
+* Um die Population.
+
+
+Solution
+========
+
+Die Patient:innen mit Hausbesuch sind nur eine Stichprobe aller Patient:innen der Praxis (= Zielpopulation). 
+
+Answerlist
+----------
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: Frage 2-6
+extype: schoice
+exsolution: 10

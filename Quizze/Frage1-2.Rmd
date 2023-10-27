@@ -1,0 +1,51 @@
+Question
+========
+
+Was ist *kein* Bestandteil des Prozessmodells der Daten-Wertschöpfung?
+
+Answerlist
+----------
+
+* Datenkultur etablieren.
+* Daten interpretieren.
+* Daten bereitstellen.
+* Handeln ableiten.
+* Ergebnisse interpretieren.
+* Daten auswerten.
+* Alle genannten Themen sind Bestandteil des Prozessmodells.
+
+
+Solution
+========
+
+6 Kompetenzfelder, abgeleitet aus den Prozessschritten: 
+
+- (A) Datenkultur etablieren 
+- (B) Daten bereitstellen 
+- (C) Daten auswerten 
+- (D) Ergebnisse interpretieren 
+- (E) Daten interpretieren 
+- (F) Handeln ableiten. 
+
+Die Kompetenzfelder (A) bis (C) entsprechen den produktiven Prozessschritten vom System zu den Daten zu den Datenprodukten, die Kompetenzfelder (D) bis (F) entsprechen den rezeptiven Prozessschritten von Datenprodukten zu Daten zu System.
+
+Quelle: S. 33 aus HFD 47/19 - Future Skills: Ein Framework für Data Literacy
+
+Answerlist
+----------
+
+* Falsch
+* Falsch
+* Falsch
+* Falsch
+* Falsch
+* Falsch
+* Richtig
+
+
+
+Meta-information
+================
+exname: Frage 1-2
+extype: schoice
+exsolution: 0000001

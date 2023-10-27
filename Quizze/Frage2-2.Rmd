@@ -1,0 +1,34 @@
+Question
+========
+
+Welches Kriterium ist verletzt, wenn die Dozentin statt *Interesse der Studierenden* die Variable *Angst vor der Klausur* gemessen hat?
+
+Answerlist
+----------
+
+* Genauigkeit.
+* Objektivität.
+* Reliabilität.
+* Validität.
+
+
+Solution
+========
+
+Eine Messung ist valide, wenn die erhobenen Werte geeignete Kennzahlen für die zu untersuchende Fragestellung liefern. 
+Es wird gemessen, was gemessen werden soll. 
+Hier wird das nicht erfüllt, daher ist das Kriterium der Validität verletzt.
+Validität ist insbesondere bei latenten Variablen zu überprüfen.
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Falsch
+* Richtig
+
+Meta-information
+================
+exname: Frage 2-2
+extype: schoice
+exsolution: 0001

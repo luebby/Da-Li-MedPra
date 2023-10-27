@@ -1,0 +1,361 @@
+# Normalverteilung
+
+```{r}
+#| include: false
+library(mosaic)
+library(knitr)
+library(kableExtra)
+options(OutDec = ',')
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+```
+
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Sie lernen eine theoretische Verteilung, die Normalverteilung, kennen.
+
+- Sie können die z-Transformation anwenden und die Ergebnisse interpretieren.
+
+- Sie wissen, was die 68-95-99,7%-Regel bedeutet.
+
+## Un-Normal (?)
+
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/other-stats-artwork/not_normal.png){fig-align="center" width="50%"}
+
+::: {.aside}
+Abbildung: [@allisonhorst](https://github.com/allisonhorst/stats-illustrations)
+:::
+
+## Menschliche Größe
+
+- Manche Menschen haben eine hohe Körpergröße, manche eine eher kleine. 
+
+- Wie groß (in cm) ein Mensch wird, hängt von vielen Faktoren ab, z.B. Ernährung, aber auch von den Genen -- und ist im Laufe der Zeit gestiegen.
+
+
+##  Skalenniveau :muscle:
+
+Welches Skalenniveau hat die Variable *Körpergröße* (in cm)?
+
+- [**A**]{.green}: Nominal
+
+- [**B**]{.green}: Ordinal
+
+- [**C**]{.green}: Intervallskaliert
+
+- [**D**]{.green}: Verhältnisskaliert
+
+
+## Große Frauen
+
+- Zielpopulation (biologische) Frauen zwischen 20 und 25 gehen wir von einem Mittelwert von  168 cm aus^[Siehe z.B. [Statistisches Bundesamt](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitszustand-Relevantes-Verhalten/Tabellen/liste-koerpermasse.html)] 
+- Bei einer Standardabweichung von 6 cm.^[Hier liegen keine *offiziellen* Daten vor, siehe aber z.B. [https://doi.org/10.1016/j.ehb.2007.02.002](https://doi.org/10.1016/j.ehb.2007.02.002) oder [https://doi.org/10.7554/eLife.20320](https://doi.org/10.7554/eLife.20320).]
+
+## Normalverteilung
+
+- Es gibt gute Gründe dafür (siehe z.B. [Our World in Data](https://ourworldindata.org/human-height#height-is-normally-distributed)), davon auszugehen, dass die Größe normalverteilt ist.
+
+```{r norm}
+#| echo: false
+#| out.width: '95%'
+#| fig.align: 'center'
+gf_dist("norm", mean = 168, sd = 6) |> 
+  gf_labs(title = "Größenverteilung Frauen",
+          subtitle = "Dichtefunktion", x = "x (in cm)", y = "f(x)")
+```
+
+##  Verteilungsform :muscle:
+
+::: {.columns}
+:::: {.column width="60%"}
+
+Was gilt für die Verteilung?
+
+- [**A**]{.green}: Symmetrisch
+
+- [**B**]{.green}: Rechtschief
+
+- [**C**]{.green}: Linksschief
+::::
+
+:::: {.column width="40%"}
+```{r}
+#| echo: FALSE
+#| ref.label: "norm"
+```
+::::
+:::
+
+
+## Verteilungsfunktion
+
+- Die **Verteilungsfunktio**n $F(x)$ sagt, wie wahrscheinlich es ist, einen Wert $\leq x$ zu beobachten: $F(x)=Pr(X\leq x)$, und damit $0\leq F(x) \leq 1$.
+
+
+```{r}
+#| echo: false
+#| out.width: '50%'
+#| fig.align: 'center'
+gf_dist("norm", mean = 168, sd = 6, kind = "cdf") |> 
+  gf_labs(title = "Größenverteilung Frauen",
+          subtitle = "Verteilungsfunktion", x = "x (in cm)", y = "F(x)")
+```
+
+## Formeln Normalverteilung :scream:
+
+- Dichtefunktion: 
+$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+
+- Verteilungsfunktion:
+$$F(x) = \int_{-\infty}^x f(u)\, du= \int_{-\infty}^x \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(u-\mu)^2}{2\sigma^2}} \,du$$
+
+## Parameter Normalverteilung :scream:
+
+- $\mu=E(X)=\int_{-\infty}^{\infty} x \cdot f(x) \, dx$ (gr.: *my*) der Mittelwert der Verteilung (Erwartungswert).
+  
+- $\sigma^2=Var(X)=\int_{-\infty}^{\infty} (x-\mu)^2 \cdot f(x) \, dx$ (gr.: *sigma*) die Varianz der Verteilung.
+
+
+##  $\mu$ :muscle:
+
+Gehen Sie auf die Seite <https://fomshinyapps.shinyapps.io/Normalverteilung/>. 
+
+Was passiert, wenn $\mu$ größer wird?
+
+Die Verteilung ...
+
+- [**A**]{.green}: wandert nach links.
+
+- [**B**]{.green}: wandert nach rechts.
+
+- [**C**]{.green}: wird flacher.
+
+- [**D**]{.green}: wird spitzer.
+
+##  $\sigma$ :muscle:
+
+Gehen Sie auf die Seite <https://fomshinyapps.shinyapps.io/Normalverteilung/>. 
+
+Was passiert, wenn $\sigma$ kleiner wird?
+
+Die Verteilung ...
+
+- [**A**]{.green}: wandert nach links.
+
+- [**B**]{.green}: wandert nach rechts.
+
+- [**C**]{.green}: wird flacher.
+
+- [**D**]{.green}: wird spitzer.
+
+## Wahrscheinlichkeiten
+
+::: {.columns}
+:::: {.column width="60%"}
+
+- Wenn die Daten normalverteilt sind, und wir $\mu$ und $\sigma$ kennen, können wir Wahrscheinlichkeiten bestimmen, z.B., dass eine Frau kleiner oder gleich 160 cm ist:
+
+$$Pr(X \leq 160) = F(160) = `r round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$$
+::::
+
+:::: {.column width="40%"}
+```{r}
+#| echo: false
+#| out.width: '95%'
+#| fig.align: 'center'
+xpnorm(q = 160, mean = 168, sd = 6, return = "plot")
+```
+::::
+:::
+
+
+##  Wahrscheinlichkeit (I/II) :muscle:
+
+Was wird für die Wahrscheinlichkeit gelten, dass eine Frau kleiner oder gleich 180 cm groß ist.
+
+- [**A**]{.green}: $Pr(X \leq 180) < `r round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$
+
+- [**B**]{.green}: $Pr(X \leq 180) = `r round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$
+
+- [**C**]{.green}: $Pr(X \leq 180) > `r round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$
+
+##  Wahrscheinlichkeit (II/II) :muscle:
+
+Was wird für die Wahrscheinlichkeit gelten, größer als 160 cm ist?
+
+- [**A**]{.green}: $Pr(X > 160) = `r round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$
+
+- [**B**]{.green}: $Pr(X > 160) = `r 1-round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$
+
+- [**C**]{.green}: Kann nicht beantwortet werden.
+
+## Rechenregeln Wahrscheinlichkeit
+
+- $Pr(X \leq b) = F(b)$.
+
+- $Pr(X > a) = 1 - Pr(X \leq a) = 1 - F(a)$.
+
+- $Pr(a< X \leq b) = F(b)-F(a)$.
+
+## Frauen zwischen 160 und 180
+
+::: {.columns}
+:::: {.column width="60%"}
+
+- Wenn die Daten normalverteilt sind, und wir $\mu$ und $\sigma$ kennen, können wir Wahrscheinlichkeiten bestimmen, z.B., dass eine Frau zwischen 160 cm und 180 cm groß ist:
+
+$$Pr(160 < X \leq 180) = F(180) - F(160) = `r round(pnorm(q = 180, mean = 180, sd = 6) ,4) - round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$$
+::::
+
+:::: {.column width="40%"}
+```{r}
+#| echo: false
+#| out.width: '95%'
+#| fig.align: 'center'
+xpnorm(q = c(160,180), mean = 168, sd = 6, return = "plot")
+```
+::::
+:::
+
+
+##  Werte Einordnen :muscle:
+
+Ein Laborwert einer Patientin liegt bei 42. 
+
+Ist dieser Wert hoch?
+
+- [**A**]{.green}: Ja.
+
+- [**B**]{.green}: Nein.
+
+- [**C**]{.green}: Kann mit der gegebenen Information nicht beantwortet werden.
+
+## z-Wert
+
+$$z=\frac{x-\mu}{\sigma}$$
+
+- Der **z-Wert** erlaubt bei bekannten $\mu$ und $\sigma$ eine Einschätzung des Wertes $x$:
+
+- Im Zähler: $x-\mu$ Ist der Wert $x$ groß oder klein im Vergleich zum Mittelwert $\mu$?
+
+- Im Nenner: Einordnung der Abweichung $x-\mu$. Ist diese groß oder klein relativ zur Standardabweichung $\sigma$?
+
+## Beispiel z-Wert  
+
+- Z.B. hat eine 174 cm große Frau einen z-Wert von +1:
+
+$$z=\frac{x-\mu}{\sigma}=\frac{174-168}{6}=+1$$ 
+
+D.h., ihre Größe ist eine Standardabweichung über dem Mittelwert
+
+## Ihre Größe im Vergleich :muscle: :pencil: `r icons::fontawesome$solid$calculator`
+
+Bestimmen Sie *Ihren* persönlichen z-Wert.
+
+::: callout-important
+## Wichtig
+In der Klausur werden Sie vorgerechnete Antwortalternativen erhalten.
+:::
+
+## z-Wert (I/II) :muscle:
+
+Was würde für einen Mann gelten, der genau so groß ist wie eine Frau.
+
+- [**A**]{.green}: Sein z-Wert wäre kleiner als ihrer.
+
+- [**B**]{.green}: Sein z-Wert wäre genau so groß wie ihrer.
+
+- [**C**]{.green}: Sein z-Wert wäre größer als ihrer.
+
+## z-Wert (II/II) :muscle:
+
+Gabi und Klaus haben zwei verschiedene Tests geschrieben. Dabei hat Gabi bei Test A ($\mu = 60, \sigma = 10$) $75$ Punkte erreicht, Klaus bei Test B ($\mu = 250, \sigma = 25$) $275$ Punkte. 
+
+Beide Tests sollen das Gleiche testen und die Testergebnisse seien normalverteilt. Wervon beiden hat besser abgeschnitten?
+
+- [**A**]{.green}: Gabi.
+
+- [**B**]{.green}: Klaus.
+
+- [**C**]{.green}: Beide gleich gut.
+
+## $\mu \pm 1 \cdot \sigma$ 
+
+```{r}
+#| echo: false
+#| out.width: '85%'
+#| fig.align: 'center'
+xpnorm(q = c(168-1*6,168+1*6), mean = 168, sd = 6, return = "plot")
+```
+
+## $\mu \pm 2 \cdot \sigma$ 
+
+```{r}
+#| echo: false
+#| out.width: '85%'
+#| fig.align: 'center'
+xpnorm(q = c(168-2*6,168+2*6), mean = 168, sd = 6, return = "plot")
+```
+
+## $\mu \pm 3 \cdot \sigma$ 
+
+```{r}
+#| echo: false
+#| out.width: '85%'
+#| fig.align: 'center'
+xpnorm(q = c(168-3*6,168+3*6), mean = 168, sd = 6, return = "plot")
+```
+
+
+## 68-95-99,7\,\%$-Regel
+
+Bei Normalverteilung liegen ...
+
+- $68\,\%$ der Werte im Bereich $\mu\pm 1 \cdot \sigma$.
+
+- $95\,\%$ der Werte im Bereich $\mu\pm 2 \cdot \sigma$.
+
+- $99{,}7\,\%$ der Werte im Bereich $\mu\pm 3 \cdot \sigma$.
+
+
+## $68$-$95$-$99,7%-Regel :muscle:
+
+Die Daten seien normalverteilt mit $\mu=100$ und $\sigma=15$. 
+
+Ist dann $x=150$ ein *üblicher* Wert?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Einfache deskriptive Statistiken und Abbildungen einordnen.
+
+Die Wichtigkeit der Standardisierung in Erhebung und Auswertung verstehen.
+
+::: aside
+Vergleiche Fragen:
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Sie lernen eine theoretische Verteilung, die Normalverteilung, kennen.
+
+- Sie können die z-Transformation anwenden und die Ergebnisse interpretieren.
+
+- Sie wissen, was die 68-95-99,7%-Regel bedeutet.
+
+::: callout-tip
+## Tipp
+Berechnung z.B. über <https://fomshinyapps.shinyapps.io/Normalverteilung2/>
+:::
+
+

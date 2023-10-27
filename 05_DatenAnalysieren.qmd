@@ -1,0 +1,509 @@
+# Daten analysieren
+
+```{r}
+#| include: false
+library(mosaic)
+library(knitr)
+library(kableExtra)
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+
+PatientInnen <-
+  data.frame(
+    Wochentag = c(rep("Mo", 10), rep("Di", 15), rep("Mi", 20), rep("Do", 15), rep("Fr", 10),
+            rep("Mo", 5), rep("Di", 10), rep("Mi", 5), rep("Do", 10), rep("Fr", 5),
+            rep("Mo", 0), rep("Di", 0), rep("Mi", 5), rep("Do", 5), rep("Fr", 0),
+            rep("Mo", 5), rep("Di", 5), rep("Mi", 5), rep("Do", 5), rep("Fr", 5),
+            rep("Mo", 5), rep("Di", 5), rep("Mi", 0), rep("Do", 0), rep("Fr", 10),
+            rep("Mo", 15), rep("Di", 5), rep("Mi", 5), rep("Do", 5), rep("Fr", 10)),
+     NoShows = c(rep(0,70), rep(1,40), rep(2,10), rep(3,20), rep(4,20), rep(5,40))
+  )
+```
+
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Die Verwendung von Säulendiagrammen.
+
+- Was absolute und relative Häufigkeiten sind.
+
+- Die Bedeutung und Berechnung von Lagemaßen.
+
+- Sie lernen unterschiedliche Verteilungsformen kennen.
+
+- Die Bedeutung der Varianz.
+
+## Prozessmodell (Wiederholung)
+
+![](img/DL-Framework.png){width=80% fig-align="center"}
+
+::: aside
+Quelle: Abbildung 6 aus [HFD 47/19 - Future Skills: Ein Framework für Data Literacy](https://hochschulforumdigitalisierung.de/sites/default/files/dateien/HFD_AP_Nr_47_DALI_Kompetenzrahmen_WEB.pdf)
+:::
+
+## Datenkultur etabieren
+
+
+![](img/Wartezimmer.jpg){width=40% fig-align="center"}
+
+In der Idealvorstellung sind alle Patient:innen pünktlich und zum vereinbarten Termin. Leider kommen manche doch nicht, sind sogenannte No-Shows.
+
+::: aside
+Bidlquelle: <a href="https://www.freepik.com/free-vector/vaccination-flat-concept-with-senior-adult-getting-infection-preventing-injection-vector-illustration_39927275.htm">Image by macrovector</a> on Freepik
+:::
+
+
+## Daten bereitstellen
+
+Eine Praxismanagerin erhebt über 200 Tage dazu Daten. Sie notiert sich wie viele Patient:innen an dem jeweiligen Tag nicht erschienen sind.
+
+::: aside
+Quelle und Anregung: [Melinda Miller Holt & Stephen M. Scariano (2009) Mean, Median and Mode from a Decision Perspective, Journal of Statistics Education, 17:3.](https://doi.org/10.1080/10691898.2009.11889533)
+
+:::
+
+
+## Datentabelle
+
+|               | Wochentag | Anzahl No-Shows|
+|---------------|------------|---------------|
+03.07.2023      | Mo         | 5
+11.07.2023      | Di         | 0
+12.07.2023      | Mi         | 4
+$\vdots$        | $\vdots$   | $\vdots$
+
+##  Variable :muscle:
+
+Was ist hier eine Variable?
+
+- [**A**]{.green}: Der 03.07.2023.
+
+- [**B**]{.green}: Die Anzahl No-Shows.
+
+##  Skalenniveau :muscle:
+
+Welches Skalenniveau hat die Variable *Anzahl No-Shows*?
+
+- [**A**]{.green}: Nominal
+
+- [**B**]{.green}: Ordinal
+
+- [**C**]{.green}: Intervallskaliert
+
+- [**D**]{.green}: Verhältnisskaliert
+
+
+## Statistik
+
+![](img/Meme_Zusammenfassung.jpg){width=80% fig-align="center"}
+
+## Daten zusammenfassen :muscle: :pencil:
+
+Sie finden die Daten unter <https://fomshinyapps.shinyapps.io/NoShows/>.
+
+Ihre Chefin möchte von Ihnen eine Zahl haben, mit der Sie die Daten zusammenfassen. Unter dem Reiter `Daten zusammenfassen` können Sie diese über einen Schieberegler festlegen.
+
+::: aside
+Ich freue mich über eine anonyme Datenspende. Die gewählten Zahlen werden zu Forschungszwecken ausgewertet.
+:::
+
+## Säulendiagramm
+
+::: {.columns}
+:::: {.column width="60%"}
+- Visualisierung der *Verteilung* einer Variablen.
+
+- Werte (=Ausprägungen) der Variablen auf der x-Achse.
+
+- Häufigkeit, mit der die Variable den Wert auf der x-Achse annimmt auf der y-Achse.
+::::
+
+:::: {.column width="40%"}
+```{r barplot}
+#| out.width: '95%'
+#| fig.align: 'center'
+gf_bar( ~ factor(NoShows), data = PatientInnen) |>
+  gf_labs(x = "Anzahl No-Shows", 
+          y = "Häufigkeit")
+```
+::::
+:::
+
+##  Säulendiagramm :muscle:
+
+Bei welchem Skalenniveau können die Ausprägungen auf der x-Achse vertauscht werden?
+
+- [**A**]{.green}: Nominal
+
+- [**B**]{.green}: Ordinal
+
+- [**C**]{.green}: Metrisch
+
+- [**D**]{.green}: Bei keinem.
+
+## Absolute und relative Häufigkeiten
+
+- $h_i$ ist die **absolute Häufigkeit**, mit der die Ausprägung $i$ vorkommt. Für Anzahl No-Shows gleich 0 hier z.B. `r count( ~ NoShows==0, data = PatientInnen)`.
+
+- $n$ die Anzahl Beobachtungenm hier $n=`r nrow(PatientInnen)`$.
+
+- $f_i$ ist dann die **relative Häufigkeit** der Ausprägung $i$: $f_i=\frac{h_i}{n}$. Für keine No-Shows:  $\frac{`r count( ~ NoShows==0, data = PatientInnen)`}{`r nrow(PatientInnen)`}$.
+
+##  Häufigkeiten :muscle: :pencil:
+
+Angenommen Sie kennen die absolute Häufigkeit einer Ausprägung einer Variable.  Warum ist es hilfreich auch die relative Häufigkeit, den Anteil, zu kennen?
+
+<br>
+
+::: small
+Fiktives Beispiel: Für die Variable *Klausur bestanden* erfahren Sie, dass die absolute Häufigkeit der Ausprägung *Ja* bei 250 liegt.
+:::
+
+## Anteil von was?
+
+![](img/Meme_Anteil.jpg){width=30% fig-align="center"}
+
+
+## Daten nutzen :muscle: :pencil:
+
+Wechseln Sie in der [App](https://fomshinyapps.shinyapps.io/NoShows/) zum nächsten Reiter, `1. Szenario`. Dort ist Ihre ursprüngliche Zusammenfassung vorausgewählt. 
+
+Statistiken dienen aber nicht nur der Datenbeschreibung sondern auch der Datenvorhersage. Der Lohn für Ihre Dienste hängt davon wie gut Ihre Prognose die Beobachtungen vorhersagt.
+
+- Versuchen Sie Ihren Lohn zu erhöhen. Bei welcher Prognose ist Ihr erwartete Lohn maximal?
+
+- Warum ist das so?
+
+## Daten nutzen (Fortsetzung) :muscle:
+
+Wechseln Sie zum `2. Szenario` und `3. Szenario` und maximieren Sie jeweils den Lohn.
+
+Ist die optimale Prognose der *Anzahl No-Shows* in allen Szenarien gleich?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Lagemaße
+
+- Der **Modus** (auch: Modalwert) $y_{mod}$ ist die Merkmalsausprägung die am häufigsten vorkommt.
+
+- Der **Median**,  $y_{(0.5)}$, (auch: Zentralwert) ist liegt bei den nach Größe aufsteigend sortierten Beobachtungen in der Mitte, d.h., mindestens $50\%$ der Beobachtungen sind nicht größer, mindestens $50\%$ sind nicht kleiner.
+
+- Der **Arithmetische Mittelwert**, $\bar{y}$, (sprich: *y quer*) ergibt sich als die Summe aller Beobachtungswerte $y_i$ geteilt durch deren Anzahl $n$: $\bar{y}=\frac{y_1+y_2+y_3+\ldots+y_n}{n}$.
+
+## Daten nutzen (Fortsetzung) :muscle:
+
+Welches Lagemaß haben Sie als ursprüngliche Zusammenfassung ausgewählt?
+
+- [**A**]{.green}: Modus.
+
+- [**B**]{.green}: Median.
+
+- [**C**]{.green}: Arithmetischer Mittelwert.
+
+- [**D**]{.green}: Keine der genannten.
+
+##  Lagemaße :muscle:
+
+Im 3. Szenario ist der arithmetische Mittelwert $\bar{y}=`r mean( ~ NoShows, data = PatientInnen)`$ optimal zur Vorhersage. Um was handelt es sich dabei?
+
+- [**A**]{.green}: Um den Wert einer Statistik.
+
+- [**B**]{.green}: Um den Wert eines Parameters.
+
+
+## Eigenschaften Lagemaße
+
+- Für nominale Daten kann nur der Modus, für ordinale zuätzlich der Median und für metrische auch noch der arithmetiche Mittelwert bestimmt werden.
+
+- Diese fassen die Beobachtungswerte einer Variable zusammen und geben die zentrale Tendenz in den Daten wieder.
+
+- Der Median ist robust gegen extreme Werte, der arithmetiche Mittelwert nicht.
+
+## Robustheit
+
+![](img/Meme_Ausreißer.jpg){width=70% fig-align="center"}
+
+::: {.aside}
+Quelle: [@annaegalite](https://twitter.com/annaegalite/status/1166446645204213760), Übersetzung KL.
+:::
+
+
+##  Lagemaße :muscle:
+
+In einer Praxissoftware wird die Variable *Krankenkasse* mit Hilfe einer Zahl codiert, z.B. $y=1$ steht für AOK, $y=2$ für Barmer usw.. Ist es sinnvoll den arithmetischen Mittelwert $\bar{y}$ zu berechnen?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Der Mittelwert ist nicht alles
+
+![](img/averages.avif){fig-align="center" width="40%"}
+
+::: {.aside}
+Quelle: [Sketschplanations](https://sketchplanations.com/sneaky-averages)
+:::
+
+## Einleitung Verteilungsformen
+
+- Unterschiedliche Werte (oder Wertebereiche) einer Variablen kommen unterchiedlich oft vor. 
+
+- Wie können solche Verteilungen aussehen (Auswahl)?
+
+## Verteilungsformen (I/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042719?h=4a39fa0f47&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Normalverteilung"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**Normalverteilung**](https://vimeo.com/538042719) verteilen sich die Beobachtungen **symmetrisch** um einen Schwerpunkt (**unimodal**). Beobachtungen in der Mitte der Verteilung kommen häufig vor. Je größer die Entfernung zum Zentrum, desto unwahrscheinlicher werden die Werte.
+:::
+::::
+
+## Verteilungsformen (II/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042746?h=f5a2815116&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Gleichverteilung"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**Gleichverteilung**](https://vimeo.com/538042746) haben die Werte der $x$-Achse die gleiche Wahrscheinlichkeit. Zu sehen am konstanten Wert auf der $y$-Achse.
+:::
+::::
+
+## Verteilungsformen (III/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042821?h=0fed3546a0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Rechts-schief"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**rechtsschiefen Verteilung**](https://vimeo.com/538042821) sind Beobachtungen im unteren Wertebereich wahrscheinlicher als im oberen Wertebereich. 
+:::
+::::
+
+## Verteilungsformen (IV/V)
+
+:::: {.columns}
+::: {.column width="50%"} 
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042769?h=2a40a2c948&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Links-schief"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**linksschiefen Verteilung**](https://vimeo.com/538042769) sind Beobachtungen im oberen Wertebereich wahrscheinlicher als im unteren Wertebereich. 
+:::
+::::
+
+## Verteilungsformen (V/V)
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="padding:100% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/538042806?h=9ba50a41e9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:80%;height:80%;" title="Data sonification: Bi-Modal"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+:::
+
+::: {.column width="50%"}
+Bei einer [**Bi-Modalen Verteilung**](https://vimeo.com/538042806) gibt es zwei Zentren um die sich die Beobachtungen verteilen. Bei *Multi-Modalen* Verteilungen mehr als zwei.
+:::
+::::
+
+##  Verteilungsform (I/II) :muscle:
+
+Eine Kinderärztin analysiert die Variable *Körpergröße* bei Schüler:innen der 1. und 4. Schulklasse. Welche Verteilungsform wird vorliegen?
+
+- [**A**]{.green}: Normalverteilung
+
+- [**B**]{.green}: Gleichverteilung
+
+- [**C**]{.green}: Rechtsschief
+
+- [**D**]{.green}: Linksschief
+
+- [**E**]{.green}: Bi-Modal
+
+
+
+##  Verteilungsform (II/II) :muscle:
+
+Welche Verteilungsform hat die Variable *Stundenlohn*?
+
+- [**A**]{.green}: Normalverteilung
+
+- [**B**]{.green}: Gleichverteilung
+
+- [**C**]{.green}: Rechtsschief
+
+- [**D**]{.green}: Linksschief
+
+- [**E**]{.green}: Bi-Modal
+
+
+## Varianz
+
+- Beobachtungswerte $y_i$ variieren -- sie weichen teilweise vom arithmetischen Mittelwert $\bar{y}$ ab. (*Warum?*)
+
+- Um zu gucken wie *gut* der Mittelwert die Daten beschreibt, werden die Abweichungen zum Mittelwert $y_i-\bar{y}$ betrachtet:
+
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^{n}(y_i-\bar{y})^2$$
+
+## Standardabweichung
+
+- Die **Standardabweichung** $sd$ ist eine Kennzahl für die Streuung der Beobachtungen.
+$$sd=\sqrt{s^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n (y_i-\bar{y})^2}$$
+
+##  Standardabweichung :muscle:
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+Wo ist die Standardabweichung $sd$ kleiner?
+
+- [**A**]{.green}: Im Fall A.
+
+- [**B**]{.green}: Im Fall B.
+
+- [**C**]{.green}: In beiden Fällen gleich.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out.width: '95%'
+#| fig.align: 'center'
+x <- seq(-6,6, by = 0.01)
+yA <- dnorm(x, sd = 1)
+yB <-  dnorm(x, sd = 2)
+
+sim <- data.frame(
+  Fall = c(rep("A",length(x)), rep("B",length(x))),
+  x = c(x,x),
+  y = c(yA,yB)
+)
+gf_line(y ~ x | Fall, data = sim, linewidth = 2) |>
+  gf_labs(x="", y="")
+```
+:::
+::::
+
+
+##  Exkurs: Kreisdiagramm :muscle:
+
+```{r}
+#| echo: false
+Ergebnis <- data.frame(
+  Partei = c("A","B","C","D","E"),
+  Prozent = c(20,21,19,20,20))
+```
+
+:::: {.columns}
+::: {.column width="40%"}
+Welche Partei hat die meisten Stimmen?
+
+- [**A**]{.green}
+
+- [**B**]{.green}
+
+- [**C**]{.green}
+
+- [**D**]{.green}
+
+- [**E**]{.green}
+:::
+
+::: {.column width="60%"}
+```{r}
+#| out.width: '95%'
+#| fig.align: 'center'
+#| echo: FALSE
+ggplot(Ergebnis, aes(x = "", y = Prozent, fill = Partei)) +
+  geom_col() +
+  coord_polar(theta = "y") +
+  scale_color_discrete() +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        panel.border = element_blank(),
+        panel.grid=element_blank(),
+        axis.ticks = element_blank()) +
+  theme(axis.text.x=element_blank()) +
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+```
+:::
+::::
+
+##  Exkurs: Säulendiagramm :muscle:
+
+:::: {.columns}
+::: {.column width="40%"}
+Welche Partei hat die meisten Stimmen?
+
+- [**A**]{.green}
+
+- [**B**]{.green}
+
+- [**C**]{.green}
+
+- [**D**]{.green}
+
+- [**E**]{.green}
+:::
+
+::: {.column width="60%"}
+```{r}
+#| out.width: '95%'
+#| fig.align: 'center'
+#| echo: FALSE
+ggplot(Ergebnis, aes(Partei, weight=Prozent, fill = Partei)) +
+  geom_bar() +
+  scale_color_discrete() +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        panel.border = element_blank(),
+        panel.grid=element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) +
+  theme(axis.text.x=element_blank()) + 
+  theme(legend.text = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+```
+:::
+::::
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Einfache deskriptive Statistiken und Abbildungen einordnen.
+
+::: aside
+Vergleiche Fragen:
+
+- Was will ich mit Daten machen?
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Die Verwendung von Säulendiagrammen.
+
+- Was absolute und relative Häufigkeiten sind.
+
+- Die Bedeutung und Berechnung von Lagemaßen.
+
+- Sie lernen unterschiedliche Verteilungsformen kennen.
+
+- Die Bedeutung der Varianz.
+
+
+
+

@@ -1,0 +1,30 @@
+Question
+========
+
+Stimmt die Aussage: Das *Interesse der Studierenden* ist eine latente Variable?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Ja, *Interesse der Studierenden* ist keine offenliegende Eigenschaft. 
+Die Forscher:in muss erst genau definieren -- und Messkriterien festlegen (Operationalisieren!) -- was darunter zu verstehen ist.
+
+Answerlist
+----------
+
+* Richtig
+* Falsch
+
+
+Meta-information
+================
+exname: Frage 2-1
+extype: schoice
+exsolution: 10

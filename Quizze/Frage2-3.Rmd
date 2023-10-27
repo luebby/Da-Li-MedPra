@@ -1,0 +1,32 @@
+Question
+========
+
+Welches Skalenniveau hat die Variable Stundenlohn?
+
+Answerlist
+----------
+
+* Kategorial nominal.
+* Kategorial ordinal.
+* Metrisch intervallskaliert.
+* Metrisch verhältnisskaliert.
+
+
+Solution
+========
+
+Metrisch verhältnisskaliert, es kann damit gerechnet werden (*metrisch*) und es gibt einen natürlichen Nullpunkt und damit sind 20 € doppelt so viel wie 10 € (*verhältnisskaliert*).
+Sie ist auch stetig, obwohl die konkrete Auszahlung in der Regel gerundet auf zwei Nachkommastellen erfolgt (*quasi-stetig*).
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Falsch
+* Richtig
+
+Meta-information
+================
+exname: Frage 2-3
+extype: schoice
+exsolution: 0001

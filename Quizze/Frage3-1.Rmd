@@ -1,0 +1,28 @@
+Question
+========
+
+Kann die Dozentin von den Studierenden, die die Vorlesung besuchen (*Stichprobe*), unverzerrt auf das Interesse aller Studierenden schließen, die für die Vorlesung angemeldet sind (*Population*)?
+
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Nein, z.$\,$B. könnten die besonders Uninteressierten fehlen.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+
+Meta-information
+================
+exname: Frage 2-5
+extype: schoice
+exsolution: 01

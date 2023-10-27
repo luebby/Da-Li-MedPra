@@ -1,0 +1,27 @@
+Question
+========
+
+Die Dozentin stellt fest, dass die Motivation der Studierenden mit der Uhrzeit zusammenhängt, und zwar unterschiedlich für Frauen und Männer. Welche Aussage stimmt?
+
+Answerlist
+----------
+
+* Es handelt sich um eine Beobachtungsstudie.
+* Es handelt sich um ein randomisiertes Experiment.
+
+
+Solution
+========
+
+Es handelt sich um eine Beobachtungsstudie, da die Dozentin durch reines Beobachten diese Erkenntnis gewonnen hat und nicht in die Datenentstehung eingegriffen hat. 
+
+Answerlist
+----------
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: Frage 2-6
+extype: schoice
+exsolution: 10

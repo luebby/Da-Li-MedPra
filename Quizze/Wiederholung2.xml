@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/Wiederholung2/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q1 : Frage2-1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Stimmt die Aussage: Das <em>Interesse der Studierenden</em> ist eine latente Variable?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Ja, <em>Interesse der Studierenden</em> ist keine offenliegende Eigenschaft.
+Die Forscher:in muss erst genau definieren – und Messkriterien festlegen (Operationalisieren!) – was darunter zu verstehen ist.</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Wiederholung2/Exercise 2</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q2 : Frage2-2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welches Kriterium ist verletzt, wenn die Dozentin statt <em>Interesse der Studierenden</em> die Variable <em>Angst vor der Klausur</em> gemessen hat?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Eine Messung ist valide, wenn die erhobenen Werte geeignete Kennzahlen für die zu untersuchende Fragestellung liefern.
+Es wird gemessen, was gemessen werden soll.
+Hier wird das nicht erfüllt, daher ist das Kriterium der Validität verletzt.
+Validität ist insbesondere bei latenten Variablen zu überprüfen.</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Richtig </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Genauigkeit.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Objektivität.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Reliabilität.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Validität.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Wiederholung2/Exercise 3</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q3 : Frage2-3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welches Skalenniveau hat die Variable Stundenlohn?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Metrisch verhältnisskaliert, es kann damit gerechnet werden (<em>metrisch</em>) und es gibt einen natürlichen Nullpunkt und damit sind 20 € doppelt so viel wie 10 € (<em>verhältnisskaliert</em>).
+Sie ist auch stetig, obwohl die konkrete Auszahlung in der Regel gerundet auf zwei Nachkommastellen erfolgt (<em>quasi-stetig</em>).</p>
+<ol type = "a">
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Richtig </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Kategorial nominal.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Kategorial ordinal.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Metrisch intervallskaliert.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Metrisch verhältnisskaliert.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Wiederholung2/Exercise 4</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q4 : Frage2-4 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Die Dozentin stellt fest, dass die Motivation der Studierenden mit der Uhrzeit zusammenhängt, und zwar unterschiedlich für Frauen und Männer. Welche Aussage stimmt?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Motivation ist die abhängige Variable <span class="math inline">\(Y\)</span>, die evtl. von der unabhängigen Variablen Uhrzeit <span class="math inline">\(X\)</span> abhängt.
+Das Merkmal Geschlecht beeinflusst die abhängige Variable bzw. den Zusammenhang und ist dadurch hier eine Kovariable <span class="math inline">\(Z\)</span>.
+Aber auch eine Modellierung mit Geschlecht und Uhrzeit als unabhängige Variablen und Motivation als abhängige ist möglich.</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Es gibt eine abhängige Variable (Motivation), eine unabhängige Variable (Uhrzeit) und eine Kovariable (Geschlecht).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Es gibt eine abhängige Variable (Uhrzeit), eine unabhängige Variable (Motivation) und eine Kovariable (Geschlecht).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Es gibt zwei abhängige Variablen (Motivation und Geschlecht) und eine unabhängige Variable (Uhrzeit).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Es gibt eine abhängige Variable (Geschlecht) und zwei unabhängige Variablen (Motivation und Uhrzeit).
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Wiederholung2/Exercise 5</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q5 : Frage2-5 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Eine Praxis analysiert die Krankenkasse Ihrer Patient:innen:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Krankenkasse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heinz Müller</td>
+<td>AOK</td>
+</tr>
+<tr class="even">
+<td>Gabi Schmidt</td>
+<td>TK</td>
+</tr>
+<tr class="odd">
+<td>Max Muster</td>
+<td>AOK</td>
+</tr>
+<tr class="even">
+<td>Charleen Beispiel</td>
+<td>Barmer</td>
+</tr>
+</tbody>
+</table>
+<p>Was ist hier eine Beobachtungseinheit?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Patient:innen sind die Beobachtungen (Beobachtungseinheit, Untersuchungseinheit, Merkmalsträger), für die die Variable (Eigenschaft) Krankasse vorliegt. AOK ist z.B. der Wert den die Variable Krankenkasse für die Beobachtung Max Muster annimmt.</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Max Muster.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Krankenkasse.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+AOK.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Wiederholung2/Exercise 6</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q6 : Frage2-6 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Um herauszufinden wie viele der Patient:innen einer Praxis in einer seniorengerechten Wohnung leben, notiert sich eine Ärztin nach jedem Hausbesuch den Wert dieser Variablen.</p>
+<p>Um was handelt es sich bei den Patient:innen mit Hausbesuch?</p>
+</p>]]></text>
+</questiontext>
+<generalfeedback format="html">
+<text><![CDATA[<p>
+<p>Die Patient:innen mit Hausbesuch sind nur eine Stichprobe aller Patient:innen der Praxis (= Zielpopulation).</p>
+<ol type = "a">
+<li> Richtig </li>
+<li> Falsch </li>
+</ol>
+</p>]]></text>
+</generalfeedback>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Um die Stichprobe.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Richtig
+</p>]]></text>
+</feedback>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Um die Population.
+</p>]]></text>
+<feedback format="html">
+<text><![CDATA[<p>
+Falsch
+</p>]]></text>
+</feedback>
+</answer>
+</question>
+
+</quiz>
