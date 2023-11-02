@@ -355,7 +355,7 @@ Vergleiche Fragen:
 
 ::: callout-tip
 ## Tipp
-Berechnung z.B. über <https://fomshinyapps.shinyapps.io/Normalverteilung2/>
+Berechnung z.B. über <https://fomshinyapps.shinyapps.io/Normalverteilung2/>^[Dort ist der *Punkt* "`.`" das Dezimaltrennzeichen -- und nicht das "`,`".]
 :::
 
 

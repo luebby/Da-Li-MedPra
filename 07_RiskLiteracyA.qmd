@@ -1,0 +1,378 @@
+# Risk Literacy -- Diagnosen
+
+```{r}
+#| include: false
+library(mosaic)
+library(knitr)
+library(kableExtra)
+
+library(riskyr)
+Mammographie <- scenarios$n18
+Mammographie$sdt_lbl <- "Fälle"
+NFT <- scenarios$n22
+NFT$sdt_lbl <- "Fälle"
+assignInNamespace("lbl", riskyr:::lbl_de, ns = "riskyr", pos = "package:riskyr")
+options(OutDec = ',')
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+```
+
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Sie lernen zentrale statistische Begriffe aus Diagnosestudien kennen.
+
+- Sie können Risiken mit Hilfe von Abbildungen und Kontingenztafeln einordnen.
+
+
+## Mammographie
+
+In einen Region sei folgendes bekannt:
+
+- Die Wahrscheinlichkeit, dass eine Frau Brustkrebs hat liegt bei 1% (Prävalenz).
+
+- Wenn sie Brustkrebs hat, liegt die Wahrscheinlichkeit, dass der Test positiv ist bei 90% (Sensitivität).
+
+- Wenn sie kein Brustkrebs hat, liegt die Wahrscheinlichkeit, dass der Test trotzdem positiv ist bei bei 9% (Falsch-Positiv-Rate, 1-Spezifität.)
+
+::: aside
+Quelle: [Gigerenzer, G. et al. (2007). Helping Doctors and Patients Make Sense of Health Statistics. Psychological Science in the Public Interest, 8(2), 53-96.](https://doi.org/10.1111/j.1539-6053.2008.00033.x)
+:::
+
+##  Mammographie :muscle:
+
+Das Testergebnis ist positiv. Welche Antwort passt am besten?
+
+- [**A**]{.green}: Die Wahrscheinlichkeit, dass sie Brustkrebs hat liegt bei ca. 81%.
+
+- [**B**]{.green}: Von 10 Frauen mit einem positiven Mammogramm haben 9 Brustkrebs.
+
+- [**C**]{.green}: Von 10 Frauen mit einem positiven Mammogramm hat 1 Brustkrebs.
+
+- [**D**]{.green}: Die Wahrscheinlichkeit, dass sie Brustkrebs hat liegt bei ca. 1%.
+
+
+##  Baumdiagramm A
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(Mammographie, type = "tree", by = "cd")
+```
+
+##  Baumdiagramm B
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(Mammographie, type = "tree", by = "dc")
+```
+
+
+## Doppelbaum
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(Mammographie, type = "prism")
+```
+
+## Häufigkeitsnetz
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(Mammographie, type = "fnet")
+```
+
+## Tabelle
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(Mammographie, type = "tab")
+```
+
+## Flächendiagramm
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(Mammographie, type = "area")
+```
+
+##  Mammographie :muscle:
+
+Welche Darstellung finden **Sie** zur Beantwortung der Frage: *Der Test ist positiv, wie wahrscheinlich ist es, dass die Krankheit vorliegt* am hilfreichsten?
+
+- [**A**]{.green}: Baumdiagramm.
+
+- [**B**]{.green}: Doppelbaum.
+
+- [**C**]{.green}: Häufigkeitsnetz.
+
+- [**D**]{.green}: Tabelle.
+
+- [**E**]{.green}: Flächendiagramm.
+
+## Risk-Literacy am :computer:
+
+- Die Abbildungen wurden mit Hilfe des [{{< fa brands r-project >}}](https://cran.r-project.org/)-Paktes [`{riskyr`}](https://cran.r-project.org/web/packages/riskyr/index.html) erzeugt.
+
+- Eine Übersetzung der interaktiven [riskyrApp](https://riskyr.org/) finden Sie unter <https://fomshinyapps.shinyapps.io/riskyrApp-DE/>^[
+Die Übersetzung ist noch in der Entwicklung. Bitte melden Sie Fehler und Unklarheiten unserer App. Vielen Dank!]
+
+## Prozentangaben {.smaller}
+
+> Damit koennen wir erkennen, was ein positiver [Nackfalten-]Test für eine 40-jährige Frau bedeutet. Ungefähr 1% der Kinder haben das Downsyndrom. Wenn das Kind das Downsyndrom hat, besteht eine 90-prozentige Wahrscheinlichkeit, dass das Testergebnis positiv ist. Wenn das Kind nicht betroffen ist, besteht trotzdem noch eine 5-prozentige Wahrscheinlichkeit, dass das Testergebnis positiv ist. Eine Schwangere wurde getestet und das Ergebnis ist positiv. Wie groß ist die Wahrscheinlichkeit, dass das Kind tatsächlich das Downsyndrom hat?
+
+::: aside
+Quelle: Gigerenzer, G. (2013). Risiko: Wie man die richtigen Entscheidungen trifft. C. Bertelsmann Verlag. S. 222ff.
+:::
+
+## Natürliche Häufigkeiten {.smaller}
+
+> Abermals wird das Problem einfacher [?], wenn wir die verwirrenden Wahrscheinlichkeiten durch natürliche Häufigkeiten ersetzen: Rund 10 von 1000 Kindern haben das Downsyndrom. Von diesen 10 Kindern mit Downsyndrom werden 9 ein positives Testergebnis bekommen. Von den verbleibenden 990 nicht betroffenen Kindern werden etwa 50 trotzdem ein positives Ergebnis haben. Wie viele schwangere Frauen mit einem positiven Ergebnis haben tatsaechlich ein Kind mit Downsyndrom?
+
+::: aside
+Quelle: Gigerenzer, G. (2013). Risiko: Wie man die richtigen Entscheidungen trifft. C. Bertelsmann Verlag. S. 222ff.
+:::
+
+## NFT Doppelbaum
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(NFT, type = "prism")
+```
+
+## NFT Tabelle
+
+```{r}
+#| echo: false
+#| #| out.width: '95%'
+#| fig.align: 'center'
+plot(NFT, type = "tab")
+```
+
+## Lösung NFT (I/IV) :nerd_face:
+
+Ein wenig Notation zu Beginn:
+
+- $T^+$: Test positiv; $T^-$ Test negativ.
+
+- $K^+$: Krankheit liegt vor; $K^-$: Krankheit liegt nicht vor.
+
+- $Pr(A|B)=\frac{Pr(A \text{ und }B)}{Pr(B)}$: Wahrscheinlichkeit von $A$ gegeben $B$. Wie wahrscheinlich ist $A$, wenn $B$ vorliegt?
+
+
+## Lösung NFT (II/IV) :nerd_face:
+
+Wahrscheinlichkeit positver Test:
+
+\begin{eqnarray*}
+Pr(T^+) &=& Pr(T^+ | K^+) & \cdot & Pr(K^+) & + &  Pr(T^+ | K^-) & \cdot & Pr(K^-) \\
+&=& 0,9 &\cdot & 0,01 & + & 0,05 &\cdot & 0,99\\
+&=& 0,0585
+\end{eqnarray*}
+
+::: aside
+Hinweis: $Pr(K^-) = 1- Pr(K^+)$.
+:::
+
+## Lösung NFT (III/IV) :nerd_face:
+
+Wahrscheinlichkeit krank bei positver Test:
+
+\begin{eqnarray*}
+Pr(K^+ | T^+) &=& \frac{Pr(K^+ \text{ und } T^+)}{Pr(T^+)} &=& \frac{Pr(T^+ | K^+) \cdot Pr(K^+)}{Pr(T^+)} \\
+&&&& = \frac{0,9 \cdot 0,01}{0,0585} \\
+&&&& = 0,154
+\end{eqnarray*}
+
+::: aside
+Hinweis: $Pr(A \text{ und } B) = Pr(A | B) \cdot Pr(B) = Pr(B | A) \cdot Pr(A)$.
+:::
+
+## Lösung NFT (III/III) -- Natürliche Häufigkeiten
+
+- $9$ korrekt postive Testergebnisse, $90$ falsch positive Testergebisse. 
+
+- Insgesamt $9+50 = 59$ positive Testergebnisse.
+
+- Davon $9$ korrekt, also liegt die Wahrscheinlichkeit, dass das Kind tatsächlich das Downsyndrom hat bei $\frac{9}{9+50} \approx 0,15 = 15\%$.
+
+
+## Tipp: Natürliche Häufigkeiten `r icons::fontawesome$solid$calculator`
+
+::: {.columns}
+:::: {.column width="60%"}
+Wenn nur Wahrscheinlichkeiten oder Anteile angegeben sind: Nehmen Sie eine einfache Population, z.B. $N=1000$ und rechnen Sie Häufigkeiten aus.
+::::
+
+:::: {.column width="40%"}
+![](img/Meme_NatürlicheHäufigleiten.jpg){width=80% fig-align="center"}
+::::
+:::
+
+## Prävalenz und Inzidenz
+
+- Die **Prävalenz** beschreibt den Anteil Erkrankter an der Gesamtzahl einer definierten Population
+eintreten wird.zu einem bestimmten Zeitpunkt.
+
+- Die **Inzidenz** beschreibt die in einem bestimmten Zeitraum neu aufgetretene Anzahl an Krankheitsfällen in einer definierten Population.
+
+::: aside
+Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzbasierten Medizin. <https://ebm-netzwerk.de/de/service-ressourcen/ebm-glossar>
+:::
+
+## Sensitivität
+
+- Die **Sensitivität** ist Anteil der test-positiven Personen unter allen Erkrankten einer Stichprobe, d.h. die Wahrscheinlichkeit, mit einem diagnostischen Test die Kranken auch als krank zu identifizieren. Eine hohe Sensitivität wird angestrebt, wenn eine Erkrankung mit hoher Sicherheit ausgeschlossen werden soll.
+
+::: aside
+Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzbasierten Medizin. <https://ebm-netzwerk.de/de/service-ressourcen/ebm-glossar>
+:::
+
+## Spezifität
+
+- Die **Spezifität** ist der Anteil der Test-negativen Personen unter allen Nicht-Erkrankten einer Stichprobe, d.h. die Wahrscheinlichkeit, mit einem diagnostischen Test Nicht-Erkrankte korrekt zu identifizieren. Eine hohe Spezifität wird angestrebt, wenn eine Erkrankung mit großer Sicherheit bestätigt werden soll.
+
+::: aside
+Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzbasierten Medizin. <https://ebm-netzwerk.de/de/service-ressourcen/ebm-glossar>
+:::
+
+##  Begriffe :muscle:
+
+Welcher Begriff entspricht der Formel $Pr(T^- | K^-)$?
+
+- [**A**]{.green}: Prävalenz.
+
+- [**B**]{.green}: Sensitivität.
+
+- [**C**]{.green}: Spezifität.
+
+- [**D**]{.green}: Keiner der genannten.
+
+
+##  Notation :muscle:
+
+Welcher mathematischen Notation entspricht die Prävalenz?
+
+- [**A**]{.green}: $Pr(K^+)$.
+
+- [**B**]{.green}: $Pr(T^+)$.
+
+- [**C**]{.green}: $Pr(T^+ | K^+)$.
+
+- [**D**]{.green}: Keiner der genannten.
+
+## Prädiktive Werte
+
+- **Positiver prädiktiver Wert** (PPV): Anteil der Personen mit positivem Testergebnis, bei denen die gesuchte Krankheit auch tatsächlich vorliegt.
+
+- **Negativer prädiktiver Wert** (NPV): Anteil der Personen mit negativem Testergebnis, bei denen die gesuchte Krankheit tatsächlich nicht vorliegt.
+
+::: aside
+Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzbasierten Medizin. <https://ebm-netzwerk.de/de/service-ressourcen/ebm-glossar>
+:::
+
+## Zusammenhänge (I/III) :muscle: :computer:
+
+Wie ändert sich die Wahrscheinlichkeit bei positiven Testergebnis wirklich krank zu sein, wenn die Prävalenz steigt?
+
+- [**A**]{.green}: Der PPV steigt.
+
+- [**B**]{.green}: Der PPV fällt.
+
+- [**C**]{.green}: Der PPV ändert sich nicht.
+
+::: aside
+Interaktive App: <https://fomshinyapps.shinyapps.io/riskyrApp-DE/>
+:::
+
+## Zusammenhänge (II/III) :muscle: :computer:
+
+Wie ändert sich die Wahrscheinlichkeit bei positiven Testergebnis wirklich krank zu sein, wenn die Sensitivität steigt?
+
+- [**A**]{.green}: Der PPV steigt.
+
+- [**B**]{.green}: Der PPV fällt.
+
+- [**C**]{.green}: Der PPV ändert sich nicht.
+
+::: aside
+Interaktive App: <https://fomshinyapps.shinyapps.io/riskyrApp-DE/>
+:::
+
+## Zusammenhänge (III/III) :muscle: :computer:
+
+Wie ändert sich die Wahrscheinlichkeit bei negativem Testergebnis wirklich nicht krank zu sein, wenn die Spezifität steigt?
+
+- [**A**]{.green}: Der NPV steigt.
+
+- [**B**]{.green}: Der NPV fällt.
+
+- [**C**]{.green}: Der NPV ändert sich nicht.
+
+::: aside
+Interaktive App: <https://fomshinyapps.shinyapps.io/riskyrApp-DE/>
+:::
+
+## Zeitliche Entwicklung :muscle:
+
+Eine Praxis verwendet zur Diagnose einer Krankheit einen Standardtest. Welche Kennzahl ändert sich im Laufe einer Epidemie?
+
+- [**A**]{.green}: Prävalenz.
+
+- [**B**]{.green}: Sensitivität.
+
+- [**C**]{.green}: Spezifität.
+
+- [**D**]{.green}: Keiner der genannten.
+
+## Einordnung Laborergebnis :muscle: {.smaller}
+
+Ein Labortest (z.B. auf Borreliose) hat eine diagnostische Spezifität von 98%. Wie wahrscheinlich ist es, dass ein Patient, der ein positives Testergebnis vorlegt, tatsächlich an dieser Krankheit erkrankt ist?
+
+- [**A**]{.green}:  Um diese Frage beantworten zu können, muss man auch die Sensitivität kennen.  
+
+- [**B**]{.green}: 98%.
+
+- [**C**]{.green}: (1-Spezifität) * 100 (%) = 2% 
+
+- [**C**]{.green}: Keine der obigen Antworten ist richtig.
+
+::: aside
+Quelle: [Bautsch, W. (2009). Anforderungen und Bewertung der Ergebnisse von Laboruntersuchungen. Teil 5 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 403-406.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=65024)
+:::
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Risiken wie Falsch-Positiv-Rate einschätzen (Risk-Literacy).
+
+::: aside
+Vergleiche Fragen:
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+
+- Sie lernen zentrale statistische Begriffe aus Diagnosestudien kennen.
+
+- Sie können Risiken mit Hilfe von Abbildungen und Kontingenztafeln einordnen.
+
+
