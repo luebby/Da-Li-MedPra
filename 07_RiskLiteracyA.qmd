@@ -222,9 +222,21 @@ Wenn nur Wahrscheinlichkeiten oder Anteile angegeben sind: Nehmen Sie eine einfa
 ::::
 
 :::: {.column width="40%"}
-![](img/Meme_NatürlicheHäufigleiten.jpg){width=80% fig-align="center"}
+![](img/Meme_NatürlicheHäufigleiten.jpg){width=90% fig-align="center"}
 ::::
 :::
+
+## Vierfeldertafel
+
+|                 | krank                |nicht krank           |
+|-----------------|----------------------|----------------------|
+|**Test positiv** | richtig positiv (TP) | falsch positiv (FP)  |
+|**Test negativ** | falsch negativ (FN)  | richtig negativ (TN) |
+
+::: aside
+Englische Abkürzungen: **T**rue oder **F**alse **P**ositiv oder **N**egativ.
+:::
+
 
 ## Prävalenz und Inzidenz
 
@@ -357,6 +369,11 @@ Ein Labortest (z.B. auf Borreliose) hat eine diagnostische Spezifität von 98%. 
 ::: aside
 Quelle: [Bautsch, W. (2009). Anforderungen und Bewertung der Ergebnisse von Laboruntersuchungen. Teil 5 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 403-406.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=65024)
 :::
+
+## Risiko :muscle: :pencil: `r icons::fontawesome$solid$calculator`
+
+Die Spezifität eines Tests liege bei 100%, die Sensitivität bei 95%. Bei einer Prävalenz von 1%: Wie hoch ist die Wahrscheinlichkeit erkrankt zu sein, wenn der Test positiv ist?
+
 
 ##  Modulziel &#x1F393; :muscle: :pencil:
 

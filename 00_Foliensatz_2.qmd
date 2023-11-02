@@ -23,5 +23,8 @@ from: markdown+emoji
 ```{r child = './06_Normalverteilung.qmd', eval=FALSE} 
 ``` 
 
-```{r child = './07_RiskLiteracyA.qmd'} 
+```{r child = './07_RiskLiteracyA.qmd', eval=FALSE} 
+``` 
+
+```{r child = './08_RiskLiteracyB.qmd'} 
 ``` 

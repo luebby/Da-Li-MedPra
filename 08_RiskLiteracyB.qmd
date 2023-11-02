@@ -1,0 +1,420 @@
+# Risk Literacy -- Risikofaktoren
+
+```{r}
+#| include: false
+library(mosaic)
+library(knitr)
+library(kableExtra)
+library(icons)
+library(emojifont)
+library(tidyr)
+library(janitor)
+options(OutDec = ',')
+
+URL <- "https://t1p.de/gsb4c"
+Kleinstadt <- read.csv2(URL)
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+```
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Sie lernen zentrale statistische Begriffe aus Risikostudien kennen.
+
+- Sie können Risiken mit Hilfe von Abbildungen und Kontingenztafeln einordnen.
+
+<style>
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+   border: 1px solid black;
+}
+blockquote {
+    border-left: solid black;
+    padding-left: 10px;
+}
+</style>
+
+##  Risk-Literacy :muscle: {.smaller}
+
+Von 1.000 Leuten in einer Kleinstadt sind 500 Mitglied im Gesangsverein. 
+
+Von diesen 500 Mitgliedern im Gesangsverein sind 100 Männer. 
+
+Von den 500 Einwohnern, die nicht im Gesangsverein sind, sind 300 Männer. 
+
+Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Mann ein Mitglied des Gesangsvereins ist?^[Quelle: [Cokely, E. T. et al. (2012). Measuring risk literacy: The Berlin numeracy test. Judgment and Decision making, 7(1), 25-47.](http://www.riskliteracy.org/files/Cokely%20et%20al_2012_BNT.pdf)]
+
+- [**A**]{.green}: $10\%$
+
+- [**B**]{.green}: $25\%$
+
+- [**C**]{.green}: $40\%$
+
+- [**D**]{.green}: Keine der anderen Antworten stimmt.
+
+## Die Herausforderung
+
+::: {.columns}
+:::: {.column width="50%"}
+
+```{r plot1, fig.showtext=TRUE, out.width="100%", echo = FALSE, fig.asp = .6, fig.align="center"}
+d <- crossing(x = 1:40,
+              y = 1:25)
+
+Kleinstadt1 <- Kleinstadt %>%
+  arrange(gesangsverein, geschlecht) %>%
+  mutate(geschlecht = fontawesome(ifelse(geschlecht == "Frau", "fa-female", "fa-male")))
+
+Kleinstadt1 <- Kleinstadt1 %>%
+  mutate(x = d$x, y = d$y) 
+
+pklein1 <- ggplot(Kleinstadt1, aes(x = x, y = y, color = gesangsverein)) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 4.5, aes(label = geschlecht)) +
+  geom_vline(xintercept = 20.5) +
+  geom_vline(xintercept = 16.5, linetype="dotted", linewidth=1.2) + 
+  geom_vline(xintercept = 28.5, linetype="dotted", linewidth=1.2) + 
+  labs(title = "Information gegeben: Geschlecht | Gesangsverein") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+pklein1 
+```
+::::
+
+:::: {.column width="50%"}
+```{r plot2, fig.showtext=TRUE, out.width="100%", echo = FALSE, fig.asp = .6, fig.align="center"}
+Kleinstadt2 <- Kleinstadt %>%
+  arrange(geschlecht, gesangsverein) %>%
+  mutate(geschlecht = fontawesome(ifelse(geschlecht == "Frau", "fa-female", "fa-male")))
+Kleinstadt2 <- Kleinstadt2 %>%
+  mutate(x = d$x, y = d$y) 
+
+pklein2 <- ggplot(Kleinstadt2, aes(x = x, y = y, color = gesangsverein)) +
+  theme_void() +
+  geom_text(family='fontawesome-webfont', size = 4.5, aes(label = geschlecht)) +
+  geom_vline(xintercept = 24.5) +
+  geom_vline(xintercept = 16.5, linetype="dotted", linewidth=1.2) + 
+  geom_vline(xintercept = 28.5, linetype="dotted", linewidth=1.2) + 
+  labs(title = "Information gesucht: Gesangsverein | Geschlecht") +
+  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+pklein2 
+```
+::::
+:::
+
+## Satz von Bayes :nerd_face:
+
+$$Pr(\color{orange}{A} | \color{violet}{B}) = \frac{Pr(\color{violet}{B}|\color{orange}{A}) \cdot Pr(\color{orange}{A})}{Pr(\color{violet}{B})}$$
+
+Mit *Satz von der totalen Wahrscheinlichkeit*:
+
+$$Pr(\color{violet}{B}) = Pr(\color{violet}{B} | \color{orange}{A}) \cdot Pr(\color{orange}{A})+ Pr(\color{violet}{B} | \color{orange}{\text{nicht }A}) \cdot Pr(\color{orange}{\text{nicht }A})$$
+
+
+## Bayes in der Kleinstadt :nerd_face: {.smaller}
+
+\begin{eqnarray*}
+Pr(\color{orange}{\text{Gesangsverein}} | \color{violet}{\text{Mann}}) &=& \frac{Pr( \color{violet}{\text{Mann}} | \color{orange}{\text{Gesangsverein}}) \cdot Pr(\color{orange}{\text{Gesangsverein}})}{Pr(\color{violet}{\text{Mann}})} \\
+&=& \frac{\frac{100}{500} \cdot \frac{500}{1000}}{\frac{100}{500} \cdot \frac{500}{1000} + \frac{300}{500} \cdot \frac{500}{1000}} \\
+&=& \frac{\frac{100}{1000}}{\frac{400}{1000}}=\frac{\color{orange}{100}}{\color{violet}{400}}=\frac{1}{4}
+\end{eqnarray*}
+
+Von $400$ [Männern]{.violet} sind $100$ im [Gesangsverein]{.orange}, also 25%.
+
+## Kreuztabelle
+
+In einer **Kreuztabelle** (Kontingenztafel) werden die Häufigkeiten von Merkmalskombinationen angegeben. Die Zeilen- und Spaltensummen werden auch Randhäufigkeiten genannt. Hier: **Vierfeldertafel**.
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  kable()
+```
+
+## Anteil je Zeile
+
+Anteile in den jeweiligen Zeilen (in Prozent), hier Gesangsverein (Ja, Nein).
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  adorn_percentages(denominator = "row") %>%
+  adorn_pct_formatting(rounding = "half up", digits = 2) %>%
+  adorn_ns(format_func = function(x) {
+     format(x, big.mark = "")}) %>%
+  kable()
+```
+
+## Anteile je Spalte
+
+Anteile in den jeweiligen Spalten (in Prozent), hier Geschlecht (Frau, Mann)
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  adorn_percentages(denominator = "col") %>%
+  adorn_pct_formatting(rounding = "half up", digits = 2) %>%
+  adorn_ns(format_func = function(x) {
+     format(x, big.mark = "")}) %>%
+  kable()
+```
+
+## Anteil an Gesamt
+
+Anteile in der Tabelle insgesamt, hier alle Einwohner:innen der Kleinstadt:
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  adorn_percentages(denominator = "all") %>%
+  adorn_pct_formatting(rounding = "half up", digits = 2) %>%
+  adorn_ns(format_func = function(x) {
+     format(x, big.mark = "")}) %>%
+  kable()
+```
+
+##  Prozent :muscle: {.smaller}
+
+```{r}
+Kleinstadt %>%
+  tabyl(gesangsverein, geschlecht) %>%
+  adorn_title("combined") %>%
+  adorn_totals(c("row", "col"), name = "Summe") %>%
+  kable()
+```
+
+Welche Prozentzahl ist gesucht, wenn Sie wissen wollen: Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Mann ein Mitglied des Gesangsvereins ist?
+
+- [**A**]{.green}: Anteil je Zeile.
+
+- [**B**]{.green}: Anteil je Spalte.
+
+- [**C**]{.green}: Anteil an Gesamt.
+
+- [**D**]{.green}: A und B sind richtig.
+
+## Confusion of the Inverse
+
+::: {.columns}
+:::: {.column width="60%"}
+- Der Anteil der Männer im Gesangsverein entspricht nicht dem Anteil der Gesangsvereinsmitglieder unter den Männern.
+
+- Allgemein: Der Anteil A unter B muss nicht dem Anteil B unter A entsprechen. 
+::::
+
+:::: {.column width="40%"}
+![](img/Meme_Anteil.jpg){width=90% fig-align="center"}
+::::
+:::
+
+## Vierfeldertafel :muscle:
+
+Wohin erfolgt in einem randomisierten Experiment die zufällige Zuordnund der Patient:innen?
+
+
+|               | geheilt | nicht geheilt | Summe |
+|---------------|---------|---------------|-------|
+|**Behandlung** |         |               |       |
+|**Placebo**    |         |               |       |
+|**Summe**      |         |               |       |
+
+
+- [**A**]{.green}: In die Zeilen.
+
+- [**B**]{.green}: In die Spalten.
+
+- [**C**]{.green}: In die einzelne Zelle.
+
+## Risikofaktor :muscle:
+
+Eine Schlagzeile lautet: *90% der Erkrankten haben vorher X genommen!* Können Sie daraus schließen, dass *X* ein Risikofaktor für die Erkrankung ist?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+
+## Fiktive Werbung
+
+::: {.center}
+Zendil -- 50% Verringerung des Auftretens von Zahnfleischentzündungen!
+:::
+
+Zendil ist eine neue Zahnpasta zur Vorbeugung von Zahnfleischentzündungen. Bei halb so vielen Menschen, die Zendil verwendeten, entwickelten sich Zahnfleischentzündung im Vergleich zu Menschen, die eine andere Zahnpasta verwenden. 
+
+::: aside
+Quelle: [Cokely, E. T. et al. (2012). Measuring risk literacy: The Berlin numeracy test. Judgment and Decision making, 7(1), 25-47.](http://www.riskliteracy.org/files/Cokely%20et%20al_2012_BNT.pdf)
+:::
+
+## Fiktive Werbung :muscle:
+
+Welcher der folgenden Punkte würde Ihnen am besten helfen zu beurteilen, wie viel eine Person von der Verwendung von Zendil profitieren könnte?
+
+- [**A**]{.green}: Das Risiko einer Zahnfleischentzündung für Menschen, die Zendil nicht verwenden. 
+
+- [**B**]{.green}: Wie viele Personen gab es in der Gruppe, die eine andere Zahnpasta benutzen.
+
+- [**C**]{.green}: Wie viel ein wöchentlicher Vorrat an Zendil kostet.
+
+- [**D**]{.green}: Ob Zendil von einer Zahnärztevereinigung für diese Anwendung empfohlen wurde.
+
+## Notwendige Variation
+
+::: {.columns}
+:::: {.column width="60%"}
+- Um Zusammenhänge analysieren zu können, müssen zwei Variablen mit jeweils mindestens zwei verschiedenen Ausprägungen vorliegen.
+
+- Kovariablen können Zusammenhänge verzerren.
+::::
+
+:::: {.column width="40%"}
+![](img/Meme_Variation-Korrelation.jpg){width=90% fig-align="center"}
+::::
+:::
+
+
+## Fiktive Zahlen
+
+::: {.small}
+
+|                | Zahnfleischentzündung | keine Zahnfleischentzündung | Summe |
+|----------------|-----------------------|-----------------------------|-------|
+|**Zendil**      | 1                     | 999                         | 1000  |
+|**kein Zendil** | 2                     | 998                         | 1000  |
+|**Summe**       | 3                     | 1996                        | 2000  |
+
+:::
+
+Statt 2 von 1000 hat jetzt 1 von 1000 eine Zahnfleischentzündung.
+
+
+## Risiken -- Notation
+
+Ein wenig Notation zu Beginn:
+
+- $R^+$: Risikofaktor vorhanden; $R^-$ Risikofaktor nicht vorhanden.^[Andere Schreibweisen für *Risikofaktor liegt nicht vor*: $\bar{R}, R^C, \neg R, \ldots$.] Analog für Behandlung, häufiges Symbol $T$ (*engl.*: Treatment).
+
+- $K^+$: Krankheit liegt vor; $K^-$: Krankheit liegt nicht vor.
+
+
+## Risiko
+
+- **Risiko**: Wahrscheinlichkeit eines unerwünschten Ereignisses, hier Krankheit: $Pr(K^+)$.
+
+- **Relatives Risiko**: $$RR=\frac{\text{Anteil Erkranter bei Risikofaktor}}{\text{Anteil Erkranter ohne Risikofaktor}}=\frac{Pr(K ^+ | R^+)}{Pr(K ^+ | R^-)}$$
+
+
+## Risikoreduktion
+
+- **Relative Risikoreduktion**: Relative Senkung der Rate Erkranter bei Weglassen des Risikos.^[Auch: Relative Senkung der Rate der Behandlungsgruppe im Vergleich zur Kontrollgruppe.] $$RRR=\frac{Pr(K^+ | R^+)- Pr(K^+ | R^-)}{Pr(K^+ | R^+)}$$
+
+- **Absolute Risikoreduktion** (auch: Risikodifferenz): Differenz der Rate Erkranter bei Weglassen des Risikos: $$ARR=Pr(K^+ | R^+)- Pr(K^+ | R^-)$$
+
+## Relatives Risiko :muscle:
+
+Was gilt für Risikofaktoren, die das Auftreten einer Krankheit wahrscheinlicher machen?
+
+- [**A**]{.green}: $RR<1$.
+
+- [**B**]{.green}: $RR=1$.
+
+- [**C**]{.green}: $RR>1$.
+
+## Relative Risikoreduktion :muscle:
+
+::: {.columns}
+:::: {.column width="60%"}
+Wie hoch ist die relative Risikoreduktion durch Nutzen von Zendil^[$R^+$: Nicht-Nutzen von Zendil]?
+
+- [**A**]{.green}: $\frac{\frac{2}{3}}{\frac{1}{3}}=2$.
+
+- [**B**]{.green}: $\frac{\frac{2}{1000}-\frac{1}{1000}}{\frac{2}{1000}}=\frac{1}{2}$.
+
+- [**C**]{.green}: $\frac{2}{1000}-\frac{1}{1000}=\frac{1}{1000}$.
+::::
+
+:::: {.column width="40%"}
+::::: {.mini}
+|                | Zahnfleischentzündung | keine Zahnfleischentzündung | Summe |
+|----------------|-----------------------|-----------------------------|-------|
+|**Zendil**      | 1                     | 999                         | 1000  |
+|**kein Zendil** | 2                     | 998                         | 1000  |
+|**Summe**       | 3                     | 1996                        | 2000  |
+
+:::::
+::::
+:::
+
+## Odds
+
+- **Odds** (Chance): Verhältnis von Anzahl $K^+$ zu Anzahl $K^-$. Z.B., von 100 Exponierten werden 60 krank und 40 nicht: $$Odds=\frac{60}{40}=\frac{3}{2}$$
+
+## Odds Ratio
+
+- **Odds Ratio** (Chancenverhältnis): Verhältnis der *Odds* von Risiko und Nicht-Risiko. Fortsetzung Beispiel: Von 200 Nicht-Exponierten werden 50 krank und 150 nicht:
+
+$$OR=\frac{\frac{60}{40}}{\frac{50}{150}}=\frac{3}{2} \cdot \frac{3}{1}=\frac{9}{2}$$
+
+## Odds Ratio :muscle:
+
+Eine fiktive Studie kommt zum Ergebnis, dass bei Konsum von Fast-Food das Odds-Ratio für Typ-2 Diabetes bei 2 liegt. Welche Interpretation stimmt:
+
+- [**A**]{.green}: Es gibt keinen Zusammenhang zwischen Fast-Food und Typ-2 Diabetes.
+
+- [**B**]{.green}: Jede:r 2. Fast-Food-Konsument:in entwickelt Typ-2 Diabetes.
+
+- [**C**]{.green}: Keine der genannten Antworten stimmt.
+
+## Risikokennzahlen :muscle: :pencil: `r icons::fontawesome$solid$calculator`
+
+::: {.small .center}
+|                    | Erkrankt | Nicht erkrankt | Summe |
+|--------------------|----------|----------------|-------|
+|**Exponiert**       | 30       | 270            | 300   |
+|**Nicht exponiert** | 6        | 144            | 150   |
+|**Summe**           | 36       | 414            | 450   |
+:::
+
+Berechnen Sie Relatives Risiko, Relative und Absolute Risikoreduktion sowie das Odds Ratio.
+
+::: aside
+Quelle: [Sauerbrei, W. und Blettner, M. (2009). Interpretation der Ergebnisse von 2×2-Tafeln. Teil 9 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 795-800.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=66881)
+:::
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Risiken wie Falsch-Positiv-Rate einschätzen (Risk-Literacy).
+
+::: aside
+Vergleiche Fragen:
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+::: {.columns}
+:::: {.column width="60%"}
+- Sie lernen zentrale statistische Begriffe aus Risikostudien kennen.
+
+- Sie können Risiken mit Hilfe von Abbildungen und Kontingenztafeln einordnen.
+::::
+
+:::: {.column width="40%"}
+![](img/Meme_Anteil2.jpg){width=90% fig-align="center"}
+::::
+:::
+
