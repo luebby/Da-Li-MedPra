@@ -300,7 +300,6 @@ Welcher der folgenden Punkte würde Ihnen am besten helfen zu beurteilen, wie vi
 
 Statt 2 von 1000 hat jetzt 1 von 1000 eine Zahnfleischentzündung.
 
-
 ## Risiken -- Notation
 
 Ein wenig Notation zu Beginn:
@@ -312,16 +311,48 @@ Ein wenig Notation zu Beginn:
 
 ## Risiko
 
-- **Risiko**: Wahrscheinlichkeit eines unerwünschten Ereignisses, hier Krankheit: $Pr(K^+)$.
+- (Absoultes) **Risiko**: Wahrscheinlichkeit eines unerwünschten Ereignisses.
+
+- **Grundrisiko**: (auch Basisrate): Wahrscheinlichkeit eines unerwünschten Ereignisses ohne vorliegen des Risikofaktors: $Pr(K^+ | R^-)$.
+
+## Prozente :muscle:
+
+Bei vorliegen eines Risikofaktors erkranken 12%, ohne 8% (=Grundrisiko). 
+
+Wie würden Sie die Risikoänderung der Erkrankung durch den Risikofaktor beschreiben?
+
+
+- [**A**]{.green}: Das Risiko ist um 4% gestiegen.
+
+- [**B**]{.green}: Das Risiko ist um 50% gestiegen.
+
+::: {.aside}
+h/t Milo Schield (via isostat)
+:::
+
+## Relatives Risiko
 
 - **Relatives Risiko**: $$RR=\frac{\text{Anteil Erkranter bei Risikofaktor}}{\text{Anteil Erkranter ohne Risikofaktor}}=\frac{Pr(K ^+ | R^+)}{Pr(K ^+ | R^-)}$$
 
+- Im Beispiel: $RR=\frac{12\%}{8\%}=1,5$: Das Risiko ist bei vorliegen des Risikofaktors $1,5\times$ größer als ohne.
 
-## Risikoreduktion
+## Relative Risikoreduktion
 
-- **Relative Risikoreduktion**: Relative Senkung der Rate Erkranter bei Weglassen des Risikos.^[Auch: Relative Senkung der Rate der Behandlungsgruppe im Vergleich zur Kontrollgruppe.] $$RRR=\frac{Pr(K^+ | R^+)- Pr(K^+ | R^-)}{Pr(K^+ | R^+)}$$
+- **Relative Risikoreduktion**: Relative Senkung der Rate Erkranter bei Weglassen des Risikos.^[Auch: Relative Senkung der Rate der Behandlungsgruppe im Vergleich zur Kontrollgruppe.]: $$RRR=\frac{Pr(K^+ | R^+)- Pr(K^+ | R^-)}{Pr(K^+ | R^+)}$$
+
+- Im Beispiel: $RRR=\frac{12\%-8\%}{12\%}=33,33\%$: Das relative Risiko sinkt um 33,33 Prozent.
+
+## Absolute Risikoreduktion
 
 - **Absolute Risikoreduktion** (auch: Risikodifferenz): Differenz der Rate Erkranter bei Weglassen des Risikos: $$ARR=Pr(K^+ | R^+)- Pr(K^+ | R^-)$$
+
+- Im Beispiel: $ARR=12\%-8\%=4\%$: Das absolute Risiko sinkt um 4 Prozentpunkte.
+
+## Vorsicht!
+
+::: {.center}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ELNt0XZYsAQ?cc_lang_pref=fr&cc_load_policy=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+:::
 
 ## Relatives Risiko :muscle:
 
@@ -333,30 +364,33 @@ Was gilt für Risikofaktoren, die das Auftreten einer Krankheit wahrscheinlicher
 
 - [**C**]{.green}: $RR>1$.
 
-## Relative Risikoreduktion :muscle:
+## Riskokommunikation (I/II)
 
-::: {.columns}
-:::: {.column width="60%"}
-Wie hoch ist die relative Risikoreduktion durch Nutzen von Zendil^[$R^+$: Nicht-Nutzen von Zendil]?
+- **Absolute Risiken statt relativer Risiken**. Formulierungen wie „das Risiko erhöht sich um 18 Prozent“ oder „das Risiko halbiert sich“ vermeiden. Stattdessen absolute Risiken wie „es sind sechs von 100 statt 5 von 100 Personen betroffen“ verwenden.
 
-- [**A**]{.green}: $\frac{\frac{2}{3}}{\frac{1}{3}}=2$.
-
-- [**B**]{.green}: $\frac{\frac{2}{1000}-\frac{1}{1000}}{\frac{2}{1000}}=\frac{1}{2}$.
-
-- [**C**]{.green}: $\frac{2}{1000}-\frac{1}{1000}=\frac{1}{1000}$.
-::::
-
-:::: {.column width="40%"}
-::::: {.mini}
-|                | Zahnfleischentzündung | keine Zahnfleischentzündung | Summe |
-|----------------|-----------------------|-----------------------------|-------|
-|**Zendil**      | 1                     | 999                         | 1000  |
-|**kein Zendil** | 2                     | 998                         | 1000  |
-|**Summe**       | 3                     | 1996                        | 2000  |
-
-:::::
-::::
+::: aside
+Quelle: [Schirren, C., Lein, I., Diel, F., & Jenny, M. (2019). Zahlen können Verwirrung stiften. Dtsch Arztebl Int, 116, A 1642–6.](https://www.aerzteblatt.de/archiv/209920/Risikokommunikation-Zahlen-koennen-Verwirrung-stiften)
 :::
+
+## Riskokommunikation (II/II)
+
+- **Grundrisiko angeben**. Wenn Risikoveränderungen in absoluten Zahlen kommuniziert werden, wird automatisch das Grundrisiko (also die Basisrate) von zum Beispiel fünf von 100 mitkommuniziert. Dies kann Betroffenen helfen, das eigene Risiko mit dem durchschnittlichen Risiko zu vergleichen.
+
+::: aside
+Quelle: [Schirren, C., Lein, I., Diel, F., & Jenny, M. (2019). Zahlen können Verwirrung stiften. Dtsch Arztebl Int, 116, A 1642–6.](https://www.aerzteblatt.de/archiv/209920/Risikokommunikation-Zahlen-koennen-Verwirrung-stiften)
+:::
+
+## Grundrisiko :muscle:
+
+Wie kann in der Datenerhebung sichergestellt werden, dass das Grundrisiko auch für die Exponierten gelten würde, wenn Sie nicht exponiert wären?
+
+- [**A**]{.green}: Zufällige Stichprobe.
+
+- [**B**]{.green}: Zufällige Zuordnung im Rahmen eines Experiments.
+
+- [**C**]{.green}: Vollerhebung der Zielpopulation.
+
+
 
 ## Odds
 
@@ -370,11 +404,11 @@ $$OR=\frac{\frac{60}{40}}{\frac{50}{150}}=\frac{3}{2} \cdot \frac{3}{1}=\frac{9}
 
 ## Odds Ratio :muscle:
 
-Eine fiktive Studie kommt zum Ergebnis, dass bei Konsum von Fast-Food das Odds-Ratio für Typ-2 Diabetes bei 2 liegt. Welche Interpretation stimmt:
+Eine fiktive Studie kommt zum Ergebnis, dass bei Konsum von Fast-Food das Odds-Ratio für Typ-2 Diabetes bei 3 liegt. Welche Interpretation stimmt:
 
 - [**A**]{.green}: Es gibt keinen Zusammenhang zwischen Fast-Food und Typ-2 Diabetes.
 
-- [**B**]{.green}: Jede:r 2. Fast-Food-Konsument:in entwickelt Typ-2 Diabetes.
+- [**B**]{.green}: Jede:r 3. Fast-Food-Konsument:in entwickelt Typ-2 Diabetes.
 
 - [**C**]{.green}: Keine der genannten Antworten stimmt.
 
@@ -388,10 +422,10 @@ Eine fiktive Studie kommt zum Ergebnis, dass bei Konsum von Fast-Food das Odds-R
 |**Summe**           | 36       | 414            | 450   |
 :::
 
-Berechnen Sie Relatives Risiko, Relative und Absolute Risikoreduktion sowie das Odds Ratio.
+Berechnen Sie Grundrisiko, Relatives Risiko, Relative und Absolute Risikoreduktion sowie das Odds Ratio. Wie würden Sie einer Freundin das jeweilige Ergbnis vermitteln?
 
 ::: aside
-Quelle: [Sauerbrei, W. und Blettner, M. (2009). Interpretation der Ergebnisse von 2×2-Tafeln. Teil 9 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 795-800.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=66881)
+Quelle: [Sauerbrei, W. & Blettner, M. (2009). Interpretation der Ergebnisse von 2×2-Tafeln. Teil 9 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 795-800.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=66881)
 :::
 
 ##  Modulziel &#x1F393; :muscle: :pencil:

@@ -31,7 +31,7 @@ theme_set(
 
 ## Mammographie
 
-In einen Region sei folgendes bekannt:
+In einer Region sei folgendes bekannt:
 
 - Die Wahrscheinlichkeit, dass eine Frau Brustkrebs hat liegt bei 1% (Prävalenz).
 
@@ -207,7 +207,7 @@ Hinweis: $Pr(A \text{ und } B) = Pr(A | B) \cdot Pr(B) = Pr(B | A) \cdot Pr(A)$.
 
 ## Lösung NFT (III/III) -- Natürliche Häufigkeiten
 
-- $9$ korrekt postive Testergebnisse, $90$ falsch positive Testergebisse. 
+- $9$ korrekt postive Testergebnisse, $50$ falsch positive Testergebisse. 
 
 - Insgesamt $9+50 = 59$ positive Testergebnisse.
 
@@ -241,7 +241,7 @@ Englische Abkürzungen: **T**rue oder **F**alse **P**ositiv oder **N**egativ.
 ## Prävalenz und Inzidenz
 
 - Die **Prävalenz** beschreibt den Anteil Erkrankter an der Gesamtzahl einer definierten Population
-eintreten wird.zu einem bestimmten Zeitpunkt.
+eintreten wird zu einem bestimmten Zeitpunkt.
 
 - Die **Inzidenz** beschreibt die in einem bestimmten Zeitraum neu aufgetretene Anzahl an Krankheitsfällen in einer definierten Population.
 
