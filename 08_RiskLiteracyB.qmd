@@ -298,7 +298,7 @@ Welcher der folgenden Punkte würde Ihnen am besten helfen zu beurteilen, wie vi
 
 :::
 
-Statt 2 von 1000 hat jetzt 1 von 1000 eine Zahnfleischentzündung.
+Z.B. könnten statt 2 von 1000 jetzt 1 von 1000 eine Zahnfleischentzündung haben. Oder statt 500 nur 250 :wink: 
 
 ## Risiken -- Notation
 
@@ -332,7 +332,11 @@ h/t Milo Schield (via isostat)
 
 ## Relatives Risiko
 
-- **Relatives Risiko**: $$RR=\frac{\text{Anteil Erkranter bei Risikofaktor}}{\text{Anteil Erkranter ohne Risikofaktor}}=\frac{Pr(K ^+ | R^+)}{Pr(K ^+ | R^-)}$$
+- **Relatives Risiko**: 
+\begin{eqnarray*}
+RR &=&\frac{\text{Anteil Erkranter bei Risikofaktor}}{\text{Anteil Erkranter ohne Risikofaktor}}\\
+&=&\frac{Pr(K ^+ | R^+)}{Pr(K ^+ | R^-)}
+\end{eqnarray*}
 
 - Im Beispiel: $RR=\frac{12\%}{8\%}=1,5$: Das Risiko ist bei vorliegen des Risikofaktors $1,5\times$ größer als ohne.
 
@@ -366,7 +370,7 @@ Was gilt für Risikofaktoren, die das Auftreten einer Krankheit wahrscheinlicher
 
 ## Riskokommunikation (I/II)
 
-- **Absolute Risiken statt relativer Risiken**. Formulierungen wie „das Risiko erhöht sich um 18 Prozent“ oder „das Risiko halbiert sich“ vermeiden. Stattdessen absolute Risiken wie „es sind sechs von 100 statt 5 von 100 Personen betroffen“ verwenden.
+- **Absolute Risiken statt relativer Risiken**. Formulierungen wie „das Risiko erhöht sich um 18 Prozent“ oder „das Risiko halbiert sich“ vermeiden. Stattdessen absolute Risiken wie „es sind 6 von 100 statt 5 von 100 Personen betroffen“ verwenden.
 
 ::: aside
 Quelle: [Schirren, C., Lein, I., Diel, F., & Jenny, M. (2019). Zahlen können Verwirrung stiften. Dtsch Arztebl Int, 116, A 1642–6.](https://www.aerzteblatt.de/archiv/209920/Risikokommunikation-Zahlen-koennen-Verwirrung-stiften)
@@ -374,7 +378,7 @@ Quelle: [Schirren, C., Lein, I., Diel, F., & Jenny, M. (2019). Zahlen können Ve
 
 ## Riskokommunikation (II/II)
 
-- **Grundrisiko angeben**. Wenn Risikoveränderungen in absoluten Zahlen kommuniziert werden, wird automatisch das Grundrisiko (also die Basisrate) von zum Beispiel fünf von 100 mitkommuniziert. Dies kann Betroffenen helfen, das eigene Risiko mit dem durchschnittlichen Risiko zu vergleichen.
+- **Grundrisiko angeben**. Wenn Risikoveränderungen in absoluten Zahlen kommuniziert werden, wird automatisch das Grundrisiko (also die Basisrate) von zum Beispiel 5 von 100 mitkommuniziert. Dies kann Betroffenen helfen, das eigene Risiko mit dem durchschnittlichen Risiko zu vergleichen.
 
 ::: aside
 Quelle: [Schirren, C., Lein, I., Diel, F., & Jenny, M. (2019). Zahlen können Verwirrung stiften. Dtsch Arztebl Int, 116, A 1642–6.](https://www.aerzteblatt.de/archiv/209920/Risikokommunikation-Zahlen-koennen-Verwirrung-stiften)
@@ -432,19 +436,18 @@ Quelle: [Sauerbrei, W. & Blettner, M. (2009). Interpretation der Ergebnisse von 
 
 Risiken wie Falsch-Positiv-Rate einschätzen (Risk-Literacy).
 
-::: aside
-Vergleiche Fragen:
-
-- Was kann ich mit Daten machen?
+::: callout-tip
+## Tipp
+{{< fa first-aid >}} [Faktenboxen](https://hardingcenter.de/de/transfer-und-nutzen/faktenboxen) des [Harding-Zentrum für Risikokompetenz](https://hardingcenter.de/).
 :::
 
 ## Haben Sie gelernt? :eyes:
 
 ::: {.columns}
 :::: {.column width="60%"}
-- Sie lernen zentrale statistische Begriffe aus Risikostudien kennen.
+- Zentrale statistische Begriffe aus Risikostudien zu verstehen.
 
-- Sie können Risiken mit Hilfe von Abbildungen und Kontingenztafeln einordnen.
+- Risiken mit Hilfe von Abbildungen und Kontingenztafeln einzuordnen.
 ::::
 
 :::: {.column width="40%"}

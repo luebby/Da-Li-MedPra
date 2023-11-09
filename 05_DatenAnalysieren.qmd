@@ -119,7 +119,7 @@ Ich freue mich über eine anonyme Datenspende. Die gewählten Zahlen werden zu F
 
 - Werte (=Ausprägungen) der Variablen auf der x-Achse.
 
-- Häufigkeit, mit der die Variable den Wert auf der x-Achse annimmt auf der y-Achse.
+- Häufigkeit, mit der die Variable den Wert auf der x-Achse annimmt, auf der y-Achse.
 ::::
 
 :::: {.column width="40%"}
@@ -172,7 +172,7 @@ Fiktives Beispiel: Für die Variable *Klausur bestanden* erfahren Sie, dass die 
 
 Wechseln Sie in der [App](https://fomshinyapps.shinyapps.io/NoShows/) zum nächsten Reiter, `1. Szenario`. Dort ist Ihre ursprüngliche Zusammenfassung vorausgewählt. 
 
-Statistiken dienen aber nicht nur der Datenbeschreibung sondern auch der Datenvorhersage. Der Lohn für Ihre Dienste hängt davon wie gut Ihre Prognose die Beobachtungen vorhersagt.
+Statistiken dienen aber nicht nur der Datenbeschreibung sondern auch der Datenvorhersage. Der Lohn für Ihre Dienste hängt davon ab wie gut Ihre Prognose die Beobachtungen vorhersagt.
 
 - Versuchen Sie Ihren Lohn zu erhöhen. Bei welcher Prognose ist Ihr erwartete Lohn maximal?
 
@@ -192,7 +192,7 @@ Ist die optimale Prognose der *Anzahl No-Shows* in allen Szenarien gleich?
 
 - Der **Modus** (auch: Modalwert) $y_{mod}$ ist die Merkmalsausprägung die am häufigsten vorkommt.
 
-- Der **Median**,  $y_{(0.5)}$, (auch: Zentralwert) ist liegt bei den nach Größe aufsteigend sortierten Beobachtungen in der Mitte, d.h., mindestens $50\%$ der Beobachtungen sind nicht größer, mindestens $50\%$ sind nicht kleiner.
+- Der **Median**,  $y_{(0.5)}$, (auch: Zentralwert) liegt bei den nach Größe aufsteigend sortierten Beobachtungen in der Mitte, d.h., mindestens $50\%$ der Beobachtungen sind nicht größer, mindestens $50\%$ sind nicht kleiner.
 
 - Der **Arithmetische Mittelwert**, $\bar{y}$, (sprich: *y quer*) ergibt sich als die Summe aller Beobachtungswerte $y_i$ geteilt durch deren Anzahl $n$: $\bar{y}=\frac{y_1+y_2+y_3+\ldots+y_n}{n}$.
 
@@ -252,7 +252,7 @@ Quelle: [Sketschplanations](https://sketchplanations.com/sneaky-averages)
 
 ## Einleitung Verteilungsformen
 
-- Unterschiedliche Werte (oder Wertebereiche) einer Variablen kommen unterchiedlich oft vor. 
+- Unterschiedliche Werte (oder Wertebereiche) einer Variablen kommen unterschiedlich oft vor. 
 
 - Wie können solche Verteilungen aussehen (Auswahl)?
 
@@ -500,7 +500,7 @@ Vergleiche Fragen:
 
 - Die Bedeutung und Berechnung von Lagemaßen.
 
-- Sie lernen unterschiedliche Verteilungsformen kennen.
+- Unterschiedliche Verteilungsformen.
 
 - Die Bedeutung der Varianz.
 

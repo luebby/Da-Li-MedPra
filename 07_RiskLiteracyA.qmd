@@ -234,14 +234,13 @@ Wenn nur Wahrscheinlichkeiten oder Anteile angegeben sind: Nehmen Sie eine einfa
 |**Test negativ** | falsch negativ (FN)  | richtig negativ (TN) |
 
 ::: aside
-Englische Abkürzungen: **T**rue oder **F**alse **P**ositiv oder **N**egativ.
+Englische Abkürzungen: **T**rue oder **F**alse **P**ositive oder **N**egative.
 :::
 
 
 ## Prävalenz und Inzidenz
 
-- Die **Prävalenz** beschreibt den Anteil Erkrankter an der Gesamtzahl einer definierten Population
-eintreten wird zu einem bestimmten Zeitpunkt.
+- Die **Prävalenz** beschreibt den Anteil Erkrankter an der Gesamtzahl einer definierten Population zu einem bestimmten Zeitpunkt.
 
 - Die **Inzidenz** beschreibt die in einem bestimmten Zeitraum neu aufgetretene Anzahl an Krankheitsfällen in einer definierten Population.
 
@@ -259,7 +258,7 @@ Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzba
 
 ## Spezifität
 
-- Die **Spezifität** ist der Anteil der Test-negativen Personen unter allen Nicht-Erkrankten einer Stichprobe, d.h. die Wahrscheinlichkeit, mit einem diagnostischen Test Nicht-Erkrankte korrekt zu identifizieren. Eine hohe Spezifität wird angestrebt, wenn eine Erkrankung mit großer Sicherheit bestätigt werden soll.
+- Die **Spezifität** ist der Anteil der test-negativen Personen unter allen Nicht-Erkrankten einer Stichprobe, d.h. die Wahrscheinlichkeit, mit einem diagnostischen Test Nicht-Erkrankte korrekt zu identifizieren. Eine hohe Spezifität wird angestrebt, wenn eine Erkrankung mit großer Sicherheit bestätigt werden soll.
 
 ::: aside
 Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzbasierten Medizin. <https://ebm-netzwerk.de/de/service-ressourcen/ebm-glossar>
@@ -302,7 +301,7 @@ Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzba
 
 ## Zusammenhänge (I/III) :muscle: :computer:
 
-Wie ändert sich die Wahrscheinlichkeit bei positiven Testergebnis wirklich krank zu sein, wenn die Prävalenz steigt?
+Wie ändert sich die Wahrscheinlichkeit bei positivem Testergebnis wirklich krank zu sein, wenn die Prävalenz steigt?
 
 - [**A**]{.green}: Der PPV steigt.
 
@@ -316,7 +315,7 @@ Interaktive App: <https://fomshinyapps.shinyapps.io/riskyrApp-DE/>
 
 ## Zusammenhänge (II/III) :muscle: :computer:
 
-Wie ändert sich die Wahrscheinlichkeit bei positiven Testergebnis wirklich krank zu sein, wenn die Sensitivität steigt?
+Wie ändert sich die Wahrscheinlichkeit bei positivem Testergebnis wirklich krank zu sein, wenn die Sensitivität steigt?
 
 - [**A**]{.green}: Der PPV steigt.
 
@@ -364,7 +363,7 @@ Ein Labortest (z.B. auf Borreliose) hat eine diagnostische Spezifität von 98%. 
 
 - [**C**]{.green}: (1-Spezifität) * 100 (%) = 2% 
 
-- [**C**]{.green}: Keine der obigen Antworten ist richtig.
+- [**D**]{.green}: Keine der obigen Antworten ist richtig.
 
 ::: aside
 Quelle: [Bautsch, W. (2009). Anforderungen und Bewertung der Ergebnisse von Laboruntersuchungen. Teil 5 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 403-406.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=65024)
@@ -388,8 +387,8 @@ Vergleiche Fragen:
 ## Haben Sie gelernt? :eyes:
 
 
-- Sie lernen zentrale statistische Begriffe aus Diagnosestudien kennen.
+- Zentrale statistische Begriffe aus Diagnosestudien zu unterscheiden.
 
-- Sie können Risiken mit Hilfe von Abbildungen und Kontingenztafeln einordnen.
+- Risiken mit Hilfe von Abbildungen und Kontingenztafeln einzuordnen.
 
 
