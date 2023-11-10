@@ -81,7 +81,10 @@ pklein1 <- ggplot(Kleinstadt1, aes(x = x, y = y, color = gesangsverein)) +
   geom_vline(xintercept = 16.5, linetype="dotted", linewidth=1.2) + 
   geom_vline(xintercept = 28.5, linetype="dotted", linewidth=1.2) + 
   labs(title = "Information gegeben: Geschlecht | Gesangsverein") +
-  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+  theme(legend.position = "bottom", 
+        plot.title = element_text(hjust = 0.5, size = 22),
+        legend.title=element_text(size = 20),
+        legend.text = element_text(size = 20))
 pklein1 
 ```
 ::::
@@ -100,8 +103,11 @@ pklein2 <- ggplot(Kleinstadt2, aes(x = x, y = y, color = gesangsverein)) +
   geom_vline(xintercept = 24.5) +
   geom_vline(xintercept = 16.5, linetype="dotted", linewidth=1.2) + 
   geom_vline(xintercept = 28.5, linetype="dotted", linewidth=1.2) + 
-  labs(title = "Information gesucht: Gesangsverein | Geschlecht") +
-  theme(legend.position = "bottom", plot.title = element_text(hjust = 0.5))
+  labs(title = "Information gebraucht: Gesangsverein | Geschlecht") +
+  theme(legend.position = "bottom", 
+        plot.title = element_text(hjust = 0.5, size = 22),
+        legend.title=element_text(size = 20),
+        legend.text = element_text(size = 20))
 pklein2 
 ```
 ::::
@@ -358,6 +364,8 @@ RR &=&\frac{\text{Anteil Erkranter bei Risikofaktor}}{\text{Anteil Erkranter ohn
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ELNt0XZYsAQ?cc_lang_pref=fr&cc_load_policy=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 :::
 
+<https://youtu.be/ELNt0XZYsAQ>
+
 ## Relatives Risiko :muscle:
 
 Was gilt für Risikofaktoren, die das Auftreten einer Krankheit wahrscheinlicher machen?
@@ -431,6 +439,19 @@ Berechnen Sie Grundrisiko, Relatives Risiko, Relative und Absolute Risikoredukti
 ::: aside
 Quelle: [Sauerbrei, W. & Blettner, M. (2009). Interpretation der Ergebnisse von 2×2-Tafeln. Teil 9 der Serie zur Bewertung wissenschaftlicher Publikationen. Dtsch Arztebl Int, 106, 795-800.](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=66881)
 :::
+
+## Exkurs Prozentrechnung :muscle: {.smaller}
+
+Ein Hersteller erhöht den Preis eines Medikaments um 10%. Anschießend bietet er im Rahmen einer Rabattaktion einen Nachlass von 10% an. Welche Aussage stimmt?
+
+
+- [**A**]{.green}: Das Medikament kostet in der Rabattaktion weniger als vorher.
+
+- [**B**]{.green}: Das Medikament kostet in der Rabattaktion mehr als vorher.
+
+- [**C**]{.green}: Das Medikament kostet in der Rabattaktion genau so viel wie vorher.
+
+- [**D**]{.green}: Kann mit der gegebenen Information nicht beantwortet werden.
 
 ##  Modulziel &#x1F393; :muscle: :pencil:
 
