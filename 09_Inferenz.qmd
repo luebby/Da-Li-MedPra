@@ -1,6 +1,10 @@
-```{r setup}
+```{r}
+#| include: false
 library(mosaic)
 library(gganimate)
+library(tidyr)
+library(animation)
+
 set.seed(1896)
 theme.fom <- theme_classic(22*1.04)
 theme.fom <- theme.fom
@@ -8,141 +12,104 @@ theme_set(
   theme.fom  
 )
 
-beta_reparm <- function(mod, concentration, eps = 1e-4)
-{
-  # Warnhinweise bei nicht geeigneten Parametern
-  if (mod<=0) {
-    mod <- eps
-    warning(paste0("Achtung: Modus <= 0, angepasst auf ", mod))
-  }
-  if (mod>=1) {
-    mode <- 1-eps
-    warning(paste0("Achtung: Modus >= 1, angepasst auf ", mod))
-  }
-  
-  if (concentration <=2) {
-    concentration <- 2 + eps
-    warning(paste0("Achtung: Konzentration <= 2, angepasst auf ", concentration))
-  }
-  
-  # Umrechnung in shape1 und shape2
-  alpha <- mod*(concentration-2)+1
-  beta <- (1-mod)*(concentration-2)+1
-  
-  # Ergebnisvektor
-  erg <- c(alpha, beta)
-  names(erg) <- c("alpha", "beta")
-  
-  # Ausgabe
-  return(erg)
-}
-
+options(OutDec = ',')
 ```
 
+# Elemente der Inferenzstatistik
 
-# Lernen aus Daten
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
 
+- Das Daten zur Schätzung verwendet werden.
 
-## Covid-19 Schutzimpfung
+- Das Unsicherheiten unvermeidlich sind und was Standardfehler und Konfidenzintervall bedeuten.
 
-- Wirkt diese? Wie gut?
+- Wie Hypothesen geprüft werden und was der p-Wert ist.
 
-- Für Details der Originalstudie siehe z.B. [https://www.nejm.org/doi/full/10.1056/NEJMoa2034577](https://www.nejm.org/doi/full/10.1056/NEJMoa2034577)
+##  Schließen aus Daten :muscle:
 
-- {{< fa brands r-project >}}-Vorbereitung:
- 
-```{r}
-#| echo: true
-library(mosaic)
-```
- 
-## Plan
+Unter 170 Covid-19 Fällen sind [8]{.blue} geimpft und [162]{.violet} nicht. 
+
+Können Sie daraus schließen, dass die Impfung vor der Erkrankung schützt?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Basisratenfehler
+
+Wir müssen wissen, wie hoch der Anteil Geimpfter in der Population ist.
+
+![](img/Base_rate_fallacy_with_vaccines.png){width=70% fig-align="center"}
+
+::: {.aside}
+Quelle: <https://de.wikipedia.org/wiki/Prävalenzfehler> durch auf Basis von <https://twitter.com/MarcRummy/status/1464178903224889345>.
+:::
+
+##  Schließen aus Daten -- Forts. :muscle:
+
+In der Studienpopulation gab es genau so viele Geimpfte wie Ungeimpfte. 
+
+Können Sie jetzt daraus schließen, dass die Impfung ursächlich vor der Erkrankung schützt?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## RCT
 
 - Randomisiertes Experiment mit $\approx 43660$ Teilnehmenden.
 
 - Multinationale Studie, Teilnehmende über 16 Jahre.
 
-- Zufällige Zuordnung zu Impf- oder Placebogruppe, jeweils $\approx 21830$ Personen.
+- **Zufällige** (!) Zuordnung zu Impf- oder Placebogruppe, jeweils $\approx 21830$ Personen.
+
+- Für Details der Originalstudie siehe z.B. [https://www.nejm.org/doi/full/10.1056/NEJMoa2034577](https://www.nejm.org/doi/full/10.1056/NEJMoa2034577)
 
 ::: {.aside}
 *Hinweis*: Aufgrund von Ausschlusskriterien weichen die echten Daten leicht ab.
 :::
 
-
-## Data
-
-- In der [Placebogruppe]{.violet}: [162]{.violet} Covid-19 Fälle.
-
-- In der [Impfgruppe]{.blue}: [8]{.blue} Covid-19 Fälle.
-
-
-## Analysis: Risiko
-
-$$ir = \frac{\text{Fälle}}{\text{Personen}}$$
-
-:::: {.columns}
-::: {.column width="50%"}
-
-Risiko [Placebogruppe]{.violet}:
+## Ergebnis
 
 ```{r}
-#| echo: true
-ir_placebo <- 162/21830
-ir_placebo
+#| echo: false
+#| out.width: '80%'
+#| fig.align: 'center'
+ergebnis <- rep(c("I","P"), c(8,162))
+plotmatrix <- crossing(x = 1:17, y = 1:10)
+plotmatrix <-  plotmatrix |>
+  mutate(status = ergebnis) 
+impf <- sum(ergebnis=="I")
+cols <- c("#0000FF","#DA70D6")
+ploterg <- ggplot(plotmatrix, 
+                  aes(x = x, y = y, color = status)) +
+  geom_tile(color = "white", size = .5, alpha = .1, aes(fill = status)) +
+  theme_void() +
+  geom_text(size = 8, aes(label = status)) +
+  scale_color_manual(values = cols,
+                    aesthetics = c("colour", "fill")) +
+  labs(title = paste0("Ergebnis: ",impf, " Geimpfte unter den Fällen")) +
+  theme(legend.position = "none", plot.title = element_text(hjust = 0.5)) +
+  guides(guide = "none")
+ploterg
 ```
 
-:::
-::: {.column width="50%"}
-
-Risiko [Impfgruppe]{.blue}:
-
-```{r}
-#| echo: true
-ir_impf <- 8/21830
-ir_impf
-```
-
-:::
-::::
-
-Das absolute Risiko im Studienzeitraum (**!**) zu erkranken war in beiden Gruppen klein (<1%) -- und in der [Impfgruppe]{.blue} viel kleiner als in der [Placebogruppe]{.violet}.
-
-## Analyse: Wirksamkeit (I/II)
-
-$$IW=1-\frac{\color{blue}{ir_{Impfung}}}{\color{violet}{ir_{Placebo}}}$$
-Da hier die Anzahl Personen in der [Impfgruppe]{.blue} und [Placebogruppe]{.violet} gleich groß ist reduziert sich die Formel zu:
-
-$$IW = 1- \frac{\color{blue}{\text{Fälle in Impfgruppe}}}{\color{violet}{\text{Fälle in Placebogruppe}}}$$
-
-:::{.aside}
-*Hinweis*: Die Impfwirksamkeit bezieht sich also auf die relative Reduktion des Risikos. 
-:::
-
-## Analyse: Wirksamkeit (II/II)
-
-```{r}
-#| echo: true
-iw <- 1- (ir_impf / ir_placebo)
-iw
-```
-
-Die Impfwirksamkeit in der Studie liegt bei $$iw=1-\frac{\color{blue}{8}}{\color{violet}{162}}=`r round(iw*100,2)`\,\%.$$
 
 ## Anzahl und Anteil
 
 - Es gab insgesamt $n=\color{blue}{8}+\color{violet}{162}=170$ Covid-19 Fälle.
 
-- Anzahl aus der [Placebogruppe]{.violet} $\color{violet}{162}$.
+- Anzahl aus der [Impfgruppe]{.blue} $\color{blue}{8}$.
 
-- Dann ist der Anteil $\color{orange}p$ der [Placebogruppe]{.violet} unter den Fällen: $$\color{orange}p= \frac{\color{violet}{\text{Fälle in Placebogruppe}}}{\text{Fälle insgesamt}}=\frac{\color{violet}{162}}{{\color{violet}{162}}+\color{blue}{8}}=\frac{\color{violet}{162}}{170}=\color{orange}{`r round(162/170,4)`}$$
+- Dann ist der Anteil $\color{orange}p$ der [Impfgruppe]{.blue} unter den Fällen: $$\color{orange}p= \frac{\color{blue}{\text{Fälle in Impfgruppe}}}{\text{Fälle insgesamt}}=\frac{\color{blue}{8}}{\color{blue}{8}+{\color{violet}{162}}}=\frac{\color{blue}{8}}{170}=\color{orange}{`r round(8/170,4)`}$$
 
 ## Datengenerierender Prozess
 
-- Wir haben gesehen, das $\color{violet}{162}$ von $170$ Covid-Fällen aus der [Placebogruppe]{.violet} kamen.
+- Wir haben gesehen, das $\color{blue}{8}$ von $170$ Covid-Fällen aus der [Impfgruppe]{.blue} kamen.
 
 - Aber wie ist es zu dieser Anzahl gekommen? Einige Menschen erkranken (leider), andere nicht.
 
-- Wir stellen uns vor, es gibt eine theoretische Wahrscheinlichkeit $\color{purple}\pi$, dass in dieser Studie ein Fall aus der [Placebogruppe]{.violet} kommt.
+- Wir stellen uns vor, es gibt eine theoretische Wahrscheinlichkeit $\color{purple}\pi$ (gr.: *pi*.), dass in dieser Studie ein Fall aus der [Impfgruppe]{.blue} kommt.
 
 
 ## $\pi$ und $p$
@@ -153,16 +120,15 @@ Die Impfwirksamkeit in der Studie liegt bei $$iw=1-\frac{\color{blue}{8}}{\color
 
 $$\underbrace{Statistik}_{\color{orange}{p}} = \underbrace{Wert\,Parameter}_{\color{purple}{\pi}} + Verzerrung + Rauschen$$
 
-
 ## Mutmaßlichkeit
 
-Je nachdem, welches $\color{violet}\pi$ vorliegt, desto *mutmaßlicher* (engl.: likely) ist eine Anzahl $x=\color{violet}{162}$ bei $n=170$ Fällen:
+Je nachdem, welches $\color{violet}\pi$ vorliegt, desto *mutmaßlicher* (engl.: *likely*) ist eine Anzahl $x=\color{blue}{8}$ bei $n=170$ Fällen:
 
 ```{r}
 #| out.width: '65%'
 #| fig.align: 'center'
-pi <- seq(0,1, by = 0.0001)
-li <- dbinom(162, 170, pi)
+pi <- seq(0,1, by = 0.001)
+li <- dbinom(8, 170, pi)
 gf_line(li ~ pi, linewidth = 2) |>
   gf_labs(x = expression(pi), y = "Likelihood")
 ```
@@ -173,7 +139,7 @@ gf_line(li ~ pi, linewidth = 2) |>
 
 - Als **Punktschätzer** für $\color{purple}\pi$ können wir den Wert verwenden, für den unsere Likelihood maximal ist, hier $\color{orange}p$:
 
-$$\hat{\pi}=p=\frac{162}{170}=`r round(162/170,4)`$$
+$$\hat{\pi}=p=\frac{8}{170}=`r round(8/170,4)`$$
 
 ## $\hat{\pi}$
 
@@ -184,77 +150,60 @@ $$\hat{\pi}=p=\frac{162}{170}=`r round(162/170,4)`$$
 #| fig.align: 'center'
 gf_line(li ~ pi, linewidth = 2) |>
   gf_labs(x = expression(pi), y = "Likelihood") |>
-  gf_vline(xintercept = 162/170, color = "#FF8811", linewidth = 2)
+  gf_vline(xintercept = 8/170, color = "#FF8811", linewidth = 2)
 ```
 
+
+##  Zufall? :muscle:
+
+Wenn die Studie wiederholt werden würde. Muss dann das selbe Ergebnis, also $\color{orange}{p}=\frac{\color{blue}{8}}{170}$ herauskommen?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
 
 ## Verzerrung und Rauschen
 
 - Die Zuordnung zu Impfung und Placebo erfolgte zufällig. Daher liegt keine (systematische) Verzerrung vor.
 
-- Aber Rauschen?
 
+$$\underbrace{\color{orange}{`r round(8/170,4)`}}_{Statistik\, \color{orange}{p}} = \underbrace{\color{purple}{\pi}}_{Wert\,Parameter} + \underbrace{0}_{Verzerrung} + Rauschen$$
 
-$$\underbrace{\color{orange}{`r round(162/170,4)`}}_{Statistik\, \color{orange}{p}} = \underbrace{\color{purple}{\pi}}_{Wert\,Parameter} + \underbrace{0}_{Verzerrung} + Rauschen$$
-
-## Verteilung eines Anteils
-
-- **Angenommen** $\color{purple}{\pi}=\color{purple}{0.95}$
-
-- Welche Anteile $\color{orange} p$ würden wir dann in unseren Daten beobachten?
-
-::: callout-important
-## Wichtig
-Wir kennen $\color{purple}{\pi}$ nicht. Wir kennen nur $\color{orange}p$.
-:::
-
-## Simulation
-
-:::: {.columns}
-::: {.column width="50%"}
-- Allen Simulationen liegt ein konstanter Anteil von $\color{purple}{\pi}=\color{purple}{0.95}$ zugrunde. Eingezeichnet als vertikale Linie.
-
-- Trotzdem sehen wir in den Daten ($n=170$) unterschiedliche Anteile $\color{orange}p$. Gekennzeichnet durch die Punkte.
-:::
-
-::: {.column width="50%"}
+## Simulierte RCTs
 
 ```{r}
 #| eval: false
 # Einmalig laufen lassen "Run Current Chunk".
-# Estimate.gif dann in den Unterordner img verschieben
-set.seed(1896)
-x <- rbinom(100, 170, 0.95)
-p <- x/170
+# Simulation_Sam.gif dann in den Unterordner img verschieben
+simdat <- rbinom(100, size = length(ergebnis), prob = mean(ergebnis=="I"))
+SimPlot <- list()
+for (i in 1:100) {
+  simergebnis <- rep(c("I","P"), c(simdat[i],length(ergebnis)-simdat[i]))
+  cols <- c("#0000FF","#DA70D6")
+  if (simdat[i]==0) cols <- "#DA70D6"
 
-SimDat <- data.frame(
-  sim = 1:100,
-  p = p)
+  plotmatrix <-  plotmatrix |>
+    mutate(status = simergebnis) 
+  
+  SimPlot[[i]] <- ggplot(plotmatrix, 
+                         aes(x = x, y = y, color = status)) +
+    geom_tile(color = "white", size = .5, alpha = .1, aes(fill = status)) +
+    theme_void() +
+    geom_text(size = 8, aes(label = status)) +
+    scale_color_manual(values = cols,
+                       aesthetics = c("colour", "fill")) +
+    labs(title = paste0(i, ". Simulation: ", simdat[i], " Geimpfte unter den Fällen")) +
+    theme(legend.position = "none", plot.title = element_text(hjust = 0.5)) +
+    guides(guide = "none") 
+}
 
-seplot <- ggplot() +
-  geom_point(data = SimDat,
-             aes(p, sim),
-             size = 2, color="#FF8811") +
-  geom_vline(xintercept=0.95, color="#7A378B", linewidth = 1.5) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.title.y = element_blank()) +
-  scale_y_reverse() 
 
-outfile <- tempfile(fileext='.gif')
-seplot.ani  <- seplot + 
-  labs(title = "Anteil {closest_state}. Simulation", 
-       subtitle = "p = {round(SimDat$p[as.integer(closest_state)], 4)}") +
-  transition_states(sim) +
-  shadow_trail(distance = 1/100, alpha = 0.5)
-anim_save("Estimate.gif", animate(seplot.ani, duration = 50, end_pause = 10))
+saveGIF({for (i in 1:100) plot(SimPlot[[i]])}, 
+        movie.name = "Simulation_Sam.gif", interval = 1,
+        ani.width = 600, ani.height = 400)
 ```
 
-![](img/Estimate.gif){width=95% fig-align="center"}
-
-:::
-::::
+![](img/Simulation_Sam.gif){width=95% fig-align="center"}
 
 ## Das Problem
 
@@ -262,7 +211,7 @@ anim_save("Estimate.gif", animate(seplot.ani, duration = 50, end_pause = 10))
 ::: {.column width="50%"}
 - Das vorliegende Studienergebnis ist nur einer dieser Punkte. 
 
-- Das beobachtete $\color{orange}{p}=\color{orange}{`r round(162/170,4)`}$ kann mehr oder weniger vom wahren, aber unbekannten Wert $\color{purple}{\pi}$ abweichen.
+- Das beobachtete $\color{orange}{p}=\color{orange}{`r round(8/170,4)`}$ kann mehr oder weniger vom wahren, aber unbekannten Wert $\color{purple}{\pi}$ abweichen.
 :::
 
 ::: {.column width="50%"}
@@ -296,7 +245,7 @@ $$se_p=\sqrt{{\frac{p\cdot(1-p)}{n}}}$$
 
 \begin{align*}
 \hat{se}_p &= \sqrt{{\frac{\color{orange}{p}\cdot(1-\color{orange}{p})}{n}}} \\
-&= \sqrt{{\frac{\color{orange}{\frac{162}{170}}\cdot(1-\color{orange}{\frac{162}{170}})}{170}}}=`r round(sqrt((162/170*(1-162/170))/170),4)`
+&= \sqrt{{\frac{\color{orange}{\frac{8}{170}}\cdot(1-\color{orange}{\frac{8}{170}})}{170}}}=`r round(sqrt((8/170*(1-8/170))/170),4)`
 \end{align*}
 
 ## Schätzunsicherheit
@@ -307,11 +256,6 @@ $$se_p=\sqrt{{\frac{p\cdot(1-p)}{n}}}$$
 $$p \pm 2 \cdot se_p$$
 
 
-::: callout-warning
-## Warnung
-Der Standardfehler ist [nicht]{.red} die *durchschnittliche* Abweichung von $\color{purple}{\pi}$ und $\color{orange}{p}$.
-:::
-
 ## Konfidenzintervall
 
 - $p \pm 2 \cdot se_p$ ist eine erste Näherung für das 95%-**Konfidenzintervall**.
@@ -320,269 +264,239 @@ Der Standardfehler ist [nicht]{.red} die *durchschnittliche* Abweichung von $\co
 
 - Welche Werte für $\color{purple}{\pi}$ sind bei unserem $\color{orange}{p}$ (und $n$) *plausibel*?
 
-## Datenzentriert
-
-- Beim Konfidenzintervall gehen wir von den Daten aus und gucken wie im datengenerierende Modell $\color{purple}{\pi}$ dafür ausgesehen haben könnte.
-
-- Aber es bleibt dabei: Wir kennen nur die Daten, die wir haben, also $\color{orange}{p}$ (und $n$).
-
-- Ob in unserem Fall das *Rauschen* außergewöhnlich groß gewesen ist, wissen wir nicht.
-
-## Simulation
-
-:::: {.columns}
-::: {.column width="50%"}
-- Es wurden jeweils $n=170$ Beobachtungen mit $\color{purple}{\pi}=\color{purple}{0.95}$ simuliert und das resultierende 95%-Konfidenzintervall berechnet.
-
-- Mal wird der wahre, unbekannte, feste Wert des Parameters überdeckt, mal [nicht]{.red}.
+::: {.aside}
+Für die Impfstudie liegt das exakte Konfidenzintervall bei $[`r confint(binom.test(8,170))$lower`; `r confint(binom.test(8,170))$upper`]$.
 :::
 
-::: {.column width="50%"}
+##  Konfidenzintervall :muscle:
+
+Bei dieser Studie: Ist ein Anteil von $\color{purple}{\pi}=0,5$ plausibel?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Hypothese
+
+- Die Hypthese *Die Impfung hilft nicht* kann mathematisch als $\color{purple}{\pi}=0,5$ ausgedrückt werden.
+
+- Wenn $\color{purple}{\pi}=0,5$ gelten würde, würden wir um die $170 \cdot \color{purple}{0,5} = 85$ Patient:innen aus der [Impfgruppe]{.blue} erwarten.
+
+- Aber rein zufällig (*Rauschen*) auch mehr oder weniger als $85$. Kleinere Abweichungen sind dabei wahrscheinlicher als große.
+
+## Simulation
 
 ```{r}
 #| eval: false
 # Einmalig laufen lassen "Run Current Chunk".
-# KI.gif dann in den Unterordner img verschieben
-x <- rbinom(100, 170, 0.95)
-p <- x/170
-lower <- numeric(100)
-upper <- numeric(100)
+# Simulation_H0.gif dann in den Unterordner img verschieben
+
+H0Plot <- list()
+simdat <- rbinom(100, size = length(ergebnis), prob = 0.5)
 
 for (i in 1:100) {
-  dummy <- binom.test(x[i], 170, 0.95)
-  lower[i] <- confint(dummy)$lower
-  upper[i] <- confint(dummy)$upper
+  simergebnis <- rep(c("I","P"), c(simdat[i],length(ergebnis)-simdat[i]))
+  cols <- c("#0000FF","#DA70D6")
+  
+  plotmatrix <-  plotmatrix |>
+    mutate(status = simergebnis) 
+  
+  H0Plot[[i]] <- ggplot(plotmatrix, 
+                         aes(x = x, y = y, color = status)) +
+    geom_tile(color = "white", size = .5, alpha = .1, aes(fill = status)) +
+    theme_void() +
+    geom_text(size = 8, aes(label = status)) +
+    scale_color_manual(values = cols,
+                       aesthetics = c("colour", "fill")) +
+    labs(title = paste0(i, ". Simulation mit \u03C0 = 0,5: ", simdat[i], " Geimpfte unter den Fällen. ")) +
+    theme(legend.position = "none", plot.title = element_text(hjust = 0.5)) +
+    guides(guide = "none") 
 }
 
-simdat <- data.frame(
-  sim = 1:100,
-  p = p,
-  lower = lower,
-  upper = upper
-)
-
-simdat <- simdat %>%
-  mutate(color = ifelse(lower > 0.95 | upper < 0.95, "red", "black"))
-
-kiplot <- ggplot(simdat, aes(p, sim)) +
-  geom_point(size = 1.5, color="#FF8811") +
-  geom_vline(xintercept = 0.95, color = "#7A378B") +
-  geom_errorbar(aes(y=sim, xmin = lower,xmax = upper), color = simdat$color) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.title.y = element_blank()) +
-  scale_y_reverse() 
-
-outfile <- tempfile(fileext='.gif')
-kiplot.ani  <- kiplot + 
-  labs(title = "Konfidenzintervall {closest_state}. Simulation") +
-  transition_states(sim) +
-  shadow_trail(distance = 1/100, alpha = 0.5)
-anim_save("KI.gif", animate(kiplot.ani, duration = 50, end_pause = 10))
+saveGIF({for (i in 1:100) plot(H0Plot[[i]])}, 
+        movie.name = "Simulation_H0.gif", interval = 1,
+        ani.width = 600, ani.height = 400)
 ```
 
-![](img/KI.gif){width=95% fig-align="center"}
-:::
+![](img/Simulation_H0.gif){width=85% fig-align="center"}
+
+## Ergebnis Simulationen
+
+```{r}
+#| out.width: '85%'
+#| fig.align: 'center'
+simdat <- rbinom(1000, size = length(ergebnis), prob = 0.5)
+
+Covid <- data.frame(I = simdat)
+yheight <- 75
+binwidth <- 0.5
+ratio <- 1.5
+dotsize <- ratio
+
+dotchart <- ggplot(Covid, aes(x=I), dpi = 800) + 
+      geom_dotplot(binwidth=binwidth, method="histodot", dotsize = dotsize, fill="#00998A")
+    
+    # use coor_fixed(ratio=binwidth*dotsize*max frequency) to setup the right y axis height.
+    dotchart <- dotchart + 
+      coord_fixed(ratio=binwidth*dotsize*yheight*ratio)
+    
+        # tweak the theme a little bit
+    dotchart <- dotchart + theme(panel.background=element_blank(),
+                                 panel.border = element_blank(),
+                                 panel.grid.minor = element_blank(),
+                                 #plot.margin=unit(c(1,-5,1,-5), "cm"),
+                                 axis.line = element_line(colour = "black"),
+                                 axis.line.y = element_blank()
+    )
+    
+    # add more tick mark on x axis
+    dotchart = dotchart + scale_x_continuous(breaks = seq(0,170,10), limits = c(0,170))
+    # add tick mark on y axis to reflect frequencies. Note yheight is max frequency. 
+    dotchart = dotchart + scale_y_continuous(limits=c(0, 1/ratio), expand = c(0, 0), 
+                                             breaks = seq(0, 1/ratio, 1/yheight*10*1/ratio), 
+                                             labels=seq(0,yheight,10))
+    dotchart = dotchart + geom_vline(xintercept = 8, color = "#0000FF")
+    dotchart = dotchart + annotate("text", x = 30, y = 0.7*1/ratio, 
+                                   label = "Tatsächlich beobachtete Fälle")
+    dotchart = dotchart + labs(x="Anzahl", y="Häufigkeit", title = "1000 Simulationen mit \u03C0 = 0,5 und n = 170")
+    
+dotchart
+```
+
+##  Interpretation :muscle:
+
+::: {.columns}
+:::: {.column width="60%"}
+Sind $\color{blue}{8}$ Patient:innen aus der [Impfgruppe]{.blue} bei $n=170$ plausibel, wenn $\color{purple}{\pi}=0,5$ gelten würde?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
 ::::
 
-## Verfahrenssicherheit
-
-:::: {.columns}
-::: {.column width="50%"}
-- Auf lange Sicht würden wir erwarten, dass unser 95%-Konfidenzintervall in 95% der Fälle den wahren Wert überdeckt.
-
-- Ob es das in unserem Fall tut wissen wir nicht.
+:::: {.column width="40%"}
+```{r}
+#| out.width: '100%'
+#| fig.align: 'center'
+dotchart
+```
+::::
 :::
 
-::: {.column width="50%"}
-![](img/Meme_Konfidenzintervall.jpg){width=95% fig-align="center"}
-:::
+## p-Wert
+
+- Der **p-Wert** beschreibt die Wahrscheinlichkeit, in einer Studie den beobachteten, oder einen noch extremeren Wert zu erhalten, wenn die **Nullhypothese** stimmen würde.
+
+- Die **Nullhypothese** lautet in der Regel, kein Zusammenhang, kein Unterschied, kein Effekt.
+
+$$\underbrace{{\frac{8}{170}}}_{Statistik\, \color{orange}{p}} = \underbrace{0,5}_{Wert\,Parameter\,\color{purple}{\pi_0}} + \underbrace{0}_{Verzerrung} + Rauschen$$
+
+## p-Wert (I/II) :muscle:
+
+::: {.columns}
+:::: {.column width="60%"}
+Was gilt hier für den p-Wert?
+
+- [**A**]{.green}: Der p-Wert ist klein (<5%)
+
+- [**B**]{.green}: Der p-Wert ist groß (>95%).
 ::::
 
-## 95%-Konfidenzintervall Impfung
-
+:::: {.column width="40%"}
 ```{r}
-p <- 162/170
-se <- sqrt((p*(1-p))/170)
-```
-
-- Die Näherung: 
-\begin{align*}
-p \pm 2 \cdot se_p &= \color{orange}{\frac{162}{170}} \pm 2 \cdot  \sqrt{{\frac{\color{orange}{\frac{162}{170}}\cdot(1-\color{orange}{\frac{162}{170}})}{170}}} \\
-&=`r round(162/170,4)`\pm 2 \cdot`r round(sqrt((162/170*(1-162/170))/170),4)` = [`r round(p-2*se,4)`,`r round(p+2*se,4)` ]
-\end{align*}
-
-- Exakt (über die {{< fa brands r-project >}} Funktion `binom.test()`):
-
-$$[`r confint(binom.test(162,170))$lower`, `r confint(binom.test(162,170))$upper`]$$
-
-## Grenzen Konfidenzintervall
-
-- $\color{purple}{\pi}$ ist fest und unbekannt. Entweder liegt es im Konfidenzintervall oder nicht.
-
-- Wir können **keine** Wahrscheinlichkeit für $\color{purple}{\pi}$ angeben.
-
-- [Nicht]{.red}: ~~Mit einer Wahrscheinlichkeit von 95% liegt der Wert des Parameters zwischen 0.9093833 und 0.9794673.~~
-
-- Wir können **nur** etwas über die Fehlerwahrscheinlichkeit des Verfahrens sagen.
-
-## Was wir können -- und was wir wollen (?)
-
-- Wir können berechnen: $Pr(\color{orange}{p} | \color{purple}{\pi})$. Eine *aleatorische* Unsicherheit. Wie wahrscheinlich sind die Daten bei dem Modell?
-
-- Was wir suchen ist (?): $Pr(\color{purple}{\pi} | \color{orange}{p})$. Eine *epistemische* Unsicherheit. Wie wahrscheinlich ist das Modell bei den Daten?
-
-- Was wir dafür brauchen ist der **Satz von Bayes**.
-
-## Satz von Bayes
-
-$$Pr(\color{purple}{\pi} | \color{orange}{p}) = \frac{Pr(\color{orange}{p} | \color{purple}{\pi}) \cdot Pr(\color{purple}{\pi})}{Pr(\color{orange}{p})}\propto Pr(\color{orange}{p} | \color{purple}{\pi}) \cdot Pr(\color{purple}{\pi})$$
-Mit:
-
--  $Pr(\color{purple}{\pi} | \color{orange}{p})$: A-posteriori Wahrscheinlichkeit von $\color{purple}{\pi}$ gegeben $\color{orange}{p}$ (und $n$).
-
-- $Pr(\color{orange}{p} | \color{purple}{\pi})$: Likelihood für $\color{orange}{p}$ gegeben $\color{purple}{\pi}$ (und $n$).
-
-- $Pr(\color{purple}{\pi})$: A-priori Wahrscheinlichkeit von $\color{purple}{\pi}$. 
-
-::: {.aside}
-$\propto$: *Proportional zu*. $Pr(\color{orange}{p})$ dient *nur* zur Normierung der Wahrscheinlichkeit.
-:::
-
-
-## Zwei Prior Verteilungen
-
-:::: {.columns}
-::: {.column width="50%"}
-
-Beta-Verteilung mit $\alpha=1.00005, \beta=1.00005$, $Be(1.00005,1.00005)$:
-
-```{r}
-#| out.width: '95%'
+#| out.width: '100%'
 #| fig.align: 'center'
-pi <- seq(0,1, length = 10000)
-u_priori <- dbeta(x = pi, shape1 = 1.00005, shape2 = 1.00005)
-
-gf_line(u_priori ~ pi, linewidth = 2,  color = "#7A378B") |>
-  gf_labs(x = expression(pi), y = "Dichte",
-          title = "Prior Verteilung",
-          subtitle = "Be(1.00005,1.00005)")
+dotchart
 ```
-
+::::
 :::
 
-::: {.column width="50%"}
+## p-Wert (II/II) :muscle:
 
-Beta-Verteilung mit $\alpha=10, \beta=10$, $Be(10,10)$:
+Wann steigen die Zweifel, dass die Nullhypothese stimmt?
 
-```{r}
-#| out.width: '95%'
-#| fig.align: 'center'
-t_priori <- dbeta(x = pi, shape1 = 10, shape2 = 10)
+- [**A**]{.green}: Bei einem kleinen p-Wert.
 
-gf_line(t_priori ~ pi, linewidth = 2,  color = "#7A378B") |>
-  gf_labs(x = expression(pi), y = "Dichte",
-          title = "Prior Verteilung",
-          subtitle = "Be(10,10)")
-```
+- [**B**]{.green}: Bei einem großen p-Wert.
 
-:::
+- [**C**]{.green}: Es gibt keinen Zusammenhang mit dem p-Wert.
+
+
+## Statistische Signifikanz
+
+- Ist der p-Wert (sehr) klein, z. B. kleiner als $\alpha=5\%$ (gr.: *alpha*), wird das Ergebnis statistisch signifikant genannt.
+
+- Ist der p-Wert nicht (sehr) klein, so wird das Ergebnis als nicht statistisch signifikant bezeichnet.
+
+## Nullhypothese verwerfen
+
+::: {.columns}
+:::: {.column width="60%"}
+Wenn die beobachten Daten (sehr) unwahrscheinlich sind, wenn die Nullhypothese stimmen würden, dann haben wir mehr als berechtigten Zweifel daran, dass diese stimmt.
 ::::
 
-## Likelihood
-
-```{r}
-li <- dbinom(162, 170, pi)
-gf_line(li ~ pi, linewidth = 2, color="#FF8811") |>
-  gf_labs(x = expression(pi), y = "Likelihood",
-          title = "Likelihood",
-          subtitle = paste0("x = 162 bei X ~ B(170,","\u03C0",")"))
-```
-
-
-## Posterior Verteilungen
-
-:::: {.columns}
-::: {.column width="50%"}
-```{r}
-#| out.width: '95%'
-#| fig.align: 'center'
-posteriori_u <- dbeta(x = pi, shape1 = 1.00005+162, shape2 = 1.00005+8)
-posteriori_t <- dbeta(x = pi, shape1 = 10+162, shape2 = 10+8)
-
-posteriors <- data.frame(
-  pi = pi,
-  posteriori_u = posteriori_u,
-  posteriori_t = posteriori_t
-)
-
-gf_line(posteriori_u ~ pi, linewidth = 2,  color = "#7A378B", data = posteriors) |>
-  gf_lims(y=c(0,25)) |>
-  gf_labs(x = expression(pi), y = "Dichte",          
-          title = "Posterior Verteilung",
-          subtitle = "Prior: Be(1.00005,1.00005); Evidenz: x=162 bei n=170")
-```
+:::: {.column width="40%"}
+![](img/Meme_H0verwerfen.jpg){fig-align="center" width="85%"}
+::::
 :::
 
-::: {.column width="50%"}
-```{r}
-#| out.width: '95%'
-#| fig.align: 'center'
+## Impfstudie
 
-gf_line(posteriori_t ~ pi, linewidth = 2,  color = "#7A378B", data = posteriors) |>
-  gf_lims(y=c(0,25)) |>
-  gf_labs(x = expression(pi), y = "Dichte",          
-          title = "Posterior Verteilung",
-          subtitle = "Prior: Be(10,10); Evidenz: x=162 bei n=170")
-```
-:::
+- Der p-Wert ist < 1/1000, daher ist das Ergebnis statistisch signifikant.
+
+- Die Nullhypothese *Die Impfung schützt nicht* wird daher verworfen und auf einen Schutzeffekt der Impfung geschlossen.
+
+## Fallstricke p-Wert
+
+- Der p-Wert misst nicht die Wahrscheinlichkeit, dass die Nullhypothese stimmt.
+
+- Der p-Wert sagt nicht, ob der Effekt groß ist.
+
+- Ein hoher p-Wert bestätigt nicht die Nullhypothese.
+
+## Ablauf Hypothesenprüfung
+
+1. Aufstellen der Nullhypothese.
+
+2. Daten erheben.
+
+3. Daten zusammenfassen.
+
+4. p-Wert bestimmen.
+
+5. Schlussfolgerung.
+
+## Zur Erinnerung
+
+::: {.columns}
+:::: {.column width="50%"}
+<br>
+![](img/Meme_pWert.jpg){fig-align="center" width="75%"}
 ::::
 
-
-## Posterior Verteilung: Kennzahlen
-
-| Prior      |$Be(1.00005,1.00005)$ | $Be(10,10)$ |
-|------------|--------------------------------|-----------------------|
-| Modus      |`r round((1.00005+162-1)/(1.00005+162+1.00005+8-2),4)`|`r round((10+162-1)/(10+162+10+8-2),4)`|
-| Mittelwert |`r round((1.00005+162)/(1.00005+162+1.00005+8),4)`|  `r round((10+162)/(10+162+10+8),4)` |
-| 95%-KI^[Baysianisches Kredibilitätsintervall oder Glaubwürdigkeitsintervall (engl.: credible interval)] | `r round(qbeta(p = c(0.025,0.975), shape1 = 1.00005+162, shape2 = 1.00005+8),4)` | `r round(qbeta(p = c(0.025,0.975), shape1 = 10+162, shape2 = 10+8),4)`|
-
-
-## 95%-Kredibilitätsintervall
-
-:::: {.columns}
-::: {.column width="50%"}
-```{r}
-#| out.width: '95%'
-#| fig.align: 'center'
-
-gf_line(posteriori_u ~ pi, linewidth = 2,  color = "#7A378B", data = posteriors) |>
-  gf_labs(x = expression(pi), y = "Dichte",          
-          title = "Posterior Verteilung",
-          subtitle = "Prior: Be(1.00005,1.00005); Evidenz: x=162 bei n=170") |>
-  gf_lims(x=c(0.8,1), y=c(0,25)) +
-  geom_area(data = subset(posteriors, pi >= qbeta(p = 0.025, shape1 = 1.00005+162, shape2 = 1.00005+8) &
-                              pi <= qbeta(p = 0.975, shape1 = 1.00005+162, shape2 = 1.00005+8)),
-            aes(y=posteriori_u), 
-            fill='#7A378B', alpha=0.2)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| out.width: '95%'
-#| fig.align: 'center'
-gf_line(posteriori_t ~ pi, linewidth = 2,  color = "#7A378B", data = posteriors) |>
-  gf_labs(x = expression(pi), y = "Dichte",          
-          title = "Posterior Verteilung",
-          subtitle = "Prior: Be(10,10); Evidenz: x=162 bei n=170") |>
-  gf_lims(x=c(0.8,1), y=c(0,25)) +
-  geom_area(data = subset(posteriors, pi >= qbeta(p = 0.025, shape1 = 10+162, shape2 = 10+8) &
-                              pi <= qbeta(p = 0.975, shape1 = 10+162, shape2 = 10+8)),
-            aes(y=posteriori_t), 
-            fill='#7A378B', alpha=0.2)
-```
-:::
+:::: {.column width="50%"}
+![](img/Meme_H0akzeptieren.jpg){fig-align="center" width="80%"}
 ::::
+:::
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Grundgedanken von Inferenzstatistiken in medizinischen Studien erfassen.
+
+::: aside
+Vergleiche Fragen:
+
+- Was will ich mit Daten machen?
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Das Daten zur Schätzung verwendet werden.
+
+- Das Unsicherheiten unvermeidlich sind und was Standardfehler und Konfidenzintervall bedeuten.
+
+- Wie Hypothesen geprüft werden und was der p-Wert ist.
+
 
