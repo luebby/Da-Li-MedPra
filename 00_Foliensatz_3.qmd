@@ -17,6 +17,8 @@ lang: de
 from: markdown+emoji
 ---
 
-```{r child = './09_Inferenz.qmd'} 
+```{r child = './09_Inferenz.qmd', eval=FALSE} 
 ``` 
 
+```{r child = './10_Kausalitaet.qmd'} 
+``` 

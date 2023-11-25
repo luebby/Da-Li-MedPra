@@ -209,7 +209,7 @@ saveGIF({for (i in 1:100) plot(SimPlot[[i]])},
 
 :::: {.columns}
 ::: {.column width="50%"}
-- Das vorliegende Studienergebnis ist nur einer dieser Punkte. 
+- Das vorliegende Studienergebnis ist nur eine der zufälligen Zuordnungen. 
 
 - Das beobachtete $\color{orange}{p}=\color{orange}{`r round(8/170,4)`}$ kann mehr oder weniger vom wahren, aber unbekannten Wert $\color{purple}{\pi}$ abweichen.
 :::
@@ -236,7 +236,7 @@ saveGIF({for (i in 1:100) plot(SimPlot[[i]])},
 
 ## Standardfehler
 
-- Um die Präzision der Schätzung, d.h., die Größe des Rauschens abzuschätzen, betrachten wir die Standardabweichung von $p$, den (geschätzten) **Standardfehler** (engl.: standard error).
+- Um die Präzision der Schätzung, d.h., die Größe des Rauschens abzuschätzen, betrachten wir die Standardabweichung von $p$, den (geschätzten) **Standardfehler** (engl.: *standard error*).
 
 - Er quantifiziert die Streuung des Anteils bei wiederholten zufälligen Daten.
 $$se_p=\sqrt{{\frac{p\cdot(1-p)}{n}}}$$
@@ -465,6 +465,14 @@ Wenn die beobachten Daten (sehr) unwahrscheinlich sind, wenn die Nullhypothese s
 4. p-Wert bestimmen.
 
 5. Schlussfolgerung.
+
+## Bayes Statistik :nerd_face:
+
+- Wir können berechnen: $Pr(\color{orange}{p} | \color{purple}{\pi})$. Eine *aleatorische* Unsicherheit. Wie wahrscheinlich sind die Daten bei dem Modell?
+
+- Was wir suchen ist (?): $Pr(\color{purple}{\pi} | \color{orange}{p})$. Eine *epistemische* Unsicherheit. Wie wahrscheinlich ist das Modell bei den Daten?
+
+- Was wir dafür brauchen ist der **Satz von Bayes**.
 
 ## Zur Erinnerung
 

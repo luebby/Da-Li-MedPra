@@ -1,0 +1,450 @@
+# Korrelation und Kausalität
+
+## Was Sie lernen &#x1F469;&#x200D;&#x1F3EB; 
+
+- Das Korrelation und Kausalität verschiedene Dinge sind.
+
+- Das Simpson Paradox.
+
+- Den Placeboeffekt und die Regression zur Mitte.
+
+## Das Mantra
+
+::: {.center}
+Korrelation impliziert keine Kausalität
+:::
+
+![](https://imgs.xkcd.com/comics/correlation.png){fig-align="center" width="70%"}
+
+::: {.aside}
+Abbildung: [https://xkcd.com/552](https://xkcd.com/552)
+:::
+
+## Ein Pfeil zeigt die Richtung
+
+- $\color{green}{X} \rightarrow \color{blue}{Y}$: $\color{blue}{Y}$ hängt ab von $\color{green}{X}$ -- und [nicht]{.red} umgekehrt.
+
+- Als Heranwachsender ist mein [Gewicht]{.blue} mit meiner [Größe]{.green} gestiegen. Leider wächst meine [Größe]{.green} jetzt nicht mehr mit meinem [Gewicht]{.blue}.
+
+- $\color{green}{X}$ ist die **Ursache**, $\color{blue}{Y}$ ist die **Wirkung**.
+
+## Zusammenhänge
+
+- Seien $A$ und $B$ zwei Ereignisse, die häufig zusammen auftreten.
+
+- Dann gibt es mehrere Möglichkeiten, u.a.:
+
+  - $A \rightarrow B$: $A$ verursacht $B$.
+  
+  - $B \rightarrow A$: $B$ verursacht $A$.
+  
+  - $C \rightarrow A\, \&\, C \rightarrow B$. $C$ ist sowohl eine Ursache von $A$ als auch von $B$.
+  
+## Zusammenhänge :muscle:
+
+Angenommen wir können $A$ verändern. Welche Form des Zusammenhangs muss vorliegen, damit sich als Folge unser Handlung auch $B$ ändert?
+
+- [**A**]{.green}: $A \rightarrow B$.
+
+- [**B**]{.green}: $B \rightarrow A$
+
+- [**C**]{.green}: $C \rightarrow A\, \&\, C \rightarrow B$
+
+- [**D**]{.green}: Alle obigen Antworten sind richtig.
+
+
+## Kovarianz
+
+- Die **Kovarianz** beschreibt den linearen Zusammenhang zweier metrischer Merkmale: 
+$$s_{xy}=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})$$
+
+- Die Werte beider Variablen einer Beobachtung werden mit dem jeweiligen Mittelwert der Variable verglichen. Vom Produkt der gemeinsamen Abweichungen wird $\approx$ Mittelwert berechnet.
+
+## Ohne Variation, keine Korrelation
+
+![](img/Meme_Variation-Korrelation.jpg){fig-align="center" width="35%"}
+
+## Korrelationskoeffizient
+
+- Der **Korrelationskoeffizient** nach Pearson $$r_{xy}=\frac{s_{xy}}{sd_x \cdot sd_y}$$ normiert die Kovarianz auf den Wertebereich $-1$ bis $+1$ durch Division der Kovarianz $s_{xy}$  durch das Produkt der Standardabweichungen $sd_x$ und $sd_y$.
+
+## Einordnung $r_{xy}$
+
+- Korrelationskoeffizienten $r_{xy}>0$ zeigen einen positiven linearen Zusammenhang an: hohe Werte von $x$ treten zusammen mit hohen Werten von $y$ auf, niedige Werte von $x$ treten zusammen mit niedrigen Werten von $y$ auf.
+
+- Korrelationskoeffizienten $r_{xy}<0$ zeigen einen negativen linearen Zusammenhang an: hohe Werte von $x$ treten zusammen mit niedrigen Werten von $y$ auf, niedige Werte von $x$ treten zusammen mit hohen Werten von $y$ auf.
+
+## $r_{xy}$ im Streudiagramm
+
+::: {.center}
+<iframe src="https://fomshinyapps.shinyapps.io/Korrelation/" width="475" height="535"></iframe>
+:::
+
+::: {.aside}
+[https://fomshinyapps.shinyapps.io/Korrelation/](https://fomshinyapps.shinyapps.io/Korrelation/)
+:::
+
+## $r_{xy}$ :muscle:
+
+Welchen Korrelationskoeffizienten erwarten Sie für die Variabe X: Größe und Y: Gewicht eines Menschen?
+
+- [**A**]{.green}: $r < 0$.
+
+- [**B**]{.green}: $r \approx 0$
+
+- [**C**]{.green}: $r > 0$
+
+## Visualisierung
+
+Erst visualisieren, dann korrelieren! $\bar{x}, \bar{y}, sd_x, sd_y,r_{x,y}$ sind nahezu konstant.
+
+::: {.center}
+<iframe src="https://damassets.autodesk.net/content/dam/autodesk/research/publications-assets/gifs/same-stats-different-graphs/DinoSequentialSmaller.gif" width="750" height="435"></iframe>
+:::
+
+::: {.aside}
+[https://www.autodesk.com/research/publications/same-stats-different-graphs](https://www.autodesk.com/research/publications/same-stats-different-graphs/)
+:::
+
+## Korrelation und Kausalität
+
+::: center
+<iframe src="https://www.causeweb.org/cause/resources/fun/songs/correlation-does-not-imply-causation" title="" width="100%" height="500" style="border:none;"></iframe>
+:::
+
+::: aside
+Quelle: [https://www.causeweb.org/cause/resources/fun/songs/correlation-does-not-imply-causation](https://www.causeweb.org/cause/resources/fun/songs/correlation-does-not-imply-causation)
+:::
+
+
+## Korrelation und Kausalität :muscle:
+
+Was folgt aus einem hohen positiven Korrelationkoeffizienten $r_{xy}$?
+
+- [**A**]{.green}: $X \rightarrow Y$.
+
+- [**B**]{.green}: $X \rightarrow X$
+
+- [**C**]{.green}: $Z \rightarrow X\, \&\, Z \rightarrow Y$
+
+- [**D**]{.green}: Alle obigen Fälle sind möglich.
+
+## Scheinkorrelation
+
+- Die Korrelation im Fall $Z \rightarrow X\, \&\, Z \rightarrow Y$ wird, wenn es keinen direkten Pfeil zwischen $X$ und $Y$ gibt, **Scheinkorrelation** (auch Nonsens-Korrelation, engl.: *spurious correlation*^[Siehe z.B. <http://www.tylervigen.com/spurious-correlations>]) genannt.
+
+::: {.aside}
+Besser wäre der Begriff *Scheinkausalität*. Auch gibt es nicht-lineare Zusammenhänge, die mit $r_{xy}$ nicht gemessen werden können.
+:::
+
+##  Korrelationen :muscle: :pencil: :ear:
+
+Finden Sie Beispiele aus der primärmedizinischen Versorgung für
+
+- postive Korrelationen,
+
+- negative Korrelationen,
+
+- Scheinkorrelationen.
+
+## Beispiel: Covid-19 (Wdh.)
+
+Fallsterblichkeit [(UK, August 21)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1009243/Technical_Briefing_20.pdf) :hospital: 
+
+
+- Geimpft: 0,41%, Ungeimpft: 0,17%
+
+- U50: Geimpft: 0,02%, Ungeimpft 0,03%
+
+- Ü50: Geimpft: 1,68%, Ungeimpft: 5,96%
+
+::: {.aside}
+h/t Matthew Brenneman (via isostat)
+:::
+
+
+## Kausales Modell (Wdh.)
+
+```{r}
+#| echo: false
+library(ggplot2)
+library(ggdag)
+
+
+co <- data.frame(x = c(0.5,0,1), y = c(1,0,0), name = c("A", "I", "V")) 
+
+dag<-dagify(I ~ A,
+            V ~ I,
+            V ~ A,
+            coords = co) %>% 
+  ggdag(node_size = 20, text_size = 8, text = TRUE, text_col = "lightgray") + theme_dag_blank() +
+  geom_dag_edges(arrow_directed = grid::arrow(length = grid::unit(15, "pt"), type = "closed"))  + 
+  geom_text(label = "A - Alter\nI - Impfung\nV - Verstorben", 
+            hjust = 0, vjust = 0,
+            x = 0, y = 0.75, size = 8, color = "darkgrey") +
+  geom_text(label = "+", 
+            hjust = 0, vjust = 0,
+            x = 0.25, y = 0.6, size = 12, color = "darkgreen") +
+   geom_text(label = "+", 
+            hjust = 0, vjust = 0,
+            x = 0.75, y = 0.6, size = 12, color = "darkgreen") +
+  geom_text(label = "-", 
+            hjust = 0, vjust = 0,
+            x = 0.5, y = 0.05, size = 14, color = "red")
+
+dag
+```
+
+## Erklärung Covid-19 (Wdh.)
+
+- Zu Beginn der Impfkampange wurden mehr ältere Menschen geimpft.
+
+- Alter ist aber auch ein Risikofaktor bei Covid-19, d.h. Ältere sind häufiger verstorben.
+
+- Da unter den geimpften viel mehr Ältere waren, war dort auch die Sterblichkeit insgesamt größer -- obwohl sie je Altersgruppe niedriger war.
+
+## &#127908; Simpson's Paradox
+
+::: {.center}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nGqzoqXZch0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::
+
+::: {.aside}
+Quelle: [The Raf: Summary Song #8 - Simpson's Paradox (Stats Parody - The Weeknd Blinding Lights)](https://youtu.be/nGqzoqXZch0)
+:::
+
+## Simpson's Paradox in der Medizin {.smaller}
+
+> In einem Vergleich zweier Therapien des Nierensteins ([Link](https://doi.org/10.1136/bmj.292.6524.879)) wurden die in Tabelle 2 aufgeführten Daten beobachtet. Wird die Größe der Nierensteine bei der Auswertung dieser Daten nicht berücksichtigt, scheint Therapie A eine schlechtere Wirkung zu haben (78 % versus 83 % Erfolg). Tatsächlich haben Patienten mit großen Nierensteinen eine schlechtere Prognose. Diese Patienten sind in Therapiegruppe A stärker vertreten. Dadurch ist der Behandlungserfolg von Therapie A scheinbar schlechter. Die Überlegenheit von Therapie A wird erst unter Berücksichtigung der Größe der Nierensteine ersichtlich.
+
+::: {.aside}
+Quelle: [Hammer, G. P., du Prel, J. B., & Blettner, M. (2009). Vermeidung verzerrter Ergebnisse in Beobachtungsstudien. Deutsches Ärzteblatt, 106(41), 664-668](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=66222). Siehe auch [Dtsch Arztebl Int 2011; 108(10): 162](https://www.aerzteblatt.de/archiv/81179/Simpson-Paradoxon).
+:::
+
+## Kausalität
+
+- Ohne qualitative Annahmen über den datengenerierenden Prozess sind keine kausalen Schlüsse möglich.
+
+- Eine Möglichkeit Kausalität zu untersuchen sind die folgenden Bradford-Hill-Kriterien (*Exkurs*).
+
+::: {.aside}
+Reklame: KI-Campus Kurs [Was, wie, warum? - Einführungskurs Kausale Inferenz](https://ki-campus.org/courses/wwweki).
+:::
+
+##  Bradford-Hill-Kriterien (I/II) {.smaller}
+
+- Stärke: Eine Beziehung ist eher kausal, wenn der Zusammenhang groß (z. B. hohe Korrelation) und statistisch signifikant ist. 
+
+- Konsistenz: Eine Beziehung ist eher kausal, wenn sie wiederholt bestätigt werden kann. 
+
+- Spezifität: Eine Beziehung ist eher kausal, wenn es keine andere Erklärung gibt. 
+
+- Zeitlichkeit: Eine Beziehung ist eher kausal, wenn die Wirkung  nach der Ursache auftritt. 
+
+- Gradient: Eine Beziehung ist eher kausal, wenn ein größerer Wert in der Ursache zu einem größeren Wert in der Wirkung führt. 
+
+## Bradford-Hill-Kriterien(II/II) {.smaller}
+
+- Plausibilität: Eine Beziehung ist eher kausal, wenn es einen inhaltlich plausiblen Mechanismus zwischen Ursache und Wirkung gibt.
+
+- Kohärenz: Eine Beziehung ist eher kausal, wenn sie mit bekannten Fakten und Theorien vereinbar ist. 
+
+- Experiment: Eine Beziehung ist eher kausal, wenn sie experimentell verifiziert werden kann. 
+
+- Analogie: Eine Beziehung ist eher kausal, wenn es nachgewiesene Beziehungen zwischen ähnlichen 
+Ursachen und Wirkungen gibt.
+
+## Exkurs: Collider Bias
+
+::: {.columns}
+:::: {.column width="60%"}
+- Nettigkeit $\rightarrow$ Date $\leftarrow$ Aussehen.
+
+- Unter Ihren Dates beobachten Sie eine negative Korrelation zwischen Aussehen und Nettigkeit ... :kissing_heart:
+::::
+
+:::: {.column width="40%"}
+```{r}
+#| echo: false
+#| message: false
+#| out.width: '100%'
+#| fig.align: 'center'
+library(mosaic)
+options(OutDec = ',')
+
+theme.fom <- theme_classic(22*1.04)
+theme.fom <- theme.fom
+theme_set(
+  theme.fom  
+)
+
+set.seed(1896) # Reproducibility
+n <- 1000 # Sample Size
+
+kind <- rnorm(n)                                    # X
+look <- rnorm(n)                                    # Y
+dating <- ((kind > 1) | (look > 1))                 # ~Z
+luck <- rbinom(n, size = 1, prob = 0.05)            # U_Z
+dating <- (1 - luck) * dating + luck * (1 - dating) # Z
+Sim_collider <- data.frame(Aussehen = look, 
+                           Date = dating, 
+                           Nettigkeit = kind) %>%
+  mutate(Date= ifelse(Date, 
+                         "Date", 
+                         "kein Date"))
+
+gf_point(Nettigkeit ~ Aussehen, 
+         color = ~ Date,
+         data = Sim_collider) %>% 
+  gf_lm() +
+  ggthemes::scale_color_colorblind()
+```
+::::
+:::
+
+
+## Placebo und Placeboeffekt
+
+- Ein **Placebo** ist ein *Scheinmedikament* ohne pharmakologisch aktiven Wirkstoff, das äußerlich vom echten Arzneimittel nicht zu unterscheiden ist.
+
+- Der **Placeboeffekt** ist eine Sammelbezeichnung für die Wirkung der Placebogabe durch unbewusste als auch bewusste Phänomene.
+
+::: {.aside}
+Siehe: [Breidert, M., & Hofbauer, K. (2009). Placebo: Missverständnisse und Vorurteile. Deutsches Ärzteblatt International. 106(46): 751–755](https://www.aerzteblatt.de/archiv/66733/Placebo).
+:::
+
+## Placeboeffekt :muscle:
+
+Stimmt die Aussage: *Patient:innen, denen es nach der Gabe eines Placebos besser geht bilden sich dies nur ein*?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Daten = Modell + Rest :muscle:
+
+Beobachtete Daten setzen sich zusammen aus einem modellierbaren (*erklärbaren*) Teil und einem nicht modellierten, evtl. zufälligen Rest.
+
+Wenn bei eine:r Patient:in wiederholte Messungen erfolgen, müssen dann die Messergebnisse gleich sein?
+
+- [**Ja**]{.green}
+
+- [**Nein**]{.green}
+
+## Beispiel Körpertemperatur
+
+- Die durchschnittliche Körpertemperatur von Menschen variiert zwischen den Menschen $i$. Annahme: $\mu_i$ ist normalverteilt mit einem Mittelwert von $\mu=36,6$°C und einer Standardabweichung von $\sigma=0,4$°C.
+
+- Die zum Zeitpunkt $t$ gemessene Körpertemperatur des Menschen $i$, $y_{i,t}$, variiert ebenfalls. Annahme: $y_{i,t}$ ist normalverteilt mit einem Mittelwert von $\mu_i$ und einer Standardabweichung von $\sigma_i=0,2$°C.
+
+## Simulierte Daten
+
+```{r}
+#| echo: false
+#| out.width: '100%'
+#| fig.align: 'center'
+set.seed(1896)
+n <- 1000
+mu <- rnorm(n = n, mean = 36.6, sd = 0.4)
+x1 <- rnorm(n = n, mean = mu, sd = 0.2)
+x2 <- rnorm(n = n, mean = mu, sd = 0.2)
+daten <- data.frame(x1, x2) 
+ptemp <- gf_point(x2 ~ x1, data = daten, color =  "#00998A")  |> 
+  gf_labs(x = "Temperatur in °C, 1. Messung",
+          y = "Temperatur in °C, 2. Messung") |>
+  gf_lims(x = c(34.5, 38.5), 
+        y = c(34.5, 38.5))
+ptemp
+```
+
+## Simulierte Daten :muscle:
+
+::: {.columns}
+:::: {.column width="60%"}
+Wie groß ist der Korrelationskoeffizient bei diesen Daten?
+
+- [**A**]{.green}: `r -round(cor(x2~x1, data=daten),1)`
+
+- [**B**]{.green}: 0
+
+- [**C**]{.green}: `r round(cor(x2~x1, data=daten),1)`
+
+::::
+
+:::: {.column width="40%"}
+
+```{r}
+#| echo: false
+#| out.width: '100%'
+#| fig.align: 'center'
+ptemp
+```
+
+::::
+:::
+
+## Selektion
+
+```{r}
+daten2 <- daten |>
+  filter(x1 > 37.4)
+```
+
+
+::: {.columns}
+:::: {.column width="60%"}
+Betrachtet man nur die `r nrow(daten2)` Patient:innen, die in der ersten Messung eine Temperatur über 37,4°C hatten, so haben davon `r count(~(x2<37.4), data = daten2)` in der zweiten Messung eine Temperatur unter 37,4°C.
+::::
+
+:::: {.column width="40%"}
+
+```{r}
+#| echo: false
+#| out.width: '100%'
+#| fig.align: 'center'
+ptemp2 <- gf_point(x2 ~ x1, data = daten2, color =  "#00998A")  |> 
+  gf_labs(x = "Temperatur in °C, 1. Messung",
+          y = "Temperatur in °C, 2. Messung") |>
+  gf_lims(x = c(34.5, 38.5), 
+        y = c(34.5, 38.5)) |>
+  gf_vline(xintercept = 37.4) |>
+  gf_hline(yintercept = 37.4)
+ptemp2
+```
+
+::::
+:::
+
+## Regression zur Mitte
+
+- Wird eine Gruppe von Patient:innen aufgrund eines extremen Messwerts ausgewählt, so ist auch ohne wirkliche Veränderung wahrscheinlich, dass eine weitere Messung einen weniger extremen Messwert ergibt.
+
+## Regression zur Mitte :muscle:
+
+Was gilt im Durchschnitt für die Eltern von sehr großen Kindern?
+
+- [**A**]{.green}: Sie sind eher kleiner als ihre Kinder.
+
+- [**B**]{.green}: Sie sind eher größer als ihre Kinder. 
+
+
+##  Modulziel &#x1F393; :muscle: :pencil:
+
+Zwischen Korrelation und Kausalität unterscheiden.
+
+::: aside
+Vergleiche Fragen:
+
+- Was kann ich mit Daten machen?
+:::
+
+## Haben Sie gelernt? :eyes:
+
+- Das Korrelation und Kausalität verschiedene Dinge sind.
+
+- Was das Simpson Paradox ist.
+
+- Was der Placeboeffekt ist.
+
+- Das Phänomen der Regression zur Mitte.
+
