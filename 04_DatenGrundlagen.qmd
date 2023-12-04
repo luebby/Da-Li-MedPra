@@ -970,7 +970,7 @@ Um einen Zusammenhang zwischen Rauchen und Blutdruck zu untersuchen wird bei all
 
 ## Studientypen
 
-- Eine **Kohortenstudie** ist eine Studie, bei der man vorausschaut, was Menschen mit einem bestimmten Verhalten oder einer bestimmten Eigenschaft für Krankheiten bekommen.
+- Eine **Kohortenstudie** ist eine Studie, bei der man untersucht, was Menschen mit einem bestimmten Verhalten oder einer bestimmten Eigenschaft für Krankheiten bekommen.
 
 - Eine **Fall-Kontroll-Studie** ist eine Studie, bei der man zurückblickt, was Menschen mit einer bestimmten Krankheit und Menschen ohne diese Krankheit getan haben.
 

@@ -42,7 +42,7 @@ Wir müssen wissen, wie hoch der Anteil Geimpfter in der Population ist.
 ![](img/Base_rate_fallacy_with_vaccines.png){width=70% fig-align="center"}
 
 ::: {.aside}
-Quelle: <https://de.wikipedia.org/wiki/Prävalenzfehler> durch auf Basis von <https://twitter.com/MarcRummy/status/1464178903224889345>.
+Quelle: <https://de.wikipedia.org/wiki/Prävalenzfehler> auf Basis von <https://twitter.com/MarcRummy/status/1464178903224889345>.
 :::
 
 ##  Schließen aus Daten -- Forts. :muscle:
@@ -105,16 +105,16 @@ ploterg
 
 ## Datengenerierender Prozess
 
-- Wir haben gesehen, das $\color{blue}{8}$ von $170$ Covid-Fällen aus der [Impfgruppe]{.blue} kamen.
+- Wir haben gesehen, dass $\color{blue}{8}$ von $170$ Covid-Fällen aus der [Impfgruppe]{.blue} kamen.
 
 - Aber wie ist es zu dieser Anzahl gekommen? Einige Menschen erkranken (leider), andere nicht.
 
-- Wir stellen uns vor, es gibt eine theoretische Wahrscheinlichkeit $\color{purple}\pi$ (gr.: *pi*.), dass in dieser Studie ein Fall aus der [Impfgruppe]{.blue} kommt.
+- Wir stellen uns vor, es gibt eine theoretische Wahrscheinlichkeit $\color{purple}\pi$ (gr.: *pi*), dass in dieser Studie ein Fall aus der [Impfgruppe]{.blue} kommt.
 
 
 ## $\pi$ und $p$
 
-- $\color{purple}{\pi}$ ist der unbekannte, theoretische Anteil im datengenerierendem Prozess. Das ist das was uns *eigentlich* interessiert. Die *Wahrheit* die wir suchen.
+- $\color{purple}{\pi}$ ist der unbekannte, theoretische Anteil im datengenerierenden Prozess. Das ist das was uns *eigentlich* interessiert. Die *Wahrheit*, die wir suchen.
 
 - $\color{orange}{p}$ ist der beobachtete Anteil in unseren Daten.
 
@@ -156,7 +156,7 @@ gf_line(li ~ pi, linewidth = 2) |>
 
 ##  Zufall? :muscle:
 
-Wenn die Studie wiederholt werden würde. Muss dann das selbe Ergebnis, also $\color{orange}{p}=\frac{\color{blue}{8}}{170}$ herauskommen?
+Wenn die Studie wiederholt werden würde. Muss dann dasselbe Ergebnis, also $\color{orange}{p}=\frac{\color{blue}{8}}{170}$ herauskommen?
 
 - [**Ja**]{.green}
 
@@ -208,13 +208,13 @@ saveGIF({for (i in 1:100) plot(SimPlot[[i]])},
 ## Das Problem
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="60%"}
 - Das vorliegende Studienergebnis ist nur eine der zufälligen Zuordnungen. 
 
 - Das beobachtete $\color{orange}{p}=\color{orange}{`r round(8/170,4)`}$ kann mehr oder weniger vom wahren, aber unbekannten Wert $\color{purple}{\pi}$ abweichen.
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 ![](img/Meme_Unsicherheit.jpg){width=95% fig-align="center"}
 :::
 ::::
@@ -501,9 +501,9 @@ Vergleiche Fragen:
 
 ## Haben Sie gelernt? :eyes:
 
-- Das Daten zur Schätzung verwendet werden.
+- Dass Daten zur Schätzung verwendet werden.
 
-- Das Unsicherheiten unvermeidlich sind und was Standardfehler und Konfidenzintervall bedeuten.
+- Dass Unsicherheiten unvermeidlich sind und was Standardfehler und Konfidenzintervall bedeuten.
 
 - Wie Hypothesen geprüft werden und was der p-Wert ist.
 
