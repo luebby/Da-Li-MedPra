@@ -1,0 +1,32 @@
+Question
+========
+
+Stimmt die Aussage: Die Berechnung des arithmetischen Mittelwertes ist bei nominalen Merkmalen *nicht* sinnvoll?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Ja, da Sie mit nominalskalierten Daten *nicht* rechnen können. 
+
+Dies gilt auch, wenn nominale Daten numerisch, d.$\,$h. als Zahlen kodiert werden. 
+Was soll z.$\,$B. eine durchschnittliche Telefonnummer sein?
+
+
+Answerlist
+----------
+* Richtig
+* Falsch
+
+
+Meta-information
+================
+exname: Frage 4-2
+extype: schoice
+exsolution: 10

@@ -1,0 +1,30 @@
+Question
+========
+
+Was ist die Absolute Risikoreduktion?
+
+Answerlist
+----------
+* Relative Senkung der Rate Erkranter bei Weglassen des Risikos.
+* Diﬀerenz der Rate Erkranter bei Weglassen des Risikos.
+* Verhältnis der Verhältnisse von Risiko und Nicht-Risiko.
+* Keine der obigen Antworten ist richtig.
+
+Solution
+========
+
+Grundrisiko: (auch Basisrate): Wahrscheinlichkeit eines unerwünschten Ereignisses ohne vorliegen des Risikofaktors.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+* Falsch
+
+
+Meta-information
+================
+exname: 7-2
+extype: schoice
+exsolution: 0100

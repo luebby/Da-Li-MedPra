@@ -1,0 +1,28 @@
+Question
+========
+
+Was gilt für einen Faktor, der das Risiko einer Erkrankung erhöht?
+
+Answerlist
+----------
+* Das Odds Ratio ist größer als 0.
+* Das Odds Ratio ist größer als 1.
+* Keine der obigen Antworten ist richtig.
+
+Solution
+========
+
+Das Odds Ratio (Chancenverhältnis) ist das  Verhältnis der Odds von Risiko und Nicht-Risiko.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+
+
+Meta-information
+================
+exname: 7-3
+extype: schoice
+exsolution: 010

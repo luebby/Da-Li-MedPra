@@ -1,0 +1,127 @@
+Question
+========
+
+Betrachten Sie folgende Verteilungen:
+
+```{r Frage3-13, fig.cap = "", warning = FALSE, echo = FALSE, message = FALSE}
+library(ggformula)
+library(gridExtra)
+fgcolRed <<- "#FF4B5C"
+fgcolBlue <<- "#8FC7FF"
+fgcolDarkBlue <<- "#2828FF"
+fgcolGray <<- "#999999"     
+fgcolFOMGreen <<- "#00998A"
+
+set.seed(1896)
+xsym <- rnorm(1000)
+xls <- 1 - rchisq(1000, 2)
+xrs <- rchisq(1000, 2)
+
+hls <- gf_density( ~ xls, 
+                     xlab  = NULL, 
+                     title = "A", 
+                     fill  = fgcolFOMGreen, 
+                     color = fgcolGray) %>% 
+         gf_theme(axis.text = element_blank(),
+                 axis.title.y=element_blank())
+
+hsym <- gf_density( ~ xsym, 
+                      xlab  = NULL, 
+                      title = "B", 
+                     fill  = fgcolFOMGreen, 
+                     color = fgcolGray) %>% 
+          gf_theme(axis.text = element_blank(),
+                 axis.title.y=element_blank())
+
+hrs <- gf_density( ~ xrs, 
+                     xlab  = NULL, 
+                     title = "C", 
+                     fill  = fgcolFOMGreen, 
+                     color = fgcolGray) %>% 
+         gf_theme(axis.text = element_blank(),
+                 axis.title.y=element_blank())
+
+grid.arrange(hls, hsym, hrs, nrow = 3)
+```
+
+Für welche Abbildung gilt wohl Median < arithmetischer Mittelwert?
+
+Answerlist
+----------
+
+* Abbildung A.
+* Abbildung B.
+* Abbildung C.
+
+
+Solution
+========
+
+Der Mittelwert ist i.$\,$d.$\,$R. in Richtung *des langen Endes* einer Verteilung verschoben, daher Abbildung C. 
+
+Häufig, aber nicht immer gilt:
+
+- Linksschief: Mittelwert < Median,
+- Symmetrisch: Mittelwert $\approx$ Median,
+- Rechtschief: Mittelwert > Median.
+
+Bei (sehr) schiefen Daten beschreibt der Median (blau, gestrichelt) den 
+Schwerpunkt der Beobachtungen besser als der arithmetische Mittelwert (rot).
+
+```{r Frage3-13-Loesung, fig.cap = "", warning = FALSE, echo = FALSE}
+hls <- gf_density( ~ xls, 
+                     xlab = NULL, 
+                     title = "A", 
+                     fill  = fgcolFOMGreen, 
+                     color = fgcolGray) %>% 
+      gf_theme(axis.text = element_blank(),
+                 axis.title.y=element_blank()) %>%
+      gf_vline(xintercept = ~median(xls), 
+               color = fgcolDarkBlue, 
+               linetype = "dashed") %>%
+      gf_vline(xintercept = ~mean(xls), 
+               color = fgcolRed) 
+
+hsym <- gf_density( ~ xsym, 
+                      xlab = NULL, 
+                      title = "B", 
+                     fill  = fgcolFOMGreen, 
+                     color = fgcolGray) %>% 
+        gf_theme(axis.text = element_blank(),
+                 axis.title.y=element_blank()) %>%
+        gf_vline(xintercept = ~median(xsym), 
+                 color = fgcolDarkBlue, 
+                 linetype = "dashed") %>%
+        gf_vline(xintercept = ~mean(xsym), 
+                 color = fgcolRed) 
+
+hrs <- gf_density( ~ xrs, 
+                     xlab = NULL, 
+                     title = "C", 
+                     fill  = fgcolFOMGreen, 
+                     color = fgcolGray) %>% 
+       gf_theme(axis.text = element_blank(),
+                 axis.title.y=element_blank()) %>%
+       gf_vline(xintercept = ~median(xrs), 
+                color = fgcolDarkBlue, 
+                linetype = "dashed") %>%
+       gf_vline(xintercept = ~mean(xrs), 
+                color = fgcolRed) 
+
+grid.arrange(hls, hsym, hrs, nrow = 3)
+```
+
+
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Richtig
+
+
+Meta-information
+================
+exname: Frage 4-3
+extype: schoice
+exsolution: 001

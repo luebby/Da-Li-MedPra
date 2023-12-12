@@ -23,6 +23,6 @@ Answerlist
 
 Meta-information
 ================
-exname: Frage 2-5
+exname: Frage 3-1
 extype: schoice
 exsolution: 01

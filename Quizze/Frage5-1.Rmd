@@ -1,0 +1,52 @@
+```{r data generation, echo = FALSE, results = "hide"}
+library(mosaic)
+```
+
+Question
+========
+
+Welche Parameter hat diese Normalverteilung?
+
+```{r, echo=FALSE, fig.cap=""}
+gf_dist("norm", mean=10, sd=2)
+```
+
+
+
+Answerlist
+----------
+* $\mu=10$, $\sigma=10$.
+* $\mu=2$, $\sigma=2$.
+* $\mu=10$, $\sigma=2$.
+* $\mu=2$, $\sigma=10$.
+
+
+Solution
+========
+
+Bei einer Normalverteilung ist der Erwartungswert $\mu$ bei dem Maximum des Grafen abzulesen (-$\,$-$\,$-), hier also $\mu=10$.
+Die Standardabweichung ist an den Wendepunkten des Grafen abzulesen, $\mu\pm\sigma$ ($\cdots$), hier also $\sigma=2$.
+
+```{r, echo=FALSE, fig.cap=""}
+yval <- dnorm(8, mean = 10, sd = 2)
+gf_dist("norm", mean=10, sd=2) |> 
+  gf_vline(xintercept = 10, linetype = 2) |> 
+  gf_segment(yval + yval ~ 8 + 12, linetype = 3 ) |> 
+  gf_text(yval ~ 9, label = expression(sigma), vjust = 2, size = 5) |>
+  gf_text(yval ~ 11, label = expression(sigma), vjust = 2, size = 5) |>
+  gf_text(0.05 ~ 10, label = expression(mu), hjust = -0.5, size = 5)
+```
+
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 5-1
+extype: schoice
+exsolution: 0010

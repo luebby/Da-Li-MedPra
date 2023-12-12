@@ -1,0 +1,31 @@
+Question
+========
+
+Ein Labortest hat eine diagnostische Spezifität von 95%. Wie wahrscheinlich ist es, dass ein Patient, der ein positives Testergebnis vorlegt, tatsächlich auch an dieser Krankheit erkrankt ist?
+
+Answerlist
+----------
+* Um diese Frage beantworten zu können, muss man auch die Sensitivität kennen.
+* 95%.
+* 5%.
+* Keine der obigen Antworten ist richtig.
+
+Solution
+========
+
+Für die korrekte Lösung dieses Problems sind zusätzlich zwei weitere Angaben erforderlich, nämlich die Sensitivität des Tests und die Prävalenz der Erkrankung im Untersuchungskollektiv. 
+
+Siehe [DOI: 10.3238/arztebl.2009.0403](https://www.aerzteblatt.de/dae-plus/serie/35/Bewertung-wissenschaftlicher-Publikationen?aid=65024).
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Falsch
+* Richtig
+
+Meta-information
+================
+exname: 6-4
+extype: schoice
+exsolution: 0001

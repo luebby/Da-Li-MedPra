@@ -1,0 +1,50 @@
+```{r Setup, include = FALSE, warning = FALSE}
+library(mosaic)
+data(tips, package = "reshape2")
+```
+
+Question
+========
+
+Für die Rechnungshöhe eines Restaurants ergibt sich folgende Verteilung:
+
+```{r Frage4-1, fig.cap = "", warning = FALSE, echo=FALSE}
+gf_density( ~ total_bill, data = tips, bins = 10) |>
+  gf_labs(x="Rechnungshöhe", y="Dichte")
+```
+
+Welche der folgenden Aussagen stimmt?
+
+
+Answerlist
+----------
+
+* Die Rechnungshöhe ist gleichverteilt.
+* Die Rechnungshöhe ist multimodal.
+* Die Rechnungshöhe ist normalverteilt.
+* Die Rechnungshöhe ist linksschief.
+* Die Rechnungshöhe ist rechtsschief.
+
+
+Solution
+========
+
+Die Rechnungshöhe hat eine Spitze, ist also unimodal. 
+Sie fällt nach rechts hin flacher ab, als sie links steigt, somit ist sie *rechtsschief*. 
+Bei (annähernder) Gleichverteilung wäre die Dichte etwa überall gleich hoch, die Normalverteilung ist symmetrisch.
+
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Falsch
+* Falsch
+* Richtig
+
+
+Meta-information
+================
+exname: Frage 4-1
+extype: schoice
+exsolution: 00001

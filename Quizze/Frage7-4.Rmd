@@ -1,0 +1,28 @@
+Question
+========
+
+Stimmt die Aussage: *In der Risikokommunikation sollten immer relative Risiken kommuniziert werden*.
+
+Answerlist
+----------
+* Ja.
+* Nein.
+
+Solution
+========
+
+In der Risikokommunikation sollten absolute Risiken statt relativer Risiken angegeben werden. Formulierungen wie *das Risiko erhöht sich um 18 Prozent* oder *das Risiko halbiert sich* vermeiden. Stattdessen absolute Risiken wie
+*es sind 6 von 100 statt 5 von 100 Personen betroﬀen* verwenden.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+
+
+
+Meta-information
+================
+exname: 7-4
+extype: schoice
+exsolution: 01

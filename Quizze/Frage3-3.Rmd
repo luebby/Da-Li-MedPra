@@ -1,0 +1,34 @@
+Question
+========
+
+Allgemein gilt:
+
+Statistik = Wert Parameter + Verzerrung + Rauschen
+
+Welchen Wert versuchen wir durch eine zufällige Stichprobe zu minimieren?
+
+Answerlist
+----------
+
+* Parameter
+* Verzerrung
+* Rauschen
+
+
+Solution
+========
+
+Durch die zufällige Auswahl sollen Verzerrungen vermieden werden. Das Rauschen wird durch eine größere Stichprobe kleiner.
+
+Answerlist
+----------
+
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: Frage 3-3
+extype: schoice
+exsolution: 010

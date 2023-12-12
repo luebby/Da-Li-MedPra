@@ -209,7 +209,7 @@ Was wird für die Wahrscheinlichkeit gelten, größer als 160 cm ist?
 
 - Wenn die Daten normalverteilt sind, und wir $\mu$ und $\sigma$ kennen, können wir Wahrscheinlichkeiten bestimmen, z.B., dass eine Frau zwischen 160 cm und 180 cm groß ist:
 
-$$Pr(160 < X \leq 180) = F(180) - F(160) = `r round(pnorm(q = 180, mean = 180, sd = 6) ,4) - round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$$
+$$Pr(160 < X \leq 180) = F(180) - F(160) = `r round(pnorm(q = 180, mean = 168, sd = 6) ,4) - round(pnorm(q = 160, mean = 168, sd = 6) ,4)`$$
 ::::
 
 :::: {.column width="40%"}

@@ -1,0 +1,40 @@
+Question
+========
+
+Ein diagnostischer Erhebungsbogen sei so konstruiert, dass die Ergebnisse von Gesunden normalverteilt mit $\mu=50$ und $\sigma=10$ sind.
+
+Wie viel Prozent der Gesunden erreichen dann einen Wert zwischen $40$ und $60$?
+
+Answerlist
+----------
+
+* Ca. $68\,\%$
+* Ca. $95\,\%$
+* Ca. $99{,}7\,\%$
+* Keine der anderen Antworten stimmt.
+
+Solution
+========
+
+Bei Normalverteilung liegen
+
+- $68\,\%$ der Werte im Bereich $\mu\pm 1 \cdot \sigma$,
+
+- $95\,\%$ der Werte im Bereich $\mu\pm 2 \cdot \sigma$,
+
+- $99{,}7\,\%$ der Werte im Bereich $\mu\pm 3 \cdot \sigma$.
+
+Answerlist
+----------
+
+* Richtig
+* Falsch
+* Falsch
+* Falsch
+
+
+Meta-information
+================
+exname: Frage 5-4
+extype: schoice
+exsolution: 1000

@@ -317,7 +317,7 @@ Ein wenig Notation zu Beginn:
 
 ## Risiko
 
-- (Absoultes) **Risiko**: Wahrscheinlichkeit eines unerwünschten Ereignisses.
+- (Absolutes) **Risiko**: Wahrscheinlichkeit eines unerwünschten Ereignisses.
 
 - **Grundrisiko**: (auch Basisrate): Wahrscheinlichkeit eines unerwünschten Ereignisses ohne vorliegen des Risikofaktors: $Pr(K^+ | R^-)$.
 

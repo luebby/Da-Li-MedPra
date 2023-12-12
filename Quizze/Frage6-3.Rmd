@@ -1,0 +1,26 @@
+Question
+========
+
+Welche Kennzahl ist relevant, wenn ein positives Testergebnis vorliegt?
+
+Answerlist
+----------
+* PPV.
+* NPV.
+
+
+Solution
+========
+
+Der positive prädiktive Wert (PPV) gitb deb Anteil der Personen mit positivem Testergebnis, bei denen die gesuchte Krankheit auch tatsächlich vorliegt.
+
+Answerlist
+----------
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 6-3
+extype: schoice
+exsolution: 10

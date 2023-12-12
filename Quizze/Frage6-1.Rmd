@@ -1,0 +1,31 @@
+Question
+========
+
+Welche Kennzahl gibt den Anteil der test-positiven Personen unter allen Erkrankten einer Stichprobe an?
+
+Answerlist
+----------
+* Prävalenz.
+* Sensitivität.
+* Spezifität.
+* Keine der genannten.
+
+
+Solution
+========
+
+Die Sensitivität gibt die Wahrscheinlichkeit an, mit einem diagnostischen Test die
+Kranken auch als krank zu identifizieren.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+* Falsch
+
+Meta-information
+================
+exname: 6-1
+extype: schoice
+exsolution: 0100

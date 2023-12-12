@@ -1,19 +1,19 @@
 Question
 ========
 
-Die Dozentin stellt fest, dass die Motivation der Studierenden mit der Uhrzeit zusammenhängt, und zwar unterschiedlich für Frauen und Männer. Welche Aussage stimmt?
+Was ist der Anteil Blutgruppe 0 in der Population?
 
 Answerlist
 ----------
 
-* Es handelt sich um eine Beobachtungsstudie.
-* Es handelt sich um ein randomisiertes Experiment.
+* Ein Parameter.
+* Eine Statistik.
 
 
 Solution
 ========
 
-Es handelt sich um eine Beobachtungsstudie, da die Dozentin durch reines Beobachten diese Erkenntnis gewonnen hat und nicht in die Datenentstehung eingegriffen hat. 
+Kennzahlen der Population werden Parameter, die der Stichprobe Statistik genannt.
 
 Answerlist
 ----------
@@ -22,6 +22,6 @@ Answerlist
 
 Meta-information
 ================
-exname: Frage 2-6
+exname: Frage 3-2
 extype: schoice
 exsolution: 10

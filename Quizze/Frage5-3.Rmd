@@ -1,0 +1,36 @@
+Question
+========
+
+z-Transformation: Transformation einer normalverteilten Variablen mit Erwartungswert $\mu$ und Standardabweichung $\sigma$ in eine standardnormalverteilte Variable mit Erwartungwert null und Standardabweichung eins.
+
+$$z = \frac{x-\mu}{\sigma}$$
+Welche der Interpretationen von $z=-2$ ist *falsch*?
+
+Answerlist
+----------
+
+* Der Wert ist unterdurchschnittlich.
+* Der Wert liegt 2 Standardabweichungen vom Mittelwert entfernt.
+* $x$ ist kleiner als $0$.
+
+Solution
+========
+
+$$z=\frac{x-\mu}{\sigma} \Leftrightarrow x=z \cdot \sigma + \mu$$
+
+Falsch ist die Aussage, $x$ ist kleiner als $0$: 
+Z.$\,$B. $\mu=100, \sigma=1: \quad x=-2 \cdot 1 + 100=98>0$.
+
+Answerlist
+----------
+
+* Falsch
+* Falsch
+* Richtig
+
+
+Meta-information
+================
+exname: Frage 5-3
+extype: schoice
+exsolution: 001

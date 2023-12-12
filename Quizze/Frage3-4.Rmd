@@ -1,0 +1,35 @@
+Question
+========
+
+Welche der folgenden Aussagen stimmt?
+
+Answerlist
+----------
+
+* Kohortenstudien sind in der Regel weniger aufwendig als Fall-Kontroll-Studien.
+* Fall-Kontroll-Studien haben in der Regel eine größere Aussagekraft als Kohortenstudien.
+* Fall-Kontroll-Studien sind in der Regel retrospektiv, während Kohortenstudien prospektiv sind.
+
+
+Solution
+========
+
+In einer Fall-Kontroll-Studie sammeln Forscher:innen rückblickend Daten und analysieren, ob bestimmte Risikofaktoren oder Expositionen mit einer Krankheit in Verbindung stehen. Im Gegensatz dazu beginnt eine Kohortenstudie mit einer Gruppe von Individuen, die nicht von der Krankheit betroffen sind, und verfolgt diese über einen bestimmten Zeitraum, um zu sehen, wer die Krankheit entwickelt.
+
+Kohortenstudien können tatsächlich zeitaufwendiger und teurer sein, da sie oft eine größere Stichprobengröße erfordern und über einen längeren Zeitraum durchgeführt werden.
+
+Die Aussagekraft einer Studie hängt von vielen Faktoren ab, einschließlich der Qualität der Datenerhebung, der Stichprobengröße und der statistischen Analyse.
+
+Siehe auch <https://www.gesundheitsinformation.de/welche-studienarten-gibt-es.html>
+
+Answerlist
+----------
+* Falsch
+* Falsch
+* Richtig
+
+Meta-information
+================
+exname: Frage 3-4
+extype: schoice
+exsolution: 001

@@ -1,0 +1,42 @@
+Question
+========
+
+Markus befragt Samstag Vormittag in der Fußgängerzone Passant:innen nach ihrem 
+Alter, Samira zur gleichen Zeit Studierende im FOM Studienzentrum.
+
+Was gilt vermutlich für die Standardabweichung des Alters der Befragten?
+
+
+Answerlist
+----------
+
+* $sd_{\text{Markus}} > sd_{\text{Samira}}$
+* $sd_{\text{Markus}} \approx sd_{\text{Samira}}$
+* $sd_{\text{Markus}} < sd_{\text{Samira}}$
+* Hängt davon ab, wer mehr Personen befragt.
+
+
+Solution
+========
+
+$sd_{\text{Markus}} > sd_{\text{Samira}}$: Viele Studierende sind tendenziell ähnlich alt -- auch wenn es natürlich Ausnahmen gibt. 
+Sie sind aber nur eine Teilmenge der Allgemeinbevölkerung -- auch bezüglich des Alters. 
+
+Da die Standardabweichung so etwas wie der Mittelwert der Abweichung ist, hängt die Höhe nicht von der Anzahl der Beobachtungen ab.  
+
+Anregung: <https://askgoodquestions.blog/2019/08/12/6-two-dreaded-words-part-1/>.
+
+
+Answerlist
+----------
+* Richtig
+* Falsch
+* Falsch
+* Falsch
+
+
+Meta-information
+================
+exname: Frage 4-4
+extype: schoice
+exsolution: 1000

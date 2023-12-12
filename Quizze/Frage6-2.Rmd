@@ -1,0 +1,29 @@
+Question
+========
+
+Was ist die Inzidenz?
+
+Answerlist
+----------
+* der Anteil der Erkrankten an der Gesamtzahl einer definierten Population zu einem bestimmten Zeitpunkt.
+* die in einem bestimmten Zeitraum neu aufgetretene Anzahl an Krankheitsfällen in einer definierten Population.
+* Keine der genannten.
+
+
+Solution
+========
+
+Die Sensitivität gibt die Wahrscheinlichkeit an, mit einem diagnostischen Test die
+Kranken auch als krank zu identifizieren.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 6-2
+extype: schoice
+exsolution: 010
