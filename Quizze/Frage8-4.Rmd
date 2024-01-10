@@ -1,0 +1,26 @@
+Question
+========
+
+Susi und Lina führen eine Umfrage zum Thema *Reale Arbeitszeiten von MFAs* durch und berechnen in Ihrer jeweiligen Stichprobe den Mittelwert der Arbeitszeit. Dabei erhebt Susi die Daten von $n_{Susi}=50$ MFAs, Lina die von $n_{Lina}=100$. Wer von beiden hat den kleineren Standardfehler?
+
+Answerlist
+----------
+* Susi.
+* Lina.
+* Beide gleich.
+
+Solution
+========
+Der Standardfehler beschreibt die zufällige Streuung von Statistiken bei zufälligen Stichproben. Dieser sinkt bei größeren Stichproben, das Rauschen wird kleiner, die Schätzung des Parameters wird präziser.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 8-4
+extype: schoice
+exsolution: 010

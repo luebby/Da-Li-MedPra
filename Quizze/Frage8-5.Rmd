@@ -1,0 +1,26 @@
+Question
+========
+
+Susi und Lina führen eine Umfrage zum Thema *Reale Arbeitszeiten von MFAs* durch und berechnen in Ihrer jeweiligen Stichprobe den Mittelwert der Arbeitszeit. Dabei erhebt Susi die Daten von $n_{Susi}=50$ MFAs, Lina die von $n_{Lina}=100$. Wer von beiden hat das größere Konfidenzintervall?
+
+Answerlist
+----------
+* Susi.
+* Lina.
+* Beide gleich.
+
+Solution
+========
+Die Schätzunsicherheit sinkt bei größeren Stichproben, das Rauschen wird kleiner, die Schätzung des Parameters präziser und damit das Konfidenzintervall schmaler.
+
+Answerlist
+----------
+* Richtig
+* Falsch
+* Falsch
+
+Meta-information
+================
+exname: 8-5
+extype: schoice
+exsolution: 100

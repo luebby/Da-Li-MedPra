@@ -1,0 +1,26 @@
+Question
+========
+
+Was gilt bei einem positiven, linearen Zusammenhang für den Korrelationskoeffizienten $r$?
+
+Answerlist
+----------
+* $r=0$.
+* $r>0$.
+* $r>1$.
+
+Solution
+========
+Allgemein gilt $-1 \leq r \leq +1$. Für positive Zusammenhänge ist $r>0$, für negative ist $r<0$. Je größer der Betrag, desto stärker ist der lineare Zusammenhang.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 9-2
+extype: schoice
+exsolution: 010

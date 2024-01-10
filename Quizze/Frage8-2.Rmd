@@ -1,0 +1,25 @@
+Question
+========
+
+Stimmt die Aussage: *Der Wert des Parameters ist bekannt*?
+
+Answerlist
+----------
+* Ja.
+* Nein.
+
+Solution
+========
+Der unbekannte Wert des Parameters (z.B. Anteil, Mittelwert) in der Population kann z.B. durch den Wert der entsprechenden Statistik in der Stichprobe geschätzt werden.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+
+
+Meta-information
+================
+exname: 8-2
+extype: schoice
+exsolution: 01

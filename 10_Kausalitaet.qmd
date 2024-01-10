@@ -123,7 +123,7 @@ Was folgt aus einem hohen positiven Korrelationkoeffizienten $r_{xy}$?
 
 - [**A**]{.green}: $X \rightarrow Y$.
 
-- [**B**]{.green}: $X \rightarrow X$
+- [**B**]{.green}: $Y \rightarrow X$
 
 - [**C**]{.green}: $Z \rightarrow X\, \&\, Z \rightarrow Y$
 

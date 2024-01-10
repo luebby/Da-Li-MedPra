@@ -1,0 +1,25 @@
+Question
+========
+
+Susi und Lina führen eine Umfrage zum Thema *Reale Arbeitszeiten von MFAs* durch und berechnen in Ihrer jeweiligen Stichprobe den Mittelwert der Arbeitszeit. Muss dieser Wert genau gleich sein, d.h., $\bar{y}_{Susi}=\bar{y}_{Lina}$?
+
+Answerlist
+----------
+* Ja.
+* Nein.
+
+Solution
+========
+Allein schon aufgrund zufälliger Schwankungen der Stichprobe (*Rauschen*) werden sich die Statistiken unterscheiden -- auch wenn der Wert des Parameters für beide gleich ist.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+
+
+Meta-information
+================
+exname: 8-3
+extype: schoice
+exsolution: 01

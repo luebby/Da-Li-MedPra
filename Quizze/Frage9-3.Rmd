@@ -1,0 +1,26 @@
+Question
+========
+
+Beweist eine positive Korrelation zwischen A und B, dass A die Ursache von B ist?
+
+Answerlist
+----------
+* Ja.
+* Nein.
+* Hängt davon ab, ob das Ergebnis statistisch signifikant ist.
+
+Solution
+========
+A kann B verursachen, aber es kann auch sein, dass B die Ursache von A ist oder beides gemeinsam von C verursacht wird.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 9-3
+extype: schoice
+exsolution: 010

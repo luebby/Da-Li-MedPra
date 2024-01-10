@@ -1,0 +1,26 @@
+Question
+========
+
+Wie kann dargestellt werden, das A eine Ursache von B ist?
+
+Answerlist
+----------
+* $A \leftarrow B$.
+* $A \rightarrow B$.
+* $A \leftrightarrow B$.
+
+Solution
+========
+$A \rightarrow B$: der Wert von B hängt von A ab.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+* Falsch
+
+Meta-information
+================
+exname: 9-1
+extype: schoice
+exsolution: 010

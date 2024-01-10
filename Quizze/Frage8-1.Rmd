@@ -1,0 +1,26 @@
+Question
+========
+
+Wie wird eine Kennzahl in der Population genannt?
+
+Answerlist
+----------
+* Statistik.
+* Parameter.
+
+Solution
+========
+Der interessierende Wert in der (Ziel-)Population wird (wahrer) Wert des Parameter genannt.
+
+Answerlist
+----------
+* Falsch
+* Richtig
+
+
+
+Meta-information
+================
+exname: 8-1
+extype: schoice
+exsolution: 01
