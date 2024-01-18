@@ -70,9 +70,9 @@ $$s_{xy}=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})$$
 
 ## Einordnung $r_{xy}$
 
-- Korrelationskoeffizienten $r_{xy}>0$ zeigen einen positiven linearen Zusammenhang an: hohe Werte von $x$ treten zusammen mit hohen Werten von $y$ auf, niedige Werte von $x$ treten zusammen mit niedrigen Werten von $y$ auf.
+- Positiver linearer Zusammenhang: hohe Werte von $x$ treten zusammen mit hohen Werten von $y$ auf, niedige Werte von $x$ treten zusammen mit niedrigen Werten von $y$ auf $\rightarrow r_{xy}>0$.
 
-- Korrelationskoeffizienten $r_{xy}<0$ zeigen einen negativen linearen Zusammenhang an: hohe Werte von $x$ treten zusammen mit niedrigen Werten von $y$ auf, niedige Werte von $x$ treten zusammen mit hohen Werten von $y$ auf.
+- Negativer linearer Zusammenhang: hohe Werte von $x$ treten zusammen mit niedrigen Werten von $y$ auf, niedige Werte von $x$ treten zusammen mit hohen Werten von $y$ auf $\rightarrow r_{xy}<0$.
 
 ## $r_{xy}$ im Streudiagramm
 
