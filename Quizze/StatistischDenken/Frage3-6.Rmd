@@ -1,0 +1,19 @@
+Question
+========
+
+Angenommen statt 977 Personen wären nur 97 befragt worden. Was würde für das resultierende Konfidenzintervall gelten?
+
+Answerlist
+----------
+
+* Es wäre schmaler.
+* Es wäre in etwa genau so breit.
+* Es wäre breiter.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 001

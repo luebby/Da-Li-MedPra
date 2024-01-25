@@ -1,0 +1,22 @@
+Question
+========
+
+Wie lautet die (Null-)hypothese in Beispiel 2?
+
+Answerlist
+----------
+
+* $p=\frac{1}{2}$.
+* $\pi=\frac{1}{2}$.
+* $p>\frac{1}{2}$.
+* $\pi>\frac{1}{2}$.
+* $p=\frac{14}{16}$.
+* $\pi=\frac{14}{16}$.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 010000

@@ -1,0 +1,21 @@
+Question
+========
+
+In der Übersetzung von Chance, B. & Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener & E.
+Diener (Eds), *Noba textbook series: Psychology*. Champaign, IL: DEF publishers. Abgerufen von <http://noba.to/ruaz6wjs>.
+
+Um was handelt es sich bei den 977 Befragten in Beispiel 3?
+
+Answerlist
+----------
+
+* Um die Population.
+* Um eine Stichprobe.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01

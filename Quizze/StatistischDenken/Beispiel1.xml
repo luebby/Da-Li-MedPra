@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q1 : Frage1-1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>In der Übersetzung von Chance, B. &amp; Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener &amp; E.
+Diener (Eds), <em>Noba textbook series: Psychology</em>. Champaign, IL: DEF publishers. Abgerufen von <a href="http://noba.to/ruaz6wjs" class="uri">http://noba.to/ruaz6wjs</a>.</p>
+<p>Welche Datenanwendung liegt in Beispiel 1 vor?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Beschreibung.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Vorhersage.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Kausale Inferenz.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 2</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q2 : Frage1-2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Um welchen Bestandteil des Prozessmodells der Daten-Wertschöpfung handelt es sich bei <em>Tabelle 1. Häufigkeitstabellen der Lesestufen von Patienten und der Lesbarkeit von Broschüren</em>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Datenkultur etablieren.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Daten bereitstellen.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Daten auswerten.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Daten interpretieren.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Ergebnisse interpretieren.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Handeln ableiten.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 3</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q3 : Frage1-3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Was gilt für die Variable <em>Lesestufe/ Lesbarkeit</em>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Es ist eine latente Variable.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Es ist eine manifeste Variable.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 4</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q4 : Frage1-4 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Was gilt für die Erhebung der Variable <em>Lesestufe/ Lesbarkeit</em>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Sie wurde stetig erhoben.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Sie wurde diskret erhoben.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 5</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q5 : Frage1-5 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Wie viele Beobachtungen liegen Tabelle 1 und Abbildung 1 zugrunde?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<ol start="6" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<ol start="63" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<ol start="93" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 6</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q6 : Frage1-6 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welches Skalenniveau hat die in Tabele 1 und Abbildung 1 dargestellte Variable <em>Lesestufe/ Lesbarkeit</em>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+kategorial - nominal.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+kategorial - ordinal.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+metrisch - intervallskaliert.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+metrisch - verhältnisskaliert.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 7</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q7 : Frage1-7 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Ist ein Vergleich der Mittelwerte der Variable <em>Lesestufe/ Lesbarkeit</em> für die Patient:innen und die Broschüren kritisch?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel1/Exercise 8</text>
+</category>
+</question>
+
+
+<question type="essay">
+<name>
+<text> Q8 : Frage1-8 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Beschreiben Sie kurz was unter einer <em>Verteilung</em> verstanden wird.</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<responseformat>noinline</responseformat>
+<responserequired>0</responserequired>
+<responsefieldlines>3</responsefieldlines>
+<attachments>1</attachments>
+<attachmentsrequired>1</attachmentsrequired>
+
+</question>
+
+</quiz>

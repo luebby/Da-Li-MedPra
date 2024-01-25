@@ -1,0 +1,18 @@
+Question
+========
+
+Angenommen der p-Wert des Experiment liege nicht bei 0,0021 sondern bei 0,21. Würde sich dann die Schlussfolgerung ändern?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 10

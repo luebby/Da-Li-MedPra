@@ -1,0 +1,18 @@
+Question
+========
+
+Würde eine Nullhypothese, die eine Hälfte der Bevölkerung fühlt sich manchmal gehetzt, die andere nicht, also $H_0: \pi=0,5$, bei den Daten verworfen werden?  
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 10

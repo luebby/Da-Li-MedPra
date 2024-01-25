@@ -1,0 +1,21 @@
+Question
+========
+
+In der Übersetzung von Chance, B. & Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener & E.
+Diener (Eds), *Noba textbook series: Psychology*. Champaign, IL: DEF publishers. Abgerufen von <http://noba.to/ruaz6wjs>.
+
+Handelt es sich bei den 47 Probanden in Beispiel 4 um eine zufällige Stichprobe der Bevölkerung?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01

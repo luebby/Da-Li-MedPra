@@ -1,0 +1,21 @@
+Question
+========
+
+Welches Skalenniveau hat die Variable *Szenario: Helfer oder Verhinderer*?
+
+Answerlist
+----------
+
+* kategorial - nominal.
+* kategorial - ordinal.
+* metrisch - intervallskaliert.
+* metrisch - verhältnisskaliert.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 1000

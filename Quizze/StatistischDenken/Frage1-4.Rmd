@@ -1,0 +1,19 @@
+Question
+========
+
+Was gilt für die Erhebung der Variable *Lesestufe/ Lesbarkeit*?
+
+Answerlist
+----------
+
+* Sie wurde stetig erhoben.
+* Sie wurde diskret erhoben.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01

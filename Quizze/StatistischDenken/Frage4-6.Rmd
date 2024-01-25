@@ -1,0 +1,18 @@
+Question
+========
+
+Welche Vorteile hat ein randomisiertes Experiment gegenüber einer Beobachtungsstudie?
+
+
+Solution
+========
+
+Meta-information
+================
+extype: string
+exsolution: nil
+exextra[essay,logical]: TRUE
+exextra[essay_format,character]: editor
+exextra[essay_required,logical]: FALSE
+exextra[essay_fieldlines,numeric]: 3
+exmaxchars: 1000, 10, 50

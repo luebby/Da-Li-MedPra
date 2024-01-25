@@ -1,0 +1,24 @@
+Question
+========
+
+
+In der Übersetzung von Chance, B. & Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener & E.
+Diener (Eds), *Noba textbook series: Psychology*. Champaign, IL: DEF publishers. Abgerufen von <http://noba.to/ruaz6wjs>.
+
+Welche Datenanwendung liegt in Beispiel 1 vor?
+
+Answerlist
+----------
+
+* Beschreibung.
+* Vorhersage.
+* Kausale Inferenz.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 100

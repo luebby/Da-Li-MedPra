@@ -1,0 +1,18 @@
+Question
+========
+
+Kann es vorkommen, dass in einer Stichprobe Unterschiede im Mittelwert beobachtet werden, obwohl die Mittelwerte in der Population identisch sind?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 10

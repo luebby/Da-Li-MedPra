@@ -1,0 +1,21 @@
+Question
+========
+
+Welches Skalenniveau hat die in Tabele 1 und Abbildung 1 dargestellte Variable *Lesestufe/ Lesbarkeit*?
+
+Answerlist
+----------
+
+* kategorial - nominal.
+* kategorial - ordinal.
+* metrisch - intervallskaliert.
+* metrisch - verhältnisskaliert.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 0100

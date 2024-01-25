@@ -1,0 +1,19 @@
+Question
+========
+
+Ist ein Vergleich der Mittelwerte der Variable *Lesestufe/ Lesbarkeit* für die Patient:innen und die Broschüren kritisch?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 10

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel4/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q1 : Frage4-1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>In der Übersetzung von Chance, B. &amp; Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener &amp; E.
+Diener (Eds), <em>Noba textbook series: Psychology</em>. Champaign, IL: DEF publishers. Abgerufen von <a href="http://noba.to/ruaz6wjs" class="uri">http://noba.to/ruaz6wjs</a>.</p>
+<p>Handelt es sich bei den 47 Probanden in Beispiel 4 um eine zufällige Stichprobe der Bevölkerung?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel4/Exercise 2</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q2 : Frage4-2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Was ist die abhängige Variable <span class="math inline">\(y\)</span>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Art der Motivation.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Kreativitätswert.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Geschlecht.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Alter.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Bildungshintergrund.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel4/Exercise 3</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q3 : Frage4-3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welches Skalenniveau wird hier für die Variable <em>Kreativitätswert</em> verwendet?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+kategorial.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+metrisch.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel4/Exercise 4</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q4 : Frage4-4 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Kann es vorkommen, dass in einer Stichprobe Unterschiede im Mittelwert beobachtet werden, obwohl die Mittelwerte in der Population identisch sind?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel4/Exercise 5</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q5 : Frage4-5 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welche Verteilung zeigt <em>Abbildung 3. Unterschiede in den Gruppenmitteln bei alleiniger Zufallszuweisung.</em>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Gleichverteilung.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Normalverteilung.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Binomialverteilung.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel4/Exercise 6</text>
+</category>
+</question>
+
+
+<question type="essay">
+<name>
+<text> Q6 : Frage4-6 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welche Vorteile hat ein randomisiertes Experiment gegenüber einer Beobachtungsstudie?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<responseformat>noinline</responseformat>
+<responserequired>0</responserequired>
+<responsefieldlines>3</responsefieldlines>
+<attachments>1</attachments>
+<attachmentsrequired>1</attachmentsrequired>
+
+</question>
+
+</quiz>

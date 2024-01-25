@@ -1,0 +1,21 @@
+Question
+========
+
+Wie viele Beobachtungen liegen Tabelle 1 und Abbildung 1 zugrunde?
+
+Answerlist
+----------
+
+* 2.
+* 6.
+* 63.
+* 93.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 0001

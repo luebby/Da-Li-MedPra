@@ -1,0 +1,22 @@
+Question
+========
+
+Was ist die abhängige Variable $y$?
+
+Answerlist
+----------
+
+* Art der Motivation.
+* Kreativitätswert.
+* Geschlecht.
+* Alter.
+* Bildungshintergrund.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01000

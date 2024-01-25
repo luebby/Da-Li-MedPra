@@ -1,0 +1,23 @@
+Question
+========
+
+Um welchen Bestandteil des Prozessmodells der Daten-Wertschöpfung handelt es sich bei *Tabelle 1. Häufigkeitstabellen der Lesestufen von Patienten und der Lesbarkeit von Broschüren*?
+
+Answerlist
+----------
+
+* Datenkultur etablieren.
+* Daten bereitstellen.
+* Daten auswerten.
+* Daten interpretieren.
+* Ergebnisse interpretieren.
+* Handeln ableiten.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 001000

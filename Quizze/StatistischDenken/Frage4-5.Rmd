@@ -1,0 +1,19 @@
+Question
+========
+
+Welche Verteilung zeigt *Abbildung 3. Unterschiede in den Gruppenmitteln bei alleiniger Zufallszuweisung.*?
+
+Answerlist
+----------
+
+* Gleichverteilung.
+* Normalverteilung.
+* Binomialverteilung.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 010

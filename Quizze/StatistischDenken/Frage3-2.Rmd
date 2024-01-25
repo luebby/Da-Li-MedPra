@@ -1,0 +1,18 @@
+Question
+========
+
+Was ist der Anteil von 83,6\%?
+
+Answerlist
+----------
+
+* Der Wert des Parameters $\pi$.
+* Der Wert der Statistik $p$.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01

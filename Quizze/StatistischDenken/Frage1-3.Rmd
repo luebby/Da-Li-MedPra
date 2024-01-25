@@ -1,0 +1,19 @@
+Question
+========
+
+Was gilt für die Variable *Lesestufe/ Lesbarkeit*?
+
+Answerlist
+----------
+
+* Es ist eine latente Variable.
+* Es ist eine manifeste Variable.
+
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 10

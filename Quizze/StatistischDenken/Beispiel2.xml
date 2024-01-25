@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel2/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q1 : Frage2-1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>In der Übersetzung von Chance, B. &amp; Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener &amp; E.
+Diener (Eds), <em>Noba textbook series: Psychology</em>. Champaign, IL: DEF publishers. Abgerufen von <a href="http://noba.to/ruaz6wjs" class="uri">http://noba.to/ruaz6wjs</a>.</p>
+<p>Wie viele Beobachtungen liegen in Beispiel 2 vor?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<ol start="10" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<ol start="14" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<ol start="16" style="list-style-type: decimal">
+<li></li>
+</ol>
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel2/Exercise 2</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q2 : Frage2-2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Welches Skalenniveau hat die Variable <em>Szenario: Helfer oder Verhinderer</em>?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+kategorial - nominal.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+kategorial - ordinal.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+metrisch - intervallskaliert.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+metrisch - verhältnisskaliert.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel2/Exercise 3</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q3 : Frage2-3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Wie lautet die (Null-)hypothese in Beispiel 2?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(p=\frac{1}{2}\)</span>.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\pi=\frac{1}{2}\)</span>.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(p&gt;\frac{1}{2}\)</span>.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\pi&gt;\frac{1}{2}\)</span>.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(p=\frac{14}{16}\)</span>.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+<span class="math inline">\(\pi=\frac{14}{16}\)</span>.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel2/Exercise 4</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q4 : Frage2-4 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Angenommen der p-Wert des Experiment liege nicht bei 0,0021 sondern bei 0,21. Würde sich dann die Schlussfolgerung ändern?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+</quiz>

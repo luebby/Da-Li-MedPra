@@ -1,0 +1,18 @@
+Question
+========
+
+Ist ein Anteil in der Population von 85\% kompatibel zu den Daten?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 10

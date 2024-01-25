@@ -1,0 +1,18 @@
+Question
+========
+
+Muss bei einer erneuten zufälligen Stichprobe aus der Population der Anteil wieder bei 83,6\% liegen?
+
+Answerlist
+----------
+
+* Ja.
+* Nein.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01

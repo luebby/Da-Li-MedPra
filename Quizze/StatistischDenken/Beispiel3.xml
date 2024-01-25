@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel3/Exercise 1</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q1 : Frage3-1 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>In der Übersetzung von Chance, B. &amp; Rossman, A. (2023). Statistical thinking. In R. Biswas-Diener &amp; E.
+Diener (Eds), <em>Noba textbook series: Psychology</em>. Champaign, IL: DEF publishers. Abgerufen von <a href="http://noba.to/ruaz6wjs" class="uri">http://noba.to/ruaz6wjs</a>.</p>
+<p>Um was handelt es sich bei den 977 Befragten in Beispiel 3?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Um die Population.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Um eine Stichprobe.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel3/Exercise 2</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q2 : Frage3-2 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Was ist der Anteil von 83,6%?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Der Wert des Parameters <span class="math inline">\(\pi\)</span>.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Der Wert der Statistik <span class="math inline">\(p\)</span>.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel3/Exercise 3</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q3 : Frage3-3 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Muss bei einer erneuten zufälligen Stichprobe aus der Population der Anteil wieder bei 83,6% liegen?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel3/Exercise 4</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q4 : Frage3-4 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Ist ein Anteil in der Population von 85% kompatibel zu den Daten?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel3/Exercise 5</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q5 : Frage3-5 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Würde eine Nullhypothese, die eine Hälfte der Bevölkerung fühlt sich manchmal gehetzt, die andere nicht, also <span class="math inline">\(H_0: \pi=0,5\)</span>, bei den Daten verworfen werden?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Ja.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Nein.
+</p>]]></text>
+</answer>
+</question>
+
+
+<question type="category">
+<category>
+<text>$course$/Beispiel3/Exercise 6</text>
+</category>
+</question>
+
+
+<question type="multichoice">
+<name>
+<text> Q6 : Frage3-6 </text>
+</name>
+<questiontext format="html">
+<text><![CDATA[
+<p>
+<p>Angenommen statt 977 Personen wären nur 97 befragt worden. Was würde für das resultierende Konfidenzintervall gelten?</p>
+</p>]]></text>
+</questiontext>
+<penalty>0</penalty>
+<defaultgrade>1</defaultgrade>
+<shuffleanswers>false</shuffleanswers>
+<single>true</single>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Es wäre schmaler.
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html">
+<text><![CDATA[<p>
+Es wäre in etwa genau so breit.
+</p>]]></text>
+</answer>
+<answer fraction="100" format="html">
+<text><![CDATA[<p>
+Es wäre breiter.
+</p>]]></text>
+</answer>
+</question>
+
+</quiz>

@@ -1,0 +1,18 @@
+Question
+========
+
+Welches Skalenniveau wird hier für die Variable *Kreativitätswert* verwendet?
+
+Answerlist
+----------
+
+* kategorial.
+* metrisch.
+
+Solution
+========
+
+Meta-information
+================
+extype: schoice
+exsolution: 01
