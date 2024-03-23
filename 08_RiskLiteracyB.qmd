@@ -376,6 +376,28 @@ Was gilt für Risikofaktoren, die das Auftreten einer Krankheit wahrscheinlicher
 
 - [**C**]{.green}: $RR>1$.
 
+##  Relatives Risiko berechnen :muscle: {.smaller}
+
+
+|                   |krank    |gesund    | Summe     |
+|-------------------|---------|----------|-----------|
+|**Exponiert**      |90       |891       |981        |
+|**Nicht exponiert**|10       |9009      |9019       |
+|**Summe**          |100      |9900      |10000      | 
+
+Wie hoch ist das relative Risiko?
+
+- [**A**]{.green}: 90/981
+
+- [**B**]{.green}: 10/9019
+
+- [**C**]{.green}: 100/10000
+
+- [**D**]{.green}: (90/981) / (10/9019)
+
+- [**E**]{.green}: Keines der genannten.
+
+
 ## Riskokommunikation (I/II)
 
 - **Absolute Risiken statt relativer Risiken**. Formulierungen wie „das Risiko erhöht sich um 18 Prozent“ oder „das Risiko halbiert sich“ vermeiden. Stattdessen absolute Risiken wie „es sind 6 von 100 statt 5 von 100 Personen betroffen“ verwenden.

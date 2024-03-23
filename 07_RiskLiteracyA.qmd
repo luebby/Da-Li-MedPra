@@ -299,6 +299,76 @@ Welcher mathematischen Notation entspricht die Prävalenz?
 Quelle: Deutsches Netzwerk Evidenzbasierte Medizin (2018): Glossar zur Evidenzbasierten Medizin. <https://ebm-netzwerk.de/de/service-ressourcen/ebm-glossar>
 :::
 
+##  Prävalenz :muscle: {.smaller}
+
+Bei der Entwicklung eines diagnostischen Tests ergeben sich folgende Daten:
+
+
+|                |krank    |gesund    | Summe     |
+|----------------|---------|----------|-----------|
+|**Test positiv**|90       |891       |981        |
+|**Test negativ**|10       |9009      |9019       |
+|**Summe**       |100      |9900      |10000      | 
+
+Wie hoch ist die Prävalenz?
+
+- [**A**]{.green}: 90/981
+
+- [**B**]{.green}: 90/100
+
+- [**C**]{.green}: 981/1000
+
+- [**D**]{.green}: 100/1000
+
+- [**E**]{.green}: Keine der genannten.
+
+
+##  Sensitivität :muscle: {.smaller}
+
+Bei der Entwicklung eines diagnostischen Tests ergeben sich folgende Daten:
+
+
+|                |krank    |gesund    | Summe     |
+|----------------|---------|----------|-----------|
+|**Test positiv**|90       |891       |981        |
+|**Test negativ**|10       |9009      |9019       |
+|**Summe**       |100      |9900      |10000      | 
+
+Wie hoch ist die Sensitivität?
+
+- [**A**]{.green}: 90/981
+
+- [**B**]{.green}: 90/100
+
+- [**C**]{.green}: 981/1000
+
+- [**D**]{.green}: 100/1000
+
+- [**E**]{.green}: Keine der genannten.
+
+##  PPV :muscle: {.smaller}
+
+Bei der Entwicklung eines diagnostischen Tests ergeben sich folgende Daten:
+
+
+|                |krank    |gesund    | Summe     |
+|----------------|---------|----------|-----------|
+|**Test positiv**|90       |891       |981        |
+|**Test negativ**|10       |9009      |9019       |
+|**Summe**       |100      |9900      |10000      | 
+
+Wie hoch ist der positiv prädiktive Wert?
+
+- [**A**]{.green}: 90/981
+
+- [**B**]{.green}: 90/100
+
+- [**C**]{.green}: 981/1000
+
+- [**D**]{.green}: 100/1000
+
+- [**E**]{.green}: Keiner der genannten.
+
 ## Zusammenhänge (I/III) :muscle: :computer:
 
 Wie ändert sich die Wahrscheinlichkeit bei positivem Testergebnis wirklich krank zu sein, wenn die Prävalenz steigt?
