@@ -133,9 +133,9 @@ Die Verteilung ...
 
 - [**B**]{.green}: wandert nach rechts.
 
-- [**C**]{.green}: wird flacher.
+- [**C**]{.green}: wird breiter.
 
-- [**D**]{.green}: wird spitzer.
+- [**D**]{.green}: wird schmaler.
 
 ##  $\sigma$ :muscle:
 
@@ -149,9 +149,9 @@ Die Verteilung ...
 
 - [**B**]{.green}: wandert nach rechts.
 
-- [**C**]{.green}: wird flacher.
+- [**C**]{.green}: wird breiter.
 
-- [**D**]{.green}: wird spitzer.
+- [**D**]{.green}: wird schmaler.
 
 ## Wahrscheinlichkeiten
 
